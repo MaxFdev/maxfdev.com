@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const navlist = () => {
@@ -5,13 +6,13 @@ const navlist = () => {
     <nav className="">
       <ul className="flex flex-row gap-3 font-trebuchet">
         <li>
-          <a href="#about">About</a>
+          <Link href="#about">About</Link>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          <Link href="#projects">Projects</Link>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <Link href="#contact">Contact</Link>
         </li>
       </ul>
     </nav>
