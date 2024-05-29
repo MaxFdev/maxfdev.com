@@ -3,7 +3,7 @@ import React from "react";
 const navlist = () => {
   return (
     <nav className="">
-      <ul className="flex flex-row gap-3">
+      <ul className="flex flex-row gap-3 font-trebuchet">
         <li>
           <a href="#about">About</a>
         </li>

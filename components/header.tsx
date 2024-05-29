@@ -3,9 +3,9 @@ import Navlist from "./navlist";
 
 const header = () => {
   return (
-    <header className="fixed bg-white top-0 left-0 w-full h-10 p-5 flex justify-between items-center">
+    <header className="fixed bg-white top-0 left-0 w-full h-10 p-5 flex justify-between items-center border-b">
       <a href="#">
-        <h1>Max Franklin</h1>
+        <h1 className="font-verdana">Max Franklin</h1>
       </a>
       <Navlist />
     </header>

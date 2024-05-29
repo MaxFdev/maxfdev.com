@@ -7,7 +7,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        verdana: ["Verdana", "sans-serif"],
+        noto: ["var(--font-noto-sans)", "sans-serif"],
+        trebuchet: ["Trebuchet MS", "Helvetica", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
