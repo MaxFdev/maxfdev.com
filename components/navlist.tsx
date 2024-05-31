@@ -3,18 +3,26 @@ import React from "react";
 
 const navlist = () => {
   return (
-    <nav className="">
-      <ul className="flex flex-row gap-3 font-trebuchet">
+    <nav className="font-trebuchet text-blue-500 text-xl">
+      <ul className="hidden md:flex flex-row lg:gap-8 md:gap-6">
         <li>
-          <Link href="#about">About</Link>
+          <Link href="/#intro">Intro</Link>
         </li>
         <li>
-          <Link href="#projects">Projects</Link>
+          <Link href="/#about">About</Link>
         </li>
         <li>
-          <Link href="#contact">Contact</Link>
+          <Link href="/#projects">Projects</Link>
+        </li>
+        <li>
+          <Link href="/#skills">Skills</Link>
+        </li>
+        <li>
+          <Link href="/#contact">Contact</Link>
         </li>
       </ul>
+      {/* TODO work on mobile nav */}
+      <button className="md:hidden">=</button>
     </nav>
   );
 };

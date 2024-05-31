@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Body from "@/components/body";
 
 export const metadata: Metadata = {
   title: "Max Franklin",
@@ -13,6 +14,8 @@ const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
 });
 
+// TODO is the custom body tag needed?
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,10 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable}`}>
+      <Body className={`${notoSans.variable}`}>
         <Header />
         {children}
-      </body>
+      </Body>
     </html>
   );
 }

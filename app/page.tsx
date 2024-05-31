@@ -1,6 +1,7 @@
 export default function Home() {
   return (
-    <main className="h-[200vh] mt-16">
+    // TODO add content to the home page
+    <main className="h-[200vh] mt-20">
       <div
         id="about"
         className="h-80"
