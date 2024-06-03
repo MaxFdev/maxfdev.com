@@ -3,9 +3,9 @@
 import React, { ReactNode } from "react";
 
 const scrolling = () => {
-    // TODO Get the scroll event listener work
+  // TODO Get the scroll event listener work
   //   const header = document.querySelector("header");
-  alert("we are scrolling");
+  // alert("we are scrolling");
 };
 
 const body = ({

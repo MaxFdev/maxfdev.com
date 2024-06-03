@@ -1,20 +1,14 @@
+import About from "@/components/about";
 import Hero from "@/components/hero";
 
 export default function Home() {
   return (
-    <main id="main" className="h-[200vh] mt-20 scroll-mt-20">
+    <main
+      id="main"
+      className="h-[200vh] mt-20 scroll-mt-20"
+    >
       <Hero />
-      <div
-        id="about"
-        className="h-80"
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut delectus
-          voluptatum ab amet beatae, atque ipsam eius provident quisquam iure,
-          quidem optio eos perspiciatis vero id magni reiciendis? Esse,
-          veritatis.
-        </p>
-      </div>
+      <About />
       <h1
         id="projects"
         className="font-noto"
