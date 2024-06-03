@@ -12,7 +12,7 @@ const hero = () => {
       <div className="flex justify-evenly w-4/5">
         {/* TODO fix background || merge image with background */}
         <Image
-          src={"/images/Profile_Picture.png"}
+          src={"/images/Profile_Picture.jpeg"}
           alt={"Profile Picture"}
           width={400}
           height={400}
