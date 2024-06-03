@@ -5,8 +5,9 @@ const navlist = () => {
   return (
     <nav className="font-trebuchet text-blue-500 text-xl">
       <ul className="hidden md:flex flex-row lg:gap-8 md:gap-6">
+        {/* TODO switch this to a dynamic list of sections */}
         <li>
-          <Link href="/#intro">Intro</Link>
+          <Link href="/#hero">Intro</Link>
         </li>
         <li>
           <Link href="/#about">About</Link>

@@ -1,7 +1,9 @@
+import Hero from "@/components/hero";
+
 export default function Home() {
   return (
-    // TODO add content to the home page
     <main className="h-[200vh] mt-20">
+      <Hero />
       <div
         id="about"
         className="h-80"

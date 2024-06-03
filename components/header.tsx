@@ -2,7 +2,7 @@ import React from "react";
 import Navlist from "./navlist";
 import Link from "next/link";
 
-// TODO make nav styling change on scroll
+// TODO make nav styling change on scroll (scrolling effect)
 
 const header = () => {
   return (
