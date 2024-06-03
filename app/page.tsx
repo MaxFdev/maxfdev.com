@@ -2,7 +2,7 @@ import Hero from "@/components/hero";
 
 export default function Home() {
   return (
-    <main className="h-[200vh] mt-20">
+    <main id="main" className="h-[200vh] mt-20 scroll-mt-20">
       <Hero />
       <div
         id="about"
