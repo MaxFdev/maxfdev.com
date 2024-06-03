@@ -1,5 +1,6 @@
 import About from "@/components/about";
 import Hero from "@/components/hero";
+import Projects from "@/components/projects";
 
 export default function Home() {
   return (
@@ -9,15 +10,7 @@ export default function Home() {
     >
       <Hero />
       <About />
-      <h1
-        id="projects"
-        className="font-noto"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-        autem. Voluptates facere autem possimus ipsum? Repellat consectetur iste
-        commodi amet, ducimus, impedit hic maxime ex ad itaque sed, voluptatem
-        facilis.
-      </h1>
+      <Projects />
       <div
         id="contact"
         className="bg-black"

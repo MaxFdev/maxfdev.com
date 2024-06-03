@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO finish styling
+
 const about = () => {
   return (
     <section
@@ -8,6 +10,7 @@ const about = () => {
     >
       <h2 className="text-center">about</h2>
       <div className="flex flex-row w-4/5">
+        {/* TODO add content */}
         <div className="flex flex-col">
           <h3>hello</h3>
           <p>
