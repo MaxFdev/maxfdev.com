@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --gap-clamp: clamp(32px, 3.5vw, 64px);
+}
+
 * {
     margin: 0;
     padding: 0;
