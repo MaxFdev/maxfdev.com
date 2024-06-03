@@ -3,6 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Body from "@/components/body";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Max Franklin",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <Body className={`${notoSans.variable}`}>
         <Header />
         {children}
+        <Footer />
       </Body>
     </html>
   );
