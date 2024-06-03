@@ -7,20 +7,18 @@ const hero = () => {
   return (
     <section
       id="hero"
-      className="flex justify-center scroll-mt-16 my-20"
+      className="flex justify-center scroll-mt-20 my-24"
     >
       <div className="flex justify-center items-center gap-[var(--gap-clamp)]">
-        {/* TODO fix background || merge image with background */}
         <Image
           src={"/images/Profile_Picture.jpeg"}
           alt={"Profile Picture"}
           width={400}
           height={400}
-          className="rounded-full shadow-xl"
+          className="rounded-full shadow-2xl hover:-translate-y-1"
         />
-        <div className="flex flex-col w-1/2 justify-center gap-3">
-          <h2 className="text-4xl font-trebuchet">Introduction.</h2>
-          {/* TODO add text */}
+        <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
+          <h2 className="text-4xl font-trebuchet font-semibold">Introduction.</h2>
           <p className="font-semibold font-noto">
             Hello, I'm Max, a dedicated technology enthusiast currently pursuing
             a Bachelor's degree in computer science at Yeshiva University. With

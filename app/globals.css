@@ -4,15 +4,17 @@
 
 :root {
     --gap-clamp: clamp(32px, 3.5vw, 64px);
+    --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
 html {
     scroll-behavior: smooth;
-    transition: 0.3s;
 }
