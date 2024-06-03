@@ -10,14 +10,16 @@ const hero = () => {
       className="flex justify-center scroll-mt-20 my-24"
     >
       <div className="flex justify-center items-center gap-[var(--gap-clamp)]">
+        {/* TODO switch to directionally aware image */}
         <Image
           src={"/images/Profile_Picture.jpeg"}
           alt={"Profile Picture"}
           width={400}
           height={400}
-          className="rounded-full shadow-2xl hover:-translate-y-1"
+          className="rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 [transition]"
         />
         <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
+          {/* TODO switch to text generate */}
           <h2 className="text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
