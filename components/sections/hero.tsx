@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Button from "@/components/elements/button";
 
 const hero = () => {
   return (
@@ -8,7 +9,6 @@ const hero = () => {
       className="flex justify-center scroll-mt-20 my-36"
     >
       <div className="flex justify-center items-center gap-[var(--gap-clamp)]">
-        {/* TODO switch to directionally aware image */}
         <Image
           src={"/images/Profile_Picture.jpeg"}
           alt={"Profile Picture"}
@@ -17,7 +17,6 @@ const hero = () => {
           className="rounded-full shadow-xl hover:shadow-2xl hero_img"
         />
         <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
-          {/* TODO switch to text generate */}
           <h2 className="!text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
@@ -36,16 +35,12 @@ const hero = () => {
             intrigued by fintech, cybersecurity, and full stack engineering. I
             am actively pursuing further education in these domains.
           </p>
-          {/* TODO switch to button component */}
-          <button className="w-fit">
-            <a
-              target="_blank"
-              href="/documents/DemoResumeJune.pdf"
-              className="border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black"
-            >
-              View Sample Resume
-            </a>
-          </button>
+          <Button
+            href="/documents/DemoResumeJune.pdf"
+            target="_blank"
+          >
+            View Sample Resume
+          </Button>
         </div>
       </div>
     </section>
