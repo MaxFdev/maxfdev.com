@@ -1,13 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-// TODO finish styling
-
 const hero = () => {
   return (
     <section
       id="hero"
-      className="flex justify-center scroll-mt-20 my-24"
+      className="flex justify-center scroll-mt-20 my-36"
     >
       <div className="flex justify-center items-center gap-[var(--gap-clamp)]">
         {/* TODO switch to directionally aware image */}
@@ -38,8 +36,16 @@ const hero = () => {
             intrigued by fintech, cybersecurity, and full stack engineering. I
             am actively pursuing further education in these domains.
           </p>
-          {/* TODO add functional button */}
-          <button className="w-fit">View Sample Resume</button>
+          {/* TODO switch to button component */}
+          <button className="w-fit">
+            <a
+              target="_blank"
+              href="/documents/DemoResumeJune.pdf"
+              className="border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black"
+            >
+              View Sample Resume
+            </a>
+          </button>
         </div>
       </div>
     </section>

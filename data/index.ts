@@ -1,5 +1,9 @@
 // TODO add content
 
+export const resume = () => {
+  return open("/public/DemoResumeJune.html");
+}
+
 export const aboutItems = [
   { title: "Academics", content: "..." },
   { title: "Business", content: "..." },
