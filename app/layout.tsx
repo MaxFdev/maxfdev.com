@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Body from "@/components/body";
-import Footer from "@/components/footer";
+import Header from "@/components/elements/header";
+import Body from "@/components/elements/body";
+import Footer from "@/components/elements/footer";
 
 export const metadata: Metadata = {
   title: "Max Franklin",
