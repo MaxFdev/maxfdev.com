@@ -31,8 +31,8 @@ const about = () => {
             value={item.title}
             key={i}
           >
-            <div className="bg-white rounded-md p-6 h-56">
-              <p className="">{item.content}</p>
+            <div className="bg-white rounded-md p-6">
+              <p>{item.content}</p>
             </div>
           </TabsContent>
         ))}
