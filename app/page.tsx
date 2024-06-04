@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main
       id="main"
-      className="mt-20 scroll-mt-24"
+      className="mt-20 scroll-mt-[100vh]"
     >
       <Hero />
       <About />

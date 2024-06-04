@@ -18,10 +18,10 @@ const hero = () => {
         />
         <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
           {/* TODO switch to text generate */}
-          <h2 className="text-4xl font-trebuchet font-semibold">
+          <h2 className="!text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
-          <p className="font-semibold font-noto">
+          <p className="font-semibold">
             Hello, I&apos;m Max, a dedicated technology enthusiast currently
             pursuing a Bachelor&apos;s degree in computer science at Yeshiva
             University. With a deep passion for technology, I have immersed
