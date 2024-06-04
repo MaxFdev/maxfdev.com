@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 const button = ({
   children,
   href,
-  target,
+  target = "",
 }: {
   children: ReactNode;
   href: string;
