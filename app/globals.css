@@ -93,13 +93,14 @@ html {
 }
 
 h2 {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 48px;
-    font-weight: bold;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 p {
-    font-family: var(--font-noto-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
+  font-weight: 600;
 }
 
 .hero_img:hover {

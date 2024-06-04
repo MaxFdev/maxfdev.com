@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { aboutItems } from "@/data";
+import BigButton from "@/components/elements/bigButton";
 
 // TODO finish styling
 
@@ -15,13 +16,13 @@ const about = () => {
         defaultValue={aboutItems[0].title}
         className="w-4/5 flex flex-col justify-center items-center"
       >
-        <TabsList className="h-fit w-full justify-evenly bg-slate-700">
+        <TabsList className="h-fit w-full justify-evenly gap-1 bg-slate-700">
           {aboutItems.map((item, i) => (
             <TabsTrigger
               value={item.title}
               key={i}
-              className="text-slate-300 data-[state=active]:text-white text-center text-2xl data-[state=active]:bg-black"
-              style={{width: `${Math.floor(100 / aboutItems.length)}%`}}
+              className="text-slate-300 data-[state=active]:text-white text-center text-2xl data-[state=active]:bg-black hover:bg-slate-800"
+              style={{ width: `${Math.floor(100 / aboutItems.length)}%` }}
             >
               {item.title}
             </TabsTrigger>
@@ -38,7 +39,7 @@ const about = () => {
           </TabsContent>
         ))}
       </Tabs>
-      <button>More about - LinkedIn</button>
+      <BigButton href="https://www.linkedin.com/in/max--franklin/" target="_blank">More about - LinkedIn</BigButton>
     </section>
   );
 };

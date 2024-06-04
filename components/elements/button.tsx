@@ -10,11 +10,10 @@ const button = ({
   target?: string;
 }) => {
   return (
-    <button className="w-fit">
+    <button className="!transition-all w-fit border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet">
       <a
         href={href}
         target={target}
-        className="border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black"
       >
         {children}
       </a>
