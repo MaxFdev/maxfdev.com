@@ -14,7 +14,7 @@ const hero = () => {
           alt={"Profile Picture"}
           width={400}
           height={400}
-          className="rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 [transition]"
+          className="rounded-full shadow-xl hover:shadow-2xl hero_img"
         />
         <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
           {/* TODO switch to text generate */}
