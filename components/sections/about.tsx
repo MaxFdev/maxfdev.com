@@ -20,7 +20,8 @@ const about = () => {
             <TabsTrigger
               value={item.title}
               key={i}
-              className={`text-center text-2xl w-1/${aboutItems.length}`}
+              className="text-center text-2xl"
+              style={{width: `${Math.floor(100 / aboutItems.length)}%`}}
             >
               {item.title}
             </TabsTrigger>
