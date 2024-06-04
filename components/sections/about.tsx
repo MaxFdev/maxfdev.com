@@ -15,12 +15,12 @@ const about = () => {
         defaultValue={aboutItems[0].title}
         className="w-4/5 flex flex-col justify-center items-center"
       >
-        <TabsList className="h-fit w-full justify-evenly">
+        <TabsList className="h-fit w-full justify-evenly bg-slate-700">
           {aboutItems.map((item, i) => (
             <TabsTrigger
               value={item.title}
               key={i}
-              className="text-center text-2xl"
+              className="text-slate-300 data-[state=active]:text-white text-center text-2xl data-[state=active]:bg-black"
               style={{width: `${Math.floor(100 / aboutItems.length)}%`}}
             >
               {item.title}
@@ -32,8 +32,8 @@ const about = () => {
             value={item.title}
             key={i}
           >
-            <div className="bg-white rounded-md p-6">
-              <p>{item.content}</p>
+            <div className="bg-black rounded-md p-6">
+              <p className="text-white">{item.content}</p>
             </div>
           </TabsContent>
         ))}
