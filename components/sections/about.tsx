@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { aboutItems } from "@/data";
 import BigButton from "@/components/elements/bigButton";
 
-// TODO finish styling
+// TODO finish styling (fix up tabs)
 
 const about = () => {
   return (
@@ -39,7 +39,7 @@ const about = () => {
           </TabsContent>
         ))}
       </Tabs>
-      <BigButton href="https://www.linkedin.com/in/max--franklin/" target="_blank">More about - LinkedIn</BigButton>
+      <BigButton href="https://www.linkedin.com/in/max--franklin/" target="_blank" className="hover:bg-blue-400">More about - LinkedIn</BigButton>
     </section>
   );
 };
