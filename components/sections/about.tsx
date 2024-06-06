@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { aboutItems } from "@/data";
 import BigButton from "@/components/elements/bigButton";
 
-// TODO finish styling (fix up tabs)
+// TODO make tabs more lively
 
 const about = () => {
   return (

@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO finish
+
 // TODO use Lucide?
 
 const skills = () => {

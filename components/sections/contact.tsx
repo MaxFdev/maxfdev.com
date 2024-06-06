@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO add styles and content
+
 const contact = () => {
   return (
     <section id="contact" className="flex flex-col justify-center items-center">

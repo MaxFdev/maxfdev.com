@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO add way to import projects
+
 // TODO add styling
 
 const projects = () => {
