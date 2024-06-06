@@ -6,17 +6,17 @@ const hero = () => {
   return (
     <section
       id="hero"
-      className="flex justify-center scroll-mt-20 my-36"
+      className="flex justify-center scroll-mt-20 my-20 md:my-36"
     >
-      <div className="flex justify-center items-center gap-[var(--gap-clamp)]">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-[var(--gap-clamp)]">
         <Image
           src={"/images/Profile_Picture.jpeg"}
           alt={"Profile Picture"}
           width={400}
           height={400}
-          className="rounded-full shadow-xl hover:shadow-2xl hero_img"
+          className="w-3/5 md:w-[400px] rounded-full shadow-xl hover:shadow-2xl hero_img"
         />
-        <div className="flex flex-col justify-center w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
+        <div className="flex flex-col justify-center w-11/12 md:w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
           <h2 className="!text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
@@ -38,6 +38,7 @@ const hero = () => {
           <Button
             href="/documents/DemoResumeJune.pdf"
             target="_blank"
+            className=""
           >
             View Sample Resume
           </Button>

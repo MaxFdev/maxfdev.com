@@ -14,7 +14,7 @@ const about = () => {
       <h2 className="text-center">What am I up to?</h2>
       <Tabs
         defaultValue={aboutItems[0].title}
-        className="w-4/5 flex flex-col justify-center items-center"
+        className="w-11/12 md:w-[var(--width-clamp)] flex flex-col justify-center items-center"
       >
         <TabsList className="h-fit w-full justify-evenly gap-1 bg-slate-700">
           {aboutItems.map((item, i) => (
