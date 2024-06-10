@@ -16,7 +16,7 @@ const hero = () => {
           height={400}
           className="w-[55vw] sm:w-[350px] lg:w-[400px] rounded-full shadow-xl hover:shadow-2xl hero_img"
         />
-        <div className="flex flex-col justify-center w-11/12 md:w-[clamp(500px,_50vw,_600px)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
+        <div className="flex flex-col justify-center w-11/12 md:w-[var(--width-clamp)] lg:w-[var(--hero-clamp)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)]">
           <h2 className="!text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
