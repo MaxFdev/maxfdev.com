@@ -1,22 +1,22 @@
 import React from "react";
+import Project from "../elements/project";
 
 // TODO add way to import projects
 
-// TODO add styling
+// TODO finish and fix styling
 
 const projects = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center scroll-mt-20 gap-[var(--gap-clamp)]"
     >
-      <h2>projects</h2>
-      <div>
+      <h2>Some Of My Projects.</h2>
+      <div className="flex flex-col md:flex-row gap-2">
         {/* TODO add projects */}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint non
-        corporis adipisci animi quia quibusdam vel, delectus facilis saepe
-        consequuntur, modi dolore blanditiis quaerat aut accusamus. Deleniti
-        quae fugiat eaque?
+        <Project />
+        <Project />
+        <Project />
       </div>
       <button>more projects</button>
     </section>
