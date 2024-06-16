@@ -1,5 +1,6 @@
 import React from "react";
 import Project from "../elements/project";
+import Button from "../elements/button";
 
 // TODO add way to import projects
 
@@ -14,9 +15,15 @@ const projects = () => {
       <h2>Some Of My Projects.</h2>
       <div className="flex flex-col md:flex-row gap-2">
         {/* TODO add projects */}
-        <Project />
-        <Project />
-        <Project />
+        <Project
+          img={""}
+          title={"Test"}
+          content={
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quasi nostrum beatae reiciendis, rem incidunt, iure quisquam provident error sunt, assumenda culpa impedit iste sit voluptatibus molestiae corrupti fugit. Reprehenderit?"
+          }
+          tags={["1", "2", "3"]}
+          link={"/"}
+        />
       </div>
       <button>more projects</button>
     </section>
