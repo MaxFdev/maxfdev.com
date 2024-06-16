@@ -1,8 +1,7 @@
 import React from "react";
 import Project from "../elements/project";
-import Button from "../elements/button";
-
-// TODO add way to import projects
+import { projectItems } from "@/data";
+import BigButton from "../elements/bigButton";
 
 // TODO finish and fix styling
 
@@ -14,18 +13,18 @@ const projects = () => {
     >
       <h2>Some Of My Projects.</h2>
       <div className="flex flex-col md:flex-row gap-2">
-        {/* TODO add projects */}
-        <Project
-          img={""}
-          title={"Test"}
-          content={
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quasi nostrum beatae reiciendis, rem incidunt, iure quisquam provident error sunt, assumenda culpa impedit iste sit voluptatibus molestiae corrupti fugit. Reprehenderit?"
-          }
-          tags={["1", "2", "3"]}
-          link={"/"}
-        />
+        {projectItems.map((project, key) => (
+          <Project
+            img={project.img}
+            title={project.title}
+            content={project.content}
+            tags={project.tags}
+            link={project.link}
+            key={key}
+          />
+        ))}
       </div>
-      <button>more projects</button>
+      <BigButton href={"https://github.com/MaxFdev"}>More Projects</BigButton>
     </section>
   );
 };
