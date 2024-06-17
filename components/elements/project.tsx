@@ -18,7 +18,7 @@ const project = ({
   link: string;
 }) => {
   return (
-    <div className="w-[300px] h-fit bg-green-50">
+    <div className="h-fit bg-green-50">
       <Image
         src={img}
         alt={title}
