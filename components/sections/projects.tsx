@@ -19,7 +19,7 @@ const projects = () => {
       className="flex flex-col justify-center items-center scroll-mt-20 gap-[var(--gap-clamp)]"
     >
       <h2>Some Of My Projects.</h2>
-      {/* TODO switch to a carousel */}
+      {/* TODO make mobile friendly */}
       <Carousel className="w-3/4">
         <CarouselContent className="hover:cursor-grab active:cursor-grabbing">
           {projectItems.map((project, key) => (
@@ -42,6 +42,7 @@ const projects = () => {
           </>
         )}
       </Carousel>
+      {/* TODO style button */}
       <BigButton href={"https://github.com/MaxFdev"}>More Projects</BigButton>
     </section>
   );
