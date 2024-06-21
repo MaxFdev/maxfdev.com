@@ -20,17 +20,19 @@ const projects = () => {
     >
       <h2>Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
-      <Carousel className="w-3/4">
-        <CarouselContent className="hover:cursor-grab active:cursor-grabbing">
+      <Carousel className="w-3/4" opts={{watchDrag: false}}>
+        <CarouselContent>
           {projectItems.map((project, key) => (
-            <CarouselItem className="basis-1/3">
+            <CarouselItem
+              className="basis-1/3 p-3"
+              key={key}
+            >
               <Project
                 img={project.img}
                 title={project.title}
                 content={project.content}
                 tags={project.tags}
                 link={project.link}
-                key={key}
               />
             </CarouselItem>
           ))}

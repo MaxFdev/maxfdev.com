@@ -18,15 +18,16 @@ const project = ({
   link: string;
 }) => {
   return (
-    <div className="h-fit bg-green-50">
+    // TODO make shadows interactive
+    <div className="flex flex-col h-fit gap-2">
       <Image
         src={img}
         alt={title}
-        // TODO set proper width and height
         width={1920}
         height={1080}
+        className="rounded-lg shadow-md"
       />
-      <div>
+      <div className="bg-green-50 rounded-lg p-4 shadow-md">
         <h3>{title}</h3>
         <p>{content}</p>
         <ul>
