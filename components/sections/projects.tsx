@@ -20,15 +20,19 @@ const projects = () => {
     >
       <h2>Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
-      <Carousel className="w-3/4" opts={{watchDrag: false}}>
-        <CarouselContent>
+      <Carousel
+        className="w-3/4"
+        opts={{ watchDrag: false }}
+      >
+        <CarouselContent className="p-3">
           {projectItems.map((project, key) => (
             <CarouselItem
-              className="basis-1/3 p-3"
+              className="basis-1/3"
               key={key}
             >
               <Project
                 img={project.img}
+                color={project.color}
                 title={project.title}
                 content={project.content}
                 tags={project.tags}
@@ -45,7 +49,9 @@ const projects = () => {
         )}
       </Carousel>
       {/* TODO style button */}
-      <BigButton href={"https://github.com/MaxFdev"}>More Projects</BigButton>
+      <BigButton href={"https://github.com/MaxFdev"}>
+        More Projects - GitHub
+      </BigButton>
     </section>
   );
 };

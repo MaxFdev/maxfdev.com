@@ -6,12 +6,14 @@ import Button from "./button";
 
 const project = ({
   img,
+  color,
   title,
   content,
   tags = [],
   link,
 }: {
   img: string;
+  color: string;
   title: string;
   content: string;
   tags: string[];
@@ -27,7 +29,8 @@ const project = ({
         height={1080}
         className="rounded-lg shadow-md"
       />
-      <div className="bg-green-50 rounded-lg p-4 shadow-md">
+      {/* TODO figure out how to color the background */}
+      <div className="rounded-lg p-4 shadow-md">
         <h3>{title}</h3>
         <p>{content}</p>
         <ul>
