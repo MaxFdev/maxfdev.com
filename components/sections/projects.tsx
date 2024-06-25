@@ -21,7 +21,7 @@ const projects = () => {
       <h2>Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
       <Carousel
-        className="w-3/4"
+        className="w-5/6"
         opts={{ watchDrag: false }}
       >
         <CarouselContent className="p-3">
@@ -49,7 +49,7 @@ const projects = () => {
         )}
       </Carousel>
       {/* TODO style button */}
-      <BigButton href={"https://github.com/MaxFdev"}>
+      <BigButton href={"https://github.com/MaxFdev"} className="hover:bg-purple-400">
         More Projects - GitHub
       </BigButton>
     </section>

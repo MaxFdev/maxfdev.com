@@ -35,7 +35,7 @@ export const projectItems = [
     content:
       "StockTerminal is a Java-based program designed to retrieve and organize real-time stock market data efficiently. Developed with fintech professionals in mind, this project caters to individuals who require quick access to market data directly from the terminal. Leveraging a combination of object-oriented programming principles and various data structures, StockTerminal seamlessly fetches stock data from an API and presents it in a user-friendly format within the terminal. My partner and I effectively collaborated to develop StockTerminal as a functional program within a single week.",
     tags: ["JAVA", "CLI", "API", "FINANCE", "DATA STRUCTURES"],
-    link: "https://github.com/MaxFdev/StocksTerminal-SE_Project",
+    link: "https://github.com/MaxFdev/StocksTerminal_SE_Project",
   },
   {
     img: "/images/HomeLab.png",
