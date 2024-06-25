@@ -18,13 +18,13 @@ const projects = () => {
       id="projects"
       className="flex flex-col justify-center items-center scroll-mt-20 gap-[var(--gap-clamp)]"
     >
-      <h2>Some Of My Projects.</h2>
+      <h2 className="text-center">Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
       <Carousel
-        className="w-5/6"
+        className="w-5/6 "
         opts={{ watchDrag: false }}
       >
-        <CarouselContent className="p-3">
+        <CarouselContent className="py-3">
           {projectItems.map((project, key) => (
             <CarouselItem
               className="basis-1/3"
@@ -41,7 +41,7 @@ const projects = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {projectItems.length > 3 && (
+        {projectItems.length > 1 && (
           <>
             <CarouselPrevious />
             <CarouselNext />
@@ -49,7 +49,10 @@ const projects = () => {
         )}
       </Carousel>
       {/* TODO style button */}
-      <BigButton href={"https://github.com/MaxFdev"} className="hover:bg-purple-400">
+      <BigButton
+        href={"https://github.com/MaxFdev"}
+        className="hover:bg-purple-400"
+      >
         More Projects - GitHub
       </BigButton>
     </section>
