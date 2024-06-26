@@ -21,13 +21,13 @@ const projects = () => {
       <h2 className="text-center">Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
       <Carousel
-        className="w-5/6 "
-        opts={{ watchDrag: false }}
+        className="w-5/6"
+        opts={{ watchDrag: false, align: "start" }}
       >
-        <CarouselContent className="py-3">
+        <CarouselContent className="py-4">
           {projectItems.map((project, key) => (
             <CarouselItem
-              className="basis-1/3"
+              className="md:basis-1/2 lg:basis-1/3"
               key={key}
             >
               <Project
@@ -42,10 +42,10 @@ const projects = () => {
           ))}
         </CarouselContent>
         {projectItems.length > 1 && (
-          <>
+          <div className={`${projectItems.length === 3 ? "" : "hidden"}`}>
             <CarouselPrevious />
             <CarouselNext />
-          </>
+          </div>
         )}
       </Carousel>
       {/* TODO style button */}
