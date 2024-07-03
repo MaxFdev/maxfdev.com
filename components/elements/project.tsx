@@ -29,7 +29,6 @@ const project = ({
         height={1080}
         className="rounded-lg shadow-md"
       />
-      {/* TODO figure out how to color the background */}
       <div
         className="flex flex-col rounded-lg p-3 shadow-md gap-2"
         style={{ backgroundColor: `${color}` }}
@@ -39,10 +38,20 @@ const project = ({
         <ul className="flex flex-wrap gap-1">
           <h4 className="font-semibold font-mono text-xl">Tags:</h4>
           {tags.map((tag, key) => (
-            <li key={key} className="p-1 rounded-3xl border-2 border-black text-xs font-bold">{tag}</li>
+            <li
+              key={key}
+              className="p-1 rounded-3xl border-2 border-black text-xs font-extrabold"
+            >
+              {tag}
+            </li>
           ))}
         </ul>
-        <Button href={link} className="mt-2">View Project</Button>
+        <Button
+          href={link}
+          className="mt-2"
+        >
+          View Project
+        </Button>
       </div>
     </div>
   );

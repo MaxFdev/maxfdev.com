@@ -12,6 +12,8 @@ import {
 
 // TODO finish and fix styling
 
+// TODO force this to reload on resize
+
 const projects = () => {
   return (
     <section
@@ -21,7 +23,7 @@ const projects = () => {
       <h2 className="text-center">Some Of My Projects.</h2>
       {/* TODO make mobile friendly */}
       <Carousel
-        className="w-5/6"
+        className="w-[76vw]"
         opts={{ watchDrag: false, align: "start" }}
       >
         <CarouselContent className="py-4">
@@ -41,12 +43,8 @@ const projects = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {projectItems.length > 1 && (
-          <div className={`${projectItems.length === 3 ? "" : "hidden"}`}>
-            <CarouselPrevious />
-            <CarouselNext />
-          </div>
-        )}
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
       {/* TODO style button */}
       <BigButton
