@@ -91,6 +91,7 @@
   --gap-clamp: clamp(32px, 3.5vw, 64px);
   --hero-clamp: clamp(500px, 50vw, 600px);
   --width-clamp: clamp(600px, 75vw, 1060px);
+  --carousel-clamp: clamp(360px, 76vw, 900px); /* TODO fix clamp */
   --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
 }

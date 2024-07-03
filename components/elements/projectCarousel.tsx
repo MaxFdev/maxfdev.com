@@ -36,7 +36,7 @@ const projectCarousel = () => {
 
   return (
     <Carousel
-      className="w-[76vw]"
+      className="w-[var(--carousel-clamp)]"
       opts={{ watchDrag: false, align: "start" }}
       key={componentKey}
     >
