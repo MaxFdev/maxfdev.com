@@ -34,13 +34,13 @@ const project = ({
         style={{ backgroundColor: `${color}` }}
       >
         <h3 className="text-2xl font-bold">{title}</h3>
-        <p className="text-sm">{content}</p>
+        <p className="text-md">{content}</p>
         <ul className="flex flex-wrap gap-1">
           <h4 className="font-semibold font-mono text-xl">Tags:</h4>
           {tags.map((tag, key) => (
             <li
               key={key}
-              className="p-1 rounded-3xl border-2 border-black text-xs font-extrabold"
+              className="p-1 rounded-3xl border-2 border-black text-sm font-bold"
             >
               {tag}
             </li>

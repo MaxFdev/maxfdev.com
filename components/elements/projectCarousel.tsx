@@ -11,6 +11,8 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 
+// TODO on refresh make carousel remember which slide was in view?
+
 const ProjectCarousel = () => {
   // State to store a unique key for forcing remount
   const [componentKey, setComponentKey] = useState(0);
@@ -36,7 +38,7 @@ const ProjectCarousel = () => {
 
   return (
     <Carousel
-      className="w-[var(--carousel-clamp)]"
+      className="w-[75vw]"
       opts={{ watchDrag: false, align: "start" }}
       key={componentKey}
     >
