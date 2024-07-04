@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 
-const projectCarousel = () => {
+const ProjectCarousel = () => {
   // State to store a unique key for forcing remount
   const [componentKey, setComponentKey] = useState(0);
 
@@ -63,4 +63,4 @@ const projectCarousel = () => {
   );
 };
 
-export default projectCarousel;
+export default ProjectCarousel;
