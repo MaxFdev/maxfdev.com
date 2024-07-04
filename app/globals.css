@@ -87,10 +87,12 @@
   }
 }
 
+/* TODO finalize global styles */
+
 :root {
-  --gap-clamp: clamp(32px, 3.5vw, 64px);
-  --hero-clamp: clamp(500px, 50vw, 600px);
-  --width-clamp: clamp(600px, 75vw, 1060px);
+  --gap-clamp: clamp(32px, 3.5vw, 64px); /* FIXME all clamps */
+  --hero-clamp: clamp(500px, 50vw, 600px); /* FIXME all clamps */
+  --width-clamp: clamp(600px, 75vw, 1060px); /* FIXME all clamps */
   --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
 }
