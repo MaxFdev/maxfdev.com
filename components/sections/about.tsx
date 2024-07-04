@@ -39,7 +39,13 @@ const about = () => {
           </TabsContent>
         ))}
       </Tabs>
-      <BigButton href="https://www.linkedin.com/in/max--franklin/" target="_blank" className="hover:bg-blue-400">More about - LinkedIn</BigButton>
+      <BigButton
+        href="https://www.linkedin.com/in/max--franklin/"
+        target="_blank"
+        className="hover:bg-blue-400"
+      >
+        More about - LinkedIn
+      </BigButton>
     </section>
   );
 };

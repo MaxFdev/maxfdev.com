@@ -12,9 +12,9 @@ const projects = () => {
     >
       <h2 className="text-center">Some Of My Projects.</h2>
       <ProjectCarousel />
-      {/* TODO style button */}
       <BigButton
-        href={"https://github.com/MaxFdev"}
+        href="https://github.com/MaxFdev"
+        target="_blank"
         className="hover:bg-purple-400"
       >
         More Projects - GitHub
