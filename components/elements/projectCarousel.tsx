@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { projectItems } from "@/data";
 import Project from "./project";
 import {
@@ -16,11 +16,16 @@ import {
 const ProjectCarousel = () => {
   // State to store a unique key for forcing remount
   const [componentKey, setComponentKey] = useState(0);
+  const prevWidthRef = useRef(window.innerWidth);
 
   useEffect(() => {
     // Function to handle window resize
     const handleResize = () => {
-      setComponentKey((prevKey) => prevKey + 1);
+      const currentWidth = window.innerWidth;
+      if (prevWidthRef.current !== currentWidth) {
+        setComponentKey((prevKey) => prevKey + 1);
+        prevWidthRef.current = currentWidth;
+      }
     };
 
     // Add event listener for window resize
@@ -32,7 +37,7 @@ const ProjectCarousel = () => {
     };
   }, []);
 
-  // TODO make more mobile friendly
+  // TODO make more mobile friendly (maybe make dragging work on mobile)
 
   // TODO finish styling
 
