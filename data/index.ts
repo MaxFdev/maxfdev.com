@@ -1,3 +1,5 @@
+import { Section } from "lucide-react";
+
 export const resume = () => {
   return open("/public/DemoResumeJune.html");
 };
@@ -59,7 +61,127 @@ export const projectItems = [
 
 // TODO figure out best way to represent skills
 
-export const skillItems = [];
+// TODO turn this into a function?
+
+// TODO add skills (wsl, junit, next, etc)?
+
+export const skillSections = [
+  {
+    section: "Languages and Tools",
+    items: [
+      {
+        skill: "Bash",
+        img: "/icons/code/icons8-bash-50.png",
+      },
+      {
+        skill: "C",
+        img: "/icons/code/icons8-c-50.png",
+      },
+      {
+        skill: "CSS",
+        img: "/icons/code/icons8-css-50.png",
+      },
+      {
+        skill: "Git",
+        img: "/icons/code/icons8-git-50.png",
+      },
+      {
+        skill: "GitHub",
+        img: "/icons/code/icons8-github-50.png",
+      },
+      {
+        skill: "HTML",
+        img: "/icons/code/icons8-html-50.png",
+      },
+      {
+        skill: "Java",
+        img: "/icons/code/icons8-java-50.png",
+      },
+      {
+        skill: "JavaScript",
+        img: "/icons/code/icons8-javascript-50.png",
+      },
+      {
+        skill: "Jetbrains",
+        img: "/icons/code/icons8-jetbrains-50.png",
+      },
+      {
+        skill: "Maven",
+        img: "/icons/code/icons8-maven-50.png",
+      },
+      {
+        skill: "PHP",
+        img: "/icons/code/icons8-php-50.png",
+      },
+      {
+        skill: "Python",
+        img: "/icons/code/icons8-python-50.png",
+      },
+      {
+        skill: "Visual Studio",
+        img: "/icons/code/icons8-visual-studio-50.png",
+      },
+    ],
+  },
+  {
+    section: "Software and Programs",
+    items: [
+      {
+        skill: "Adobe",
+        img: "/icons/sw/icons8-adobe-50.png",
+      },
+      {
+        skill: "Cloudflare",
+        img: "/icons/sw/icons8-cloudflare-50.png",
+      },
+      {
+        skill: "Davinci Resolve",
+        img: "/icons/sw/icons8-davinci-resolve-50.png",
+      },
+      {
+        skill: "Docker",
+        img: "/icons/sw/icons8-docker-50.png",
+      },
+      {
+        skill: "Google Suite",
+        img: "/icons/sw/icons8-google-50.png",
+      },
+      {
+        skill: "Logic Pro",
+        img: "/icons/sw/icons8-logic-pro-50.png",
+      },
+      {
+        skill: "LXC",
+        img: "/icons/sw/icons8-lxc-50.png",
+      },
+      {
+        skill: "Office 365",
+        img: "/icons/sw/icons8-office-365-50.png",
+      },
+      {
+        skill: "Salesforce",
+        img: "/icons/sw/icons8-salesforce-50.png",
+      },
+      {
+        skill: "Virtual Box",
+        img: "/icons/sw/icons8-virtual-box-50.png",
+      },
+      {
+        skill: "Wordpress",
+        img: "/icons/sw/icons8-wordpress-50.png",
+      },
+    ],
+  },
+  {
+    section: "Operating",
+    items: [
+      {
+        skill: "",
+        img: "",
+      },
+    ],
+  },
+];
 
 // TODO add more socials?
 

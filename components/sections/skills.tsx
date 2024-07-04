@@ -14,9 +14,7 @@ const skills = () => {
       <h2>What I Know And Use.</h2>
       <div>
         {/* TODO add skills */}
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, in
-        velit sint eius fugit facere asperiores quas illum eveniet repudiandae
-        cum, nisi, natus enim porro! Corrupti unde illum similique dolore?
+        
       </div>
       <BigButton
         href="https://www.linkedin.com/in/max--franklin/"
