@@ -16,6 +16,7 @@ const button = ({
     <Link
       href={href}
       target={target}
+      className="w-fit"
     >
       <button
         className={`!transition-all w-fit border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet ${className}`}
