@@ -1,11 +1,15 @@
 import React from "react";
 import BigButton from "../elements/bigButton";
+import { Section, Icon, getIconsData } from "@/utils/icons";
+import Image from "next/image";
 
-// TODO finish
+// TODO finish designing
 
-// TODO use Lucide?
+// TODO style
 
 const skills = () => {
+  const iconSections: Section[] = getIconsData();
+
   return (
     <section
       id="skills"
@@ -13,8 +17,22 @@ const skills = () => {
     >
       <h2>What I Know And Use.</h2>
       <div>
-        {/* TODO add skills */}
-        
+        {/* TODO finish adding skills */}
+        {iconSections.map((section, key) => (
+          <div key={key}>
+            <h4 className="font-bold text-3xl">{section.name}</h4>
+            <ul>
+              {section.items.map((item, itemKey) => (
+                <li key={itemKey}>
+                  <figure>
+                    <Image height={50} width={50} src={item.path} alt={item.title} />
+                    <figcaption>{item.title}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
       <BigButton
         href="https://www.linkedin.com/in/max--franklin/"
