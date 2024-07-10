@@ -16,17 +16,17 @@ const skills = () => {
       className="flex flex-col justify-center items-center scroll-mt-16 my-20 py-16 gap-16 bg-slate-200"
     >
       <h2>What I Know And Use.</h2>
-      <div>
+      <div className="flex gap-2">
         {/* TODO finish adding skills */}
         {iconSections.map((section, key) => (
-          <div key={key}>
-            <h4 className="font-bold text-3xl">{section.name}</h4>
-            <ul>
+          <div key={key} className="flex flex-col bg-green-100 h-fit p-4 items-center">
+            <h3 className="font-bold text-2xl">{section.name}</h3>
+            <ul className="grid grid-cols-3 gap-1">
               {section.items.map((item, itemKey) => (
                 <li key={itemKey}>
-                  <figure>
+                  <figure className="w-20 p-1 flex flex-col items-center bg-slate-50">
                     <Image height={50} width={50} src={item.path} alt={item.title} />
-                    <figcaption>{item.title}</figcaption>
+                    <figcaption className="text-sm">{item.title}</figcaption>
                   </figure>
                 </li>
               ))}
