@@ -1,11 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-// TODO make sure this works properly
-
-// TODO reorganize file names
-
 // TODO is this file in the right location?
+
+// TODO add skills (wsl, junit, next, etc)?
 
 export interface Icon {
   title: string;

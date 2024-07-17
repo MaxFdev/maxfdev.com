@@ -11,6 +11,8 @@ import {
 
 // TODO finalize styling
 
+// TODO make more interactive
+
 const skills = () => {
   const iconSections: Section[] = getIconsData();
 

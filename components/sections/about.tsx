@@ -5,6 +5,8 @@ import BigButton from "@/components/elements/bigButton";
 
 // TODO add more styling to tabs
 
+// TODO integrate with intro section
+
 const about = () => {
   return (
     <section
