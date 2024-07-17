@@ -34,14 +34,20 @@ export const getIconsData = (): Section[] => {
           const itemPath = path.join(sectionPath, itemName);
           if (fs.statSync(itemPath).isFile()) {
             items.push({
-              title: itemName.slice(0, itemName.lastIndexOf(".")),
+              title: itemName
+                .slice(0, itemName.lastIndexOf("."))
+                .replaceAll("-", " ")
+                .toUpperCase(),
               path: `/icons/${sectionName}/${itemName}`,
             });
           }
         });
 
         sections.push({
-          name: sectionName,
+          name: sectionName
+            .slice(sectionName.indexOf("-") + 1, sectionName.length)
+            .replaceAll("-", " ")
+            .toUpperCase(),
           items,
         });
       }
