@@ -25,7 +25,7 @@ const skills = () => {
       <Accordion
         type="single"
         defaultValue="item-0"
-        className="bg-indigo-400 rounded-lg p-2 shadow-xl"
+        className="bg-indigo-300 rounded-lg p-2 shadow-xl"
       >
         {iconSections.map((section, key) => (
           <AccordionItem
@@ -37,10 +37,10 @@ const skills = () => {
               <h3 className="font-bold text-2xl text-black">{section.name}</h3>
             </AccordionTrigger>
             <AccordionContent>
-              <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1">
+              <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 p-4">
                 {section.items.map((item, itemKey) => (
                   <li key={itemKey}>
-                    <figure className="p-1 w-20 h-20 flex flex-col justify-center items-center rounded">
+                    <figure className="p-1 w-20 h-20 flex flex-col justify-center items-center rounded hover:scale-110 hover:p-5 hover:[box-shadow:_var(--shadow-icon)]">
                       <Image
                         height={50}
                         width={50}

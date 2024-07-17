@@ -95,6 +95,7 @@
   --width-clamp: clamp(600px, 75vw, 1060px); /* FIXME all clamps */
   --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
+  --shadow-icon: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 * {
