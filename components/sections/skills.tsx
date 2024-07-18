@@ -45,9 +45,15 @@ const skills = () => {
                         src={item.path}
                         alt={item.title}
                       />
-                      <figcaption className="text-xs font-semibold text-center">
-                        {item.title}
-                      </figcaption>
+                      {item.title.split(" ").map((word, wordKey) => (
+                        <figcaption
+                          key={wordKey}
+                          className="text-xs font-semibold text-center"
+                        >
+                          {word}
+                          <br />
+                        </figcaption>
+                      ))}
                     </figure>
                   </li>
                 ))}
