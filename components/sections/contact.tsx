@@ -12,6 +12,8 @@ import {
 
 // TODO finish styling
 
+// TODO maybe make this button accessible from anywhere
+
 const contact = () => {
   return (
     <section
