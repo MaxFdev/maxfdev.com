@@ -1,4 +1,6 @@
 import React from "react";
+import { socials } from "@/data/index";
+import Button from "../elements/button";
 import {
   Dialog,
   DialogContent,
@@ -6,24 +8,23 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose,
-  DialogFooter,
 } from "../ui/dialog";
 
-// TODO add styles and content
+// TODO finish styling
 
 const contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center scroll-mt-16 my-20 py-16 gap-16"
     >
       <h2 className="text-center">Contact me.</h2>
       <div className="flex flex-col justify-center items-center gap-4">
-        <h3>Here are all my details.</h3>
         <Dialog>
-          <DialogTrigger>Get details.</DialogTrigger>
-          <DialogContent>
+          <DialogTrigger className="!transition-all w-fit border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet">
+            Click to view details.
+          </DialogTrigger>
+          <DialogContent className="max-sm:w-96 max-sm:rounded-lg">
             <DialogHeader>
               <DialogTitle asChild>
                 <h3>Contact & Socials</h3>
@@ -32,13 +33,23 @@ const contact = () => {
                 <p>Here are all my public accounts.</p>
               </DialogDescription>
             </DialogHeader>
-            {/* TODO finish adding socials */}
             <ul>
-              <li>email</li>
-              <li>linkedin</li>
-              <li>website</li>
-              <li>something</li>
-              <li>etc</li>
+              {socials.map((platform, key) => (
+                <li
+                  key={key}
+                  className="flex justify-between items-center font-semibold w-full border-b-[1px]"
+                >
+                  <div>
+                    {platform.title}:<br /> {platform.user}
+                  </div>
+                  <Button
+                    href={platform.link}
+                    target="_blank"
+                  >
+                    Go To
+                  </Button>
+                </li>
+              ))}
             </ul>
           </DialogContent>
         </Dialog>

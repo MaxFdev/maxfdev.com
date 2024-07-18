@@ -1,5 +1,3 @@
-import { Section } from "lucide-react";
-
 export const resume = () => {
   return open("/public/DemoResumeJune.html");
 };
@@ -61,7 +59,7 @@ export const projectItems = [
   },
 ];
 
-// TODO add more socials?
+// TODO add more socials (hacker rank, leet code, this website)?
 
 export const socials = [
   {
@@ -71,7 +69,7 @@ export const socials = [
   },
   {
     title: "GitHub",
-    user: "maxfdev",
+    user: "MaxFdev",
     link: "https://github.com/MaxFdev",
   },
   {
