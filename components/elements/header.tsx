@@ -3,6 +3,7 @@ import Navlist from "./navlist";
 import Link from "next/link";
 
 // TODO make nav styling change on scroll (scrolling effect)
+// TODO make nav not change the url (just scroll on click)
 
 const header = () => {
   return (

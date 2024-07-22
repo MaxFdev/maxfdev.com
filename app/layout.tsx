@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/elements/header";
-import Body from "@/components/elements/body";
 import Footer from "@/components/elements/footer";
 
 export const metadata: Metadata = {
@@ -15,7 +14,9 @@ const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
 });
 
-// TODO is the custom body tag needed?
+// TODO switch all imports to come from @/
+// TODO check that all files are in the right place
+// TODO do some seo?
 
 export default function RootLayout({
   children,
@@ -27,11 +28,11 @@ export default function RootLayout({
       lang="en"
       className="no-scrollbar"
     >
-      <Body className={`${notoSans.variable}`}>
+      <body className={`${notoSans.variable}`}>
         <Header />
         {children}
         <Footer />
-      </Body>
+      </body>
     </html>
   );
 }

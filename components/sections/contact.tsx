@@ -47,6 +47,7 @@ const contact = () => {
                   <Button
                     href={platform.link}
                     target="_blank"
+                    className="[line-height:_16px;]"
                   >
                     Go To
                   </Button>
