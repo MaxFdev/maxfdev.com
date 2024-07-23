@@ -3,6 +3,7 @@ import ProjectCarousel from "../elements/projectCarousel";
 import BigButton from "../elements/bigButton";
 
 // TODO finish and fix styling
+// TODO make projects come from github
 
 const projects = () => {
   return (
