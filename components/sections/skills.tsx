@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import BigButton from "../elements/bigButton";
+import BigButton from "@/components/elements/bigButton";
 import { Section, getIconsData } from "@/utils/icons";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
+} from "@/components/ui/accordion";
 
 // TODO finalize styling
 

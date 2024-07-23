@@ -1,6 +1,6 @@
 import React from "react";
-import Navlist from "./navlist";
 import Link from "next/link";
+import Navlist from "@/components/elements/navlist";
 
 // TODO make nav styling change on scroll (scrolling effect)
 // TODO make nav not change the url (just scroll on click)

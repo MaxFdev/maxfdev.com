@@ -1,6 +1,6 @@
-import Link from "next/link";
 import React from "react";
-import Contact from "./contact";
+import Link from "next/link";
+import Contact from "@/components/elements/contact";
 
 // TODO mobile nav
 // TODO switch this to a dynamic list of sections

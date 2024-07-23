@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { projectItems } from "@/data";
-import Project from "./project";
+import Project from "@/components/elements/project";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
+} from "@/components/ui/carousel";
 
 // TODO on refresh make carousel remember which slide was in view?
 // TODO switch to 2 per page?

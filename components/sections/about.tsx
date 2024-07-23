@@ -1,7 +1,7 @@
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { aboutItems } from "@/data";
 import BigButton from "@/components/elements/bigButton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // TODO add more styling to tabs
 

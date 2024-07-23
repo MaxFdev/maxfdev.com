@@ -1,6 +1,6 @@
 import React from "react";
-import ProjectCarousel from "../elements/projectCarousel";
-import BigButton from "../elements/bigButton";
+import ProjectCarousel from "@/components/elements/projectCarousel";
+import BigButton from "@/components/elements/bigButton";
 
 // TODO finish and fix styling
 // TODO make projects come from github
