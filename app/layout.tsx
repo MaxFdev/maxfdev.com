@@ -17,6 +17,8 @@ const notoSans = Noto_Sans({
 // TODO switch all imports to come from @/
 // TODO check that all files are in the right place
 // TODO do some seo?
+// TODO handle props correctly
+// TODO grab data off of github
 
 export default function RootLayout({
   children,
