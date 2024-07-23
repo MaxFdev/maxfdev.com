@@ -1,15 +1,15 @@
 import Link from "next/link";
 import React from "react";
+import Contact from "./contact";
 
 // TODO mobile nav
 // TODO switch this to a dynamic list of sections
 // TODO make links on click scroll
-// TODO make contact bring up contact menu
 
 const navlist = () => {
   return (
     <nav className="font-trebuchet text-blue-500 text-xl">
-      <ul className="hidden md:flex flex-row lg:gap-8 md:gap-6">
+      <ul className="hidden md:flex flex-row justify-center items-center lg:gap-8 md:gap-6">
         <li>
           <Link href="/#hero">Intro</Link>
         </li>
@@ -23,7 +23,7 @@ const navlist = () => {
           <Link href="/#skills">Skills</Link>
         </li>
         <li>
-          <Link href="/#contact">Contact</Link>
+          <Contact />
         </li>
       </ul>
       <button className="md:hidden">≡</button>

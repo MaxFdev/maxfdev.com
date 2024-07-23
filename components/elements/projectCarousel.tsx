@@ -12,6 +12,8 @@ import {
 } from "../ui/carousel";
 
 // TODO on refresh make carousel remember which slide was in view?
+// TODO switch to 2 per page?
+
 
 const ProjectCarousel = () => {
   // State to store a unique key for forcing remount

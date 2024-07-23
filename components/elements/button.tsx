@@ -3,30 +3,38 @@ import React, { ReactNode } from "react";
 
 const button = ({
   children,
-  href,
+  href = undefined,
   target = "",
   className = "",
-  height = "",
 }: {
   children: ReactNode;
-  href: string;
+  href?: string;
   target?: string;
   className?: string;
-  height?: string;
 }) => {
-  return (
-    <Link
-      href={href}
-      target={target}
-      className={`w-fit ${height}`}
-    >
+  if (href !== undefined) {
+    return (
+      <Link
+        href={href}
+        target={target}
+        className="w-fit"
+      >
+        <button
+          className={`!transition-all [transition-duration:_300ms_!important;] w-fit border-2 [line-height:_16px;] border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet ${className}`}
+        >
+          {children}
+        </button>
+      </Link>
+    );
+  } else {
+    return (
       <button
-        className={`!transition-all w-fit border-2 border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet ${className}`}
+        className={`!transition-all [transition-duration:_300ms_!important;] w-fit border-2 [line-height:_16px;] border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet ${className}`}
       >
         {children}
       </button>
-    </Link>
-  );
+    );
+  }
 };
 
 export default button;
