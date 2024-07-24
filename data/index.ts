@@ -28,7 +28,6 @@ export const aboutItems = [
 ];
 
 // TODO source projects from github?
-
 // TODO store text differently & redo writing
 
 export const projectItems = [
@@ -62,12 +61,13 @@ export const projectItems = [
 ];
 
 // TODO add more socials (hacker rank, leet code, this website)?
+// TODO make user copyable and link go to icon
 
 export const socials = [
   {
     title: "Email",
     user: "maxfranklin@maxfdev.com",
-    link: "mailto:maxfranklin@maxfdev.com", // TODO should this be a copy link?
+    link: "mailto:maxfranklin@maxfdev.com",
   },
   {
     title: "GitHub",

@@ -4,6 +4,7 @@ import Navlist from "@/components/elements/navlist";
 
 // TODO make nav styling change on scroll (scrolling effect)
 // TODO make nav not change the url (just scroll on click)
+// TODO make slightly transparent with blur
 
 const header = () => {
   return (
