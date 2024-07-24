@@ -1,19 +1,23 @@
-export const resume = () => {
-  return open("/public/DemoResumeJune.html");
-};
-
 // TODO fix writing
+
+// FIXME finalize intro writing
+
+export const intro = {
+  text: "Hello, I'm Max, a technology enthusiast currently pursuing a Bachelor's degree in computer science at Yeshiva University. As someone that is always learning new things, I have delved deep into the field in order to become a well-rounded professional. I am currently employed in my university's IT department, where I help resolve issues related to networking, OSs, and all sorts of software. I had previously run two successful freelance businesses, one in IT consulting and the other in website development. I am always working on new and exciting projects. Alongside my technical experience, I have strong programming skills, primarily in Java, and a lot of experience developing on Linux based systems.",
+}
+
+// FIXME finish rewriting sections
 
 export const aboutItems = [
   {
     title: "Academics",
     content:
-      "Since enrolling at Yeshiva University in August 2022, I've been committed to pursuing a Bachelor of Science degree in computer science, with a specialization in distributed systems. This specialization equips me with the essential skills and knowledge needed to excel in various computer science domains. Through my coursework, I've achieved proficiency in fundamental programming concepts, data structures, and algorithms. This includes mastering tools like Java and Python, as well as complex data structures and object-oriented programming. Practical project experiences, such as developing 'StockTerminal', have allowed me to apply these skills in real-world scenarios, further enhancing my problem-solving abilities and providing insights into the practical applications of distributed systems, particularly in the field of finance.",
+      "Since enrolling at Yeshiva University in August 2022, I've been committed to pursuing a Bachelor of Science degree in computer science, with a specialization in distributed systems. Through my coursework, I've achieved proficiency in fundamental programming concepts, data structures, and algorithms. This includes mastering tools like Java, as well as complex data structures and object-oriented programming. Practical project experiences, such as developing 'StockTerminal', have allowed me to apply these skills in real-world scenarios, further enhancing my problem-solving abilities and providing insights into the practical applications of distributed systems. (... mention hackathon, running observer website, etc)",
   },
   {
     title: "Business",
     content:
-      "As a driven entrepreneur, I have successfully established and managed two freelance businesses, leveraging my background and expertise in technology to deliver exceptional results. In my IT consulting business, I offer a wide range of services, including complex software installation, custom data storage solutions, and hardware upgrades. Through close collaboration with clients, I identify their unique technology needs and provide tailored solutions that address their specific requirements. On the other hand, my web design business specializes in creating visually appealing and user-friendly websites. I focus on responsive design and intuitive navigation to help businesses establish a strong online presence. By maintaining a client-centric approach, I am committed to consistently delivering exceptional services for my clients.",
+      "I have successfully established and managed two freelance businesses, leveraging my background and expertise in technology to help my clients in various ways. In my IT consulting business, I offered a wide range of services, including networking, complex software installation, custom data storage solutions, and hardware upgrades. My website development business specialized in creating visually appealing and user-friendly websites. (... a bit more here)",
   },
   // TODO add:
   {
@@ -24,8 +28,6 @@ export const aboutItems = [
 ];
 
 // TODO source projects from github?
-
-// TODO add all projects
 
 // TODO store text differently & redo writing
 

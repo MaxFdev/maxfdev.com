@@ -4,8 +4,8 @@ import BigButton from "@/components/elements/bigButton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // TODO add more styling to tabs
-
-// TODO integrate with intro section
+// TODO maybe add pictures or graphics to each tab?
+// FIXME make tabs fixed height
 
 const about = () => {
   return (

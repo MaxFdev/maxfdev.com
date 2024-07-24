@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Button from "@/components/elements/button";
+import { intro } from "@/data/index";
 
 const hero = () => {
   return (
@@ -21,24 +22,12 @@ const hero = () => {
             Introduction.
           </h2>
           <p className="font-semibold">
-            Hello, I&apos;m Max, a dedicated technology enthusiast currently
-            pursuing a Bachelor&apos;s degree in computer science at Yeshiva
-            University. With a deep passion for technology, I have immersed
-            myself in the field to become a well-rounded professional. I
-            successfully run two freelance businesses: one focused on IT
-            consulting and the other on web design and development. Despite
-            being in the early stages of my career, I have already completed
-            exciting projects, including the development of this website, which
-            serves as a testament to my capabilities. Alongside my technical
-            experience, I have strong programming skills, primarily in Java.
-            While continually expanding my knowledge, I am particularly
-            intrigued by fintech, cybersecurity, and full stack engineering. I
-            am actively pursuing further education in these domains.
+            {intro.text}
+            
           </p>
           <Button
             href="/documents/DemoResumeJune.pdf"
             target="_blank"
-            className=""
           >
             View Sample Resume
           </Button>
