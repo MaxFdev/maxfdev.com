@@ -49,6 +49,7 @@ const project = ({
         <Button
           href={link}
           className="mt-2"
+          target="_blank"
         >
           View Project
         </Button>
