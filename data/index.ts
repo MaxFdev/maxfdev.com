@@ -12,7 +12,7 @@ export const aboutItems = [
   {
     title: "Academics",
     content:
-      "Since enrolling at Yeshiva University in August 2022, I've been committed to pursuing a Bachelor of Science degree in computer science, with a specialization in distributed systems. Through my coursework, I've achieved proficiency in fundamental programming concepts, data structures, and algorithms. This includes mastering tools like Java, as well as complex data structures and object-oriented programming. Practical project experiences, such as developing 'StockTerminal', have allowed me to apply these skills in real-world scenarios, further enhancing my problem-solving abilities and providing insights into the practical applications of distributed systems. (... mention hackathon, running observer website, etc)",
+      "I have been enrolled at Yeshiva University since August of 2022. Since then, I have been committed to pursuing a B.S. in Computer Science. Within my major, I specialize in Distributed Systems. Through my classes and coursework, I have developed a solid foundation in programming, primarily with Java, and proficiencies in data structures and algorithms. Through my studies, I have worked on many projects that practically apply C.S. theory, such as Multithreaded Mandelbrot Generators, TLB Cache Simulator, and StockTerminal. Additionally, I have been chosen to fill the role of senior website manager for the YU Observer, a school newspaper. The role involves working with a team of students to maintain and update the website.",
   },
   {
     title: "Business",
