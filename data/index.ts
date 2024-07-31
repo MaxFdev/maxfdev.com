@@ -3,7 +3,7 @@
 // FIXME finalize intro writing
 
 export const intro = {
-  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in computer science at Yeshiva University. As someone that is always learning new things, I have studied a broad range of subjects in my field to become a well-rounded professional. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in IT consulting and the other in website development. I am always working on new and exciting projects. Alongside my technical experience, I have strong programming skills, primarily in Java, and a lot of experience developing on Linux based systems.",
+  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in computer science at Yeshiva University. As someone learning new things all the time, I have studied many subjects in my field to become a well-rounded professional. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in IT consulting and the other in website development. I am always working on new and exciting projects. Alongside my technical experience, I have strong programming skills, primarily in Java, and a lot of experience developing programs for Linux-based systems.",
 }
 
 // FIXME finish rewriting sections
