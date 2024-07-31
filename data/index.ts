@@ -4,7 +4,7 @@
 
 export const intro = {
   text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in computer science at Yeshiva University. As someone learning new things all the time, I have studied many subjects in my field to become a well-rounded professional. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in IT consulting and the other in website development. I am always working on new and exciting projects. Alongside my technical experience, I have strong programming skills, primarily in Java, and a lot of experience developing programs for Linux-based systems.",
-}
+};
 
 // FIXME finish rewriting sections
 
@@ -17,13 +17,12 @@ export const aboutItems = [
   {
     title: "Business",
     content:
-      "I have successfully established and managed two freelance businesses, leveraging my background and expertise in technology to help my clients in various ways. In my IT consulting business, I offered a wide range of services, including networking, complex software installation, custom data storage solutions, and hardware upgrades. My website development business specialized in creating visually appealing and user-friendly websites. (... a bit more here)",
+      "While in high school, I started to learn how to build websites with WordPress as a side project. After hearing that I could develop websites, family and friends offered to pay me to redo their websites. I grew from doing odd jobs for family and friends to running a freelance website development business catering to small local businesses. Along with needing websites, some clients needed I.T. work, mainly networking, hardware modifications, and software setup. So, in addition to offering freelance website development, I started a separate business for freelance I.T. work. I leveraged my technological knowledge to assist my clients in both lines of work. After stopping to accept new clients, I used my experience to pivot into working in I.T. for my university.",
   },
   // TODO add:
   {
     title: "Professional",
-    content:
-      "...",
+    content: "...",
   },
 ];
 
