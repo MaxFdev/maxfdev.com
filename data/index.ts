@@ -7,6 +7,7 @@ export const intro = {
 };
 
 // FIXME finish rewriting sections
+// TODO add graphics for each tab
 
 export const aboutItems = [
   {
