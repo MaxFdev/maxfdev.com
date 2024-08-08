@@ -18,12 +18,12 @@ const about = () => {
         defaultValue={aboutItems[0].title}
         className="w-11/12 md:w-[var(--width-clamp)] flex flex-col justify-center items-center"
       >
-        <TabsList className="h-fit w-full justify-evenly gap-1 bg-sky-500 shadow-xl">
+        <TabsList className="h-fit w-full justify-evenly gap-1 bg-teal-400 shadow-xl">
           {aboutItems.map((item, i) => (
             <TabsTrigger
               value={item.title}
               key={i}
-              className="text-black data-[state=active]:text-white text-center text-2xl data-[state=active]:bg-black data-[state=active]:shadow-sm hover:bg-sky-600 hover:shadow-sm [transition-duration:_300ms_!important;]"
+              className="text-black data-[state=active]:text-white text-center text-2xl data-[state=active]:bg-black data-[state=active]:shadow-sm hover:bg-teal-500 hover:scale-95 [transition-duration:_300ms_!important;]"
               style={{ width: `${Math.floor(100 / aboutItems.length)}%` }}
             >
               {item.title}
@@ -34,7 +34,7 @@ const about = () => {
           <TabsContent
             value={item.title}
             key={i}
-            className="shadow-xl bg-sky-500 rounded-md p-6"
+            className="shadow-xl bg-teal-400 rounded-md p-6 w-full"
           >
             <p className="text-black w-2/3">{item.content}</p>
           </TabsContent>
