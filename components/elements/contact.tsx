@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 
 // TODO finalize styling
+// TODO change go to to an icon
 
 const contact = () => {
   return (
