@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Contact from "@/components/elements/contact";
 
-// TODO mobile nav
+// TODO mobile nav (use shadcn drawer)
 // TODO switch this to a dynamic list of sections
 // TODO make links on click scroll
 

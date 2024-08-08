@@ -3,7 +3,6 @@ import { aboutItems } from "@/data";
 import BigButton from "@/components/elements/bigButton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// TODO add more styling to tabs
 // TODO maybe add pictures or graphics to each tab?
 // FIXME make tabs fixed height
 
