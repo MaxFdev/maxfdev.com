@@ -14,7 +14,7 @@ const header = () => {
     >
       <p className="bg-black text-white text-center">
         This site is still under development. Some parts may not be fully
-        functional.
+        functional, and some info might be out of date.
       </p>
       <div className="bg-white h-16 px-[2vw] lg:px-12 flex justify-between items-center">
         <Link href="/#main">
