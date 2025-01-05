@@ -35,7 +35,7 @@ const about = () => {
             key={i}
             className="shadow-xl bg-teal-400 rounded-md p-6 w-full"
           >
-            <p className="text-black w-2/3">{item.content}</p>
+            <p className="text-black">{item.content}</p>
           </TabsContent>
         ))}
       </Tabs>
