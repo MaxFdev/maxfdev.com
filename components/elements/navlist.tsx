@@ -37,7 +37,7 @@ const navlist = () => {
       </ul>
       <Drawer>
         <DrawerTrigger asChild>
-          <button className="md:hidden text-blue-500">≡</button>
+          <button className="md:hidden text-blue-500 px-5 text-6xl">≡</button>
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
@@ -60,9 +60,6 @@ const navlist = () => {
               <Contact />
             </li>
           </ul>
-          <DrawerClose>
-            <button className="md:hidden">×</button>
-          </DrawerClose>
         </DrawerContent>
       </Drawer>
     </nav>
