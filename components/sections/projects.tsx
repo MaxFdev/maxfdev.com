@@ -1,7 +1,6 @@
 import React from "react";
 import ProjectCarousel from "@/components/elements/projectCarousel";
 import BigButton from "@/components/elements/bigButton";
-import Readmes from "@/components/elements/readmes";
 
 // TODO finish and fix styling
 // TODO make projects come from github
@@ -21,8 +20,6 @@ const projects = () => {
       >
         More Projects - GitHub
       </BigButton>
-
-      <Readmes username={"MaxFdev"} />
     </section>
   );
 };
