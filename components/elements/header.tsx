@@ -13,7 +13,7 @@ const header = () => {
       className="fixed z-50 top-0 left-0 w-full border-b border-b-blue-500/50 shadow-md"
     >
       <p className="bg-black text-white text-center">
-        This site is still under development. Some parts may not be fully
+        WIP: Some parts may not be fully
         functional, and some info might be out of date.
       </p>
       <div className="bg-white h-16 px-[2vw] lg:px-12 flex justify-between items-center">
