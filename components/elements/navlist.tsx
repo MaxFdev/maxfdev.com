@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Contact from "@/components/elements/contact";
@@ -11,9 +13,10 @@ import {
 
 // TODO get the drawer to work
 // TODO switch this to a dynamic list of sections
-// FIXME make links on click scroll
+// TODO switch link buttons to separate component and make this "use server"
 
-const navlist = () => {
+const Navlist = () => {
+  const [open, setOpen] = React.useState(false);
   return (
     <nav className="flex justify-center items-center font-trebuchet text-xl">
       <ul className="hidden md:flex flex-row justify-center items-center text-blue-500 lg:gap-8 md:gap-6">
@@ -36,9 +39,17 @@ const navlist = () => {
       <div className="md:hidden">
         <Contact />
       </div>
-      <Drawer>
+      <Drawer
+        open={open}
+        onOpenChange={setOpen}
+      >
         <DrawerTrigger asChild>
-          <button className="md:hidden text-blue-500 px-5 text-5xl">≡</button>
+          <button
+            className="md:hidden text-blue-500 px-5 text-5xl"
+            onClick={() => setOpen(true)}
+          >
+            ≡
+          </button>
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
@@ -50,24 +61,60 @@ const navlist = () => {
             <Link
               className="shadow-md bg-slate-100 hover:shadow-xl rounded py-4"
               href="/#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setTimeout(() => {
+                  document
+                    .getElementById("hero")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 500);
+              }}
             >
               Intro
             </Link>
             <Link
               className="shadow-md bg-slate-100 hover:shadow-xl rounded py-4"
               href="/#about"
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setTimeout(() => {
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 500);
+              }}
             >
               About
             </Link>
             <Link
               className="shadow-md bg-slate-100 hover:shadow-xl rounded py-4"
               href="/#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setTimeout(() => {
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 500);
+              }}
             >
               Projects
             </Link>
             <Link
               className="shadow-md bg-slate-100 hover:shadow-xl rounded py-4"
               href="/#skills"
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setTimeout(() => {
+                  document
+                    .getElementById("skills")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 500);
+              }}
             >
               Skills
             </Link>
@@ -78,4 +125,4 @@ const navlist = () => {
   );
 };
 
-export default navlist;
+export default Navlist;
