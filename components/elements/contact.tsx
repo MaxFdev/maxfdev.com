@@ -17,7 +17,7 @@ const contact = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Contact</Button>
+        <Button className="h-fit">Contact</Button>
       </DialogTrigger>
       <DialogContent className="max-sm:w-96 max-sm:rounded-lg">
         <DialogHeader>
