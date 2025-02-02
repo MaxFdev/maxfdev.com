@@ -26,7 +26,7 @@ const hero = () => {
             
           </p>
           <Button
-            href="/documents/DemoResumeJan2025.pdf"
+            href="/documents/DemoResumeJanuary2025.pdf"
             target="_blank"
           >
             View Sample Resume
