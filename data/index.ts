@@ -3,27 +3,27 @@
 // FIXME finalize intro writing
 
 export const intro = {
-  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in computer science at Yeshiva University. As someone learning new things all the time, I have studied many subjects in my field to become a well-rounded professional. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in IT consulting and the other in website development. I am always working on new and exciting projects. Alongside my technical experience, I have strong programming skills, primarily in Java, and a lot of experience developing programs for Linux-based systems.",
+  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to get into the Software Engineering industry. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in website development and the other in IT consulting. Alongside my technical experience, I have a lot of experience programming, primarily in Java.",
 };
 
 // FIXME finish rewriting sections
-// TODO add graphics for each tab
+// TODO add graphics for each tab | something nicer to look at
 
 export const aboutItems = [
   {
     title: "Academics",
     content:
-      "I have been enrolled at Yeshiva University since August of 2022. Since then, I have been committed to pursuing a B.S. in Computer Science. Within my major, I specialize in Distributed Systems. Through my classes and coursework, I have developed a solid foundation in programming, primarily with Java, and proficiencies in data structures and algorithms. Through my studies, I have worked on many projects that practically apply C.S. theory, such as Multithreaded Mandelbrot Generators, TLB Cache Simulator, and StockTerminal. Additionally, I have been chosen to fill the role of senior website manager for the YU Observer, a school newspaper. The role involves working with a team of students to maintain and update the website.",
+      "I have been enrolled at Yeshiva University since August of 2022. Since then, I have been committed to pursuing a B.S. in Computer Science, with a focus in Distributed Systems. Through my classes and coursework, I have developed a solid foundation in programming, primarily with Java, but also in C and Python. Through my studies, I have worked on many projects that practically apply C.S. theory in many contexts, such as Parallel Programming, Distributed Systems, and Networking. Additionally, I have been chosen to fill the role of Head Website Manager for the YU Observer, a school newspaper. The role involves working with a team of students to maintain and update the website.",
   },
   {
     title: "Business",
     content:
-      "While in high school, I started to learn how to build websites with WordPress as a side project. After hearing that I could develop websites, family and friends offered to pay me to redo their websites. I grew from doing odd jobs for family and friends to running a freelance website development business catering to small local businesses. Along with needing websites, some clients needed I.T. work, mainly networking, hardware modifications, and software setup. So, in addition to offering freelance website development, I started a separate business for freelance I.T. work. I leveraged my technological knowledge to assist my clients in both lines of work. After stopping to accept new clients, I used my experience to pivot into working in I.T. for my university.",
+      "In 2018 I started to learn how to build websites with WordPress as a side project. Soon after learning, family and friends offered to pay me to build, fix, and redo their websites. I grew from doing odd jobs for family and friends to running a freelance website development business catering to small local businesses. In addition to websites, some clients needed I.T. work, mainly networking, hardware modifications, and software setup. So I began offering freelance I.T. consulting services alongside web development.",
   },
-  // TODO add:
   {
     title: "Professional",
-    content: "...",
+    content: 
+      "In May of 2024, I began working as a Student I.T. Specialist for Yeshiva University. My role primarily consists of setting up I.T. infrastructure and assisting students and faculty with all sorts of issues. I plan on pivoting into Software Engineering in the near future.",
   },
 ];
 
@@ -52,7 +52,7 @@ export const projectItems = [
   {
     img: "/images/Website.png",
     color: "#ccc2ff",
-    title: "Website",
+    title: "Website (Original)",
     content:
       "This portfolio website stands as a testament to my growth and proficiency in web development. Crafted as a personal project, it has been instrumental in expanding my knowledge of front-end technologies, including HTML, CSS, and JavaScript. Through this website, I showcase my skills, experiences, and projects, providing visitors with an interactive and informative browsing experience. Hosted on Cloudflare Pages, the site benefits from the enhanced security features offered by Cloudflare, ensuring a safe browsing environment. Furthermore, leveraging DNS routing and Cloudflare tunnels, the website seamlessly grants access to my home lab, enabling me to continually expand my web infrastructure and explore new possibilities.",
     tags: ["WEB DEVELOPMENT", "DNS", "CLOUDFLARE", "HTML/CSS", "JAVASCRIPT"],
