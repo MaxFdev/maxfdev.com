@@ -1,4 +1,4 @@
-# [www.maxfdev.com](https://next.maxfdev.com) (WIP)
+# [www.maxfdev.com](https://maxfdev.com)
 
 This is my new portfolio website made using next.js.
 
@@ -12,4 +12,4 @@ This site uses typescript and tailwinds, and is configured to deploy on cloudfla
 
 ### Libraries
 
-The was built with libraries such as shadcn and aceternity.
+The was built with custom components and some libraries, such as shadcn.
