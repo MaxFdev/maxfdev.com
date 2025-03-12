@@ -1,8 +1,6 @@
 import Link from "next/link";
 import React from "react";
 
-// TODO add message and look into auto updating message
-
 const Footer = () => {
   // Format the date for display
   const formatDate = () => {
