@@ -1,10 +1,24 @@
 import Link from "next/link";
 import React from "react";
-import { lastUpdated } from "@/utils/updated";
 
 // TODO add message and look into auto updating message
 
-const footer = () => {
+const Footer = () => {
+  // Format the date for display
+  const formatDate = () => {
+    if (!process.env.LAST_UPDATED) return "Recently";
+
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return new Date(process.env.LAST_UPDATED).toLocaleDateString(
+      undefined,
+      options
+    );
+  };
+
   return (
     <footer
       id="footer"
@@ -20,11 +34,11 @@ const footer = () => {
           >
             icons8
           </Link>
-          | Updated {lastUpdated()}
+          | Updated {formatDate()}
         </p>
       </div>
     </footer>
   );
 };
 
-export default footer;
+export default Footer;
