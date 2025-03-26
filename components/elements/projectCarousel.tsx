@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 
 // TODO on refresh make carousel remember which slide was in view?
-// TODO switch to 2 per page?
+// TODO switch to a grid of projects which expand on click?
 
 
 const ProjectCarousel = () => {
@@ -43,7 +43,6 @@ const ProjectCarousel = () => {
   }, []);
 
   // TODO make more mobile friendly (maybe make dragging work on mobile)
-
   // TODO finish styling
 
   return (

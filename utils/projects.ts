@@ -1,4 +1,5 @@
-// TODO test / finish this
+// TODO add a way to order the projects (ranking)
+// TODO find a way to get the image
 
 export async function fetchRepositories(username: string): Promise<any[]> {
   const response = await fetch(
