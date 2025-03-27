@@ -1,4 +1,5 @@
 // TODO add a way to order the projects (ranking)
+// TODO add a way to get a background color for each
 // TODO find a way to get the image
 
 export async function fetchRepositories(username: string): Promise<any[]> {
