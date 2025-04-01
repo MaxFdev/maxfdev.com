@@ -23,6 +23,15 @@ const nextConfig = {
   env: {
     LAST_UPDATED: getLastCommitDate(),
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
