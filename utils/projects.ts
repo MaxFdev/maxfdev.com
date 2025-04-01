@@ -1,6 +1,4 @@
-// TODO add a way to order the projects (ranking)
-// TODO add a way to get a background color for each
-// TODO find a way to get the image
+// TODO finalize all functions
 
 export async function fetchRepositories(username: string): Promise<any[]> {
   const response = await fetch(
@@ -18,6 +16,18 @@ interface ProjectDetail {
   description: string;
   topics: string[];
   repoUrl: string;
+  rank: number;
+  backgroundColor: string;
+}
+
+interface ProjectDetail {
+  name: string;
+  image: string;
+  description: string;
+  topics: string[];
+  repoUrl: string;
+  rank: number;
+  backgroundColor: string;
 }
 
 export async function fetchProjectDetails(username: string): Promise<ProjectDetail[]> {
@@ -32,15 +42,17 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
           // Fetch DESC.md content
           const descContent = await fetchDescFile(username, repo.name);
           
-          // Parse DESC.md to extract image and description
-          const { image, description } = parseDescContent(descContent);
+          // Parse DESC.md to extract image, description, rank, and backgroundColor
+          const { image, description, rank, backgroundColor } = parseDescContent(descContent);
           
           return {
             name: repo.name,
             image,
             description,
             topics: repo.topics || [],
-            repoUrl: repo.html_url
+            repoUrl: repo.html_url,
+            rank,
+            backgroundColor
           };
         } catch (error) {
           console.log(`No DESC.md found for ${repo.name}, skipping...`);
@@ -50,7 +62,10 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
     );
     
     // Filter out repositories without DESC.md files
-    return projectDetails.filter(Boolean) as ProjectDetail[];
+    const filteredProjects = projectDetails.filter(Boolean) as ProjectDetail[];
+    
+    // Sort projects by rank (higher ranks first)
+    return filteredProjects.sort((a, b) => b.rank - a.rank);
   } catch (error) {
     console.error("Error fetching project details:", error);
     return [];
