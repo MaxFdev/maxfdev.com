@@ -76,7 +76,12 @@ async function fetchDescFile(owner: string, repo: string): Promise<string> {
 }
 
 // Helper function to parse DESC.md content
-function parseDescContent(content: string): { image: string; description: string } {
+function parseDescContent(content: string): { 
+  image: string; 
+  description: string;
+  rank: number;
+  backgroundColor: string;
+} {
   // Extract image URL - assuming it's in markdown format ![alt](url)
   const imageRegex = /!\[.*?\]\((.*?)\)/;
   const imageMatch = content.match(imageRegex);
@@ -86,11 +91,47 @@ function parseDescContent(content: string): { image: string; description: string
     image = imageMatch[1];
   }
   
-  // Get description text (everything after the image)
-  let description = content;
-  if (imageMatch) {
-    description = content.replace(imageMatch[0], '').trim();
+  // Extract rank - format "Rank: #" where # is 0-2
+  const rankRegex = /Rank:\s*(\d+)/i;
+  const rankMatch = content.match(rankRegex);
+  
+  let rank = 0; // Default rank
+  if (rankMatch && rankMatch[1]) {
+    const parsedRank = parseInt(rankMatch[1], 10);
+    // Ensure rank is between 0 and 2
+    if (parsedRank >= 0 && parsedRank <= 2) {
+      rank = parsedRank;
+    }
   }
   
-  return { image, description };
+  // Extract background color - format "Color: Hex"
+  const colorRegex = /Color:\s*(#?[A-Fa-f0-9]{6}|#?[A-Fa-f0-9]{3})/i;
+  const colorMatch = content.match(colorRegex);
+  
+  let backgroundColor = ''; // Default empty string for background color
+  if (colorMatch && colorMatch[1]) {
+    // Ensure the hex color has a # prefix
+    backgroundColor = colorMatch[1].startsWith('#') ? colorMatch[1] : '#' + colorMatch[1];
+  }
+  
+  // Get description text (everything after removing metadata)
+  let description = content;
+  
+  // Remove all metadata markers from description
+  if (imageMatch) {
+    description = description.replace(imageMatch[0], '');
+  }
+  
+  if (rankMatch) {
+    description = description.replace(rankMatch[0], '');
+  }
+  
+  if (colorMatch) {
+    description = description.replace(colorMatch[0], '');
+  }
+  
+  // Clean up whitespace, including newlines at start/end
+  description = description.trim();
+  
+  return { image, description, rank, backgroundColor };
 }
