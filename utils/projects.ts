@@ -1,4 +1,5 @@
 // TODO finalize all functions
+// TODO add caching
 
 export async function fetchRepositories(username: string): Promise<any[]> {
   const response = await fetch(
@@ -8,16 +9,6 @@ export async function fetchRepositories(username: string): Promise<any[]> {
     throw new Error(`Failed to get repos for ${username}`);
   }
   return await response.json();
-}
-
-interface ProjectDetail {
-  name: string;
-  image: string;
-  description: string;
-  topics: string[];
-  repoUrl: string;
-  rank: number;
-  backgroundColor: string;
 }
 
 interface ProjectDetail {
