@@ -10,9 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-// GitHub username to fetch projects from
-const GITHUB_USERNAME = "maxfdev"; // Update this to your actual GitHub username
+import { Skeleton } from "../ui/skeleton";
 
 const ProjectCarousel = () => {
   // State for projects data
@@ -29,8 +27,14 @@ const ProjectCarousel = () => {
     const loadProjects = async () => {
       try {
         setLoading(true);
-        const projectDetails = await fetchProjectDetails(GITHUB_USERNAME);
-        setProjects(projectDetails);
+        if (process.env.NEXT_PUBLIC_GITHUB_ACCOUNT) {
+          const projectDetails = await fetchProjectDetails(
+            process.env.NEXT_PUBLIC_GITHUB_ACCOUNT
+          );
+          setProjects(projectDetails);
+        } else {
+          throw new Error("No account specified.");
+        }
       } catch (err) {
         console.error("Failed to fetch projects:", err);
         setError("Unable to load projects. Please try again later.");
@@ -62,9 +66,34 @@ const ProjectCarousel = () => {
 
   if (loading) {
     return (
-      <div className="w-[75vw] flex justify-center py-8">
-        Loading projects...
-      </div>
+      <Carousel className="w-[75vw]">
+        <CarouselContent className="py-4">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <CarouselItem
+              className="md:basis-1/2 lg:basis-1/3"
+              key={index}
+            >
+              <div className="p-1">
+                <div className="flex flex-col h-full p-6 space-y-4 bg-muted rounded-lg">
+                  <Skeleton className="h-40 w-full" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-6 w-3/4" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    <Skeleton className="h-6 w-16 rounded-full" />
+                    <Skeleton className="h-6 w-20 rounded-full" />
+                    <Skeleton className="h-6 w-14 rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     );
   }
 
