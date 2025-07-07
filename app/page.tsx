@@ -10,7 +10,7 @@ export default function Home() {
       className="mt-20 scroll-mt-[100vh]"
     >
       <Hero />
-      <About />
+      {/* <About /> */}
       <Projects />
       <Skills />
     </main>

@@ -18,7 +18,7 @@ const projects = () => {
         target="_blank"
         className="hover:bg-purple-400"
       >
-        More Projects - GitHub
+        GitHub Profile
       </BigButton>
     </section>
   );
