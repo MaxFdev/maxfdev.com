@@ -18,7 +18,7 @@ const bigButton = ({
       target={target}
     >
       <button
-        className={`w-fit p-4 rounded border-2 border-black bg-black text-white font-trebuchet font-semibold text-2xl hover:scale-110 ${className}`}
+        className={`w-fit p-4 rounded border-2 border-black bg-black text-white font-trebuchet font-semibold text-2xl hover:scale-110 transitions ${className}`}
       >
         {children}
       </button>

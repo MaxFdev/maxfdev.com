@@ -38,7 +38,7 @@ const skills = () => {
               <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 p-4">
                 {section.items.map((item, itemKey) => (
                   <li key={itemKey}>
-                    <figure className="p-1 w-20 h-20 flex flex-col justify-center items-center rounded hover:scale-110 hover:p-5 hover:[box-shadow:_var(--shadow-icon)]">
+                    <figure className="p-1 w-20 h-20 flex flex-col justify-center items-center rounded hover:scale-110 hover:p-5 hover:[box-shadow:_var(--shadow-icon)] transitions">
                       <Image
                         height={50}
                         width={50}

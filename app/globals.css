@@ -33,6 +33,15 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    /* TODO finalize global styles */
+    /* FIXME all clamps */
+    --gap-clamp: clamp(32px, 3.5vw, 64px);
+    --hero-clamp: clamp(500px, 50vw, 600px);
+    --width-clamp: clamp(600px, 75vw, 1060px);
+    --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
+    --shadow-icon: 0px 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .dark {
@@ -69,9 +78,35 @@
 @layer base {
   * {
     @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h2 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  p {
+    font-family: var(--font-noto-sans), sans-serif;
+    font-weight: 600;
+  }
+
+  .hero_img:hover {
+    transform: translateY(-4px);
+  }
+  
+  .transitions {
+    transition: 0.3s;
   }
 }
 
@@ -85,41 +120,4 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-}
-
-/* TODO finalize global styles */
-
-:root {
-  --gap-clamp: clamp(32px, 3.5vw, 64px); /* FIXME all clamps */
-  --hero-clamp: clamp(500px, 50vw, 600px); /* FIXME all clamps */
-  --width-clamp: clamp(600px, 75vw, 1060px); /* FIXME all clamps */
-  --shadow-light: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
-  --shadow-strong: 0px 0px 8px 4px rgba(0, 0, 0, 0.15);
-  --shadow-icon: 0px 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: 0.3s;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-h2 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 48px;
-  font-weight: bold;
-}
-
-p {
-  font-family: var(--font-noto-sans), sans-serif;
-  font-weight: 600;
-}
-
-.hero_img:hover {
-  transform: translateY(-4px);
 }
