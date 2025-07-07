@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Contact from "@/components/elements/contact";
 import Navlist from "@/components/elements/navlist";
 
 // TODO make nav styling change on scroll (scrolling effect)
@@ -22,7 +23,7 @@ const header = () => {
             Max Franklin
           </h1>
         </Link>
-        <Navlist />
+        <Contact />
       </div>
     </header>
   );

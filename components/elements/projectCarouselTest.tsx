@@ -73,18 +73,30 @@ const ProjectCarousel = () => {
               className="md:basis-1/2 lg:basis-1/3"
               key={index}
             >
-              <div className="p-1">
-                <div className="flex flex-col h-full p-6 space-y-4 bg-muted rounded-lg">
-                  <Skeleton className="h-40 w-full" />
-                  <div className="space-y-2">
-                    <Skeleton className="h-6 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-5/6" />
+              <div className="flex flex-col gap-2 p-1">
+                <Skeleton className="h-[200px] w-full rounded-lg !animate-none" />
+                <div className="flex flex-col rounded-lg p-3 gap-2 h-[520px] bg-muted">
+                  <Skeleton className="h-8 w-3/4 bg-slate-300" />
+                  <div className="mt-4 flex gap-1 h-12 items-center">
+                    <Skeleton className="h-7 w-16 bg-slate-300" />
+                    <Skeleton className="h-7 w-20 rounded-3xl bg-slate-300" />
+                    <Skeleton className="h-7 w-24 rounded-3xl bg-slate-300" />
+                    <Skeleton className="h-7 w-16 rounded-3xl bg-slate-300" />
                   </div>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    <Skeleton className="h-6 w-16 rounded-full" />
-                    <Skeleton className="h-6 w-20 rounded-full" />
-                    <Skeleton className="h-6 w-14 rounded-full" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-full bg-slate-300" />
+                    <Skeleton className="h-4 w-5/6 bg-slate-300" />
+                  </div>
+                  <div className="mt-auto">
+                    <Skeleton className="h-10 w-32 bg-slate-300" />
                   </div>
                 </div>
               </div>

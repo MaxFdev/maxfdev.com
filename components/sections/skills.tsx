@@ -17,7 +17,7 @@ const skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col justify-center items-center scroll-mt-16 my-20 py-16 gap-16 bg-slate-200"
+      className="flex flex-col justify-center items-center scroll-mt-16 my-20 py-16 gap-16"
     >
       <h2 className="text-center">What I Know And Use.</h2>
       <Accordion

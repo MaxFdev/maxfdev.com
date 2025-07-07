@@ -22,8 +22,8 @@ const project = ({
   return (
     // TODO make shadows interactive
     <div className="flex flex-col gap-2 p-1">
-      {img ? (
-        <div className="h-[200px] w-full overflow-hidden rounded-lg drop-shadow-md">
+      <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md">
+        {img ? (
           <Image
             src={img}
             alt={title}
@@ -31,12 +31,12 @@ const project = ({
             height={1080}
             className="w-full h-full object-cover object-top"
           />
-        </div>
-      ) : (
-        <div className="w-full h-[200px] rounded-lg drop-shadow-md bg-gray-200 animate-pulse" />
-      )}
+        ) : (
+          <div className="h-full w-full rounded-lg drop-shadow-md bg-gray-200" />
+        )}
+      </div>
       <div
-        className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 h-[50vh]"
+        className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 h-[520px]"
         style={{ backgroundColor: `${color}` }}
       >
         <h3 className="text-2xl font-bold">{title}</h3>
@@ -51,7 +51,7 @@ const project = ({
             </span>
           ))}
         </div>
-        <p className="text-md line-clamp-[12]">{content}</p>
+        <p className="text-md line-clamp-[14]">{content}</p>
         <div className="mt-auto">
           <Button
             href={link}

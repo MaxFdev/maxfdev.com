@@ -21,15 +21,12 @@ const hero = () => {
           <h2 className="!text-4xl font-trebuchet font-semibold">
             Introduction.
           </h2>
-          <p className="font-semibold">
-            {intro.text}
-            
-          </p>
+          <p className="font-semibold">{intro.text}</p>
           <Button
-            href="/documents/DemoResume.pdf"
+            href="https://www.linkedin.com/in/max--franklin/"
             target="_blank"
           >
-            View Sample Resume
+            View My LinkedIn
           </Button>
         </div>
       </div>
