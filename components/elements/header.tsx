@@ -1,10 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Contact from "@/components/elements/contact";
-import Navlist from "@/components/elements/navlist";
 
 // TODO make nav styling change on scroll (scrolling effect)
-// TODO make nav not change the url (just scroll on click)
 // TODO make slightly transparent with blur
 // TODO add a gap to the top of the page so that content doesn't get hidden
 

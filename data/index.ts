@@ -1,34 +1,9 @@
-// TODO fix writing
-
 // FIXME finalize intro writing
-
 export const intro = {
   text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to get into the Software Engineering industry. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in website development and the other in IT consulting. Alongside my technical experience, I have a lot of experience programming, primarily in Java.",
 };
 
-// FIXME finish rewriting sections
-// TODO add graphics for each tab | something nicer to look at
-
-export const aboutItems = [
-  {
-    title: "Academics",
-    content:
-      "I have been enrolled at Yeshiva University since August of 2022. Since then, I have been committed to pursuing a B.S. in Computer Science, with a focus in Distributed Systems. Through my classes and coursework, I have developed a solid foundation in programming, primarily with Java, but also in C and Python. Through my studies, I have worked on many projects that practically apply C.S. theory in many contexts, such as Parallel Programming, Distributed Systems, and Networking. Additionally, I have been chosen to fill the role of Head Website Manager for the YU Observer, a school newspaper. The role involves working with a team of students to maintain and update the website.",
-  },
-  {
-    title: "Business",
-    content:
-      "In 2018 I started to learn how to build websites with WordPress as a side project. Soon after learning, family and friends offered to pay me to build, fix, and redo their websites. I grew from doing odd jobs for family and friends to running a freelance website development business catering to small local businesses. In addition to websites, some clients needed I.T. work, mainly networking, hardware modifications, and software setup. So I began offering freelance I.T. consulting services alongside web development.",
-  },
-  {
-    title: "Professional",
-    content: 
-      "In May of 2024, I began working as a Student I.T. Specialist for Yeshiva University. My role primarily consists of setting up I.T. infrastructure and assisting students and faculty with all sorts of issues. I plan on pivoting into Software Engineering in the near future.",
-  },
-];
-
 // TODO source projects from github?
-// TODO store text differently & redo writing
 
 export const projectItems = [
   {
@@ -62,7 +37,6 @@ export const projectItems = [
 
 // TODO add more socials (hacker rank, leet code, this website)?
 // TODO make user copyable and link go to icon
-
 export const socials = [
   {
     title: "Email",
