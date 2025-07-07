@@ -11,7 +11,7 @@ const hero = () => {
     >
       <div className="flex flex-col lg:flex-row justify-center items-center gap-[var(--gap-clamp)]">
         <Image
-          src={"/images/Profile_Picture.jpeg"}
+          src={"/images/Profile_Picture.jpg"}
           alt={"Profile Picture"}
           width={400}
           height={400}
