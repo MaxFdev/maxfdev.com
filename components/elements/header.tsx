@@ -1,22 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Contact from "@/components/elements/contact";
 
-// TODO make slightly transparent with blur
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-const header = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Set initial state on mount
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header
       id="header"
-      className="h-[88px] mb-8"
+      className="h-16 mb-8"
     >
-      <nav className="fixed z-10 top-0 w-full border-b border-b-blue-500/50 shadow-md">
-        <p className="bg-black text-white text-center">
-          WIP: I am in the process of overhauling parts of the site.
-        </p>
-        <div className="bg-white h-16 px-[2vw] lg:px-12 flex justify-between items-center">
+      <nav
+        className={`fixed z-10 top-0 w-full transition-all ${
+          isScrolled ? "border-b border-b-blue-500/20 shadow-md" : ""
+        }`}
+      >
+        <div className="bg-white/60 backdrop-blur-lg h-16 px-[2vw] lg:px-12 flex justify-between items-center">
           <Link
             href="/#"
             onClick={(e) => {
@@ -35,4 +47,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
