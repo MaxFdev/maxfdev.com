@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*  TODO update to tailwind v4  */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -35,7 +34,6 @@
 
     --radius: 0.5rem;
 
-    /* TODO finalize global styles */
     /* FIXME all clamps */
     --gap-clamp: clamp(32px, 3.5vw, 64px);
     --hero-clamp: clamp(500px, 50vw, 600px);
