@@ -9,7 +9,7 @@ const projects = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col justify-center items-center scroll-mt-20 gap-[var(--gap-clamp)]"
+      className="flex flex-col justify-center items-center gap-[var(--gap-clamp)]"
     >
       <h2 className="text-center">Some Of My Projects.</h2>
       <ProjectCarousel />

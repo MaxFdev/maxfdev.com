@@ -3,11 +3,13 @@ import Image from "next/image";
 import Button from "@/components/elements/button";
 import { intro } from "@/data/index";
 
+// TODO add loading skeleton
+
 const hero = () => {
   return (
     <section
       id="hero"
-      className="flex justify-center scroll-mt-20 my-20 lg:my-36"
+      className="flex justify-center"
     >
       <div className="flex flex-col lg:flex-row justify-center items-center gap-[var(--gap-clamp)]">
         <Image
