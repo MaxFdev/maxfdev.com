@@ -24,24 +24,23 @@ const Header = () => {
       className="h-16 mb-8"
     >
       <nav
-        className={`fixed z-10 top-0 w-full transition-all ${
+        className={`fixed z-10 top-0 w-full transition-all bg-white/60 backdrop-blur-lg h-16 px-[2vw] lg:px-12 flex justify-between items-center ${
           isScrolled ? "border-b border-b-blue-500/20 shadow-md" : ""
         }`}
       >
-        <div className="bg-white/60 backdrop-blur-lg h-16 px-[2vw] lg:px-12 flex justify-between items-center">
-          <Link
-            href="/#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            <h1 className="font-verdana text-blue-500 font-semibold text-3xl [text-shadow:_1px_1px_0px_#000000ab]">
-              Max Franklin
-            </h1>
-          </Link>
-          <Contact />
-        </div>
+        <Link
+          href="/#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          <h1 className="font-verdana text-blue-500 font-semibold text-3xl [text-shadow:_1px_1px_0px_#000000ab]">
+            Max Franklin
+          </h1>
+        </Link>
+        {/* FIXME this isn't working here */}
+        <Contact />
       </nav>
     </header>
   );

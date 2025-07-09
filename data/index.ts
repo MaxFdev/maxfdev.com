@@ -36,7 +36,6 @@ export const projectItems = [
 ];
 
 // TODO add more socials (hacker rank, leet code, this website)?
-// TODO make user copyable and link go to icon
 export const socials = [
   {
     title: "Email",

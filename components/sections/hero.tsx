@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "@/components/elements/button";
 import { intro } from "@/data/index";
-
-// TODO add loading skeleton
+import Contact from "../elements/contact";
 
 const hero = () => {
   return (
@@ -30,6 +29,11 @@ const hero = () => {
           >
             View My LinkedIn
           </Button>
+          {/* HACK fix the contact */}
+          <div className="mt-2">
+            <Contact />
+            <p className="text-sm">*Contact at top under maintenance</p>
+          </div>
         </div>
       </div>
     </section>

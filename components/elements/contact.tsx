@@ -10,10 +10,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+// TODO change icons
 // TODO finalize styling
-// TODO change go to to an icon
 
-const contact = () => {
+const Contact = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -52,4 +52,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
