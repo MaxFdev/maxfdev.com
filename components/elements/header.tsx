@@ -1,3 +1,4 @@
+// TODO fix problem with the use client breaking contact
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -39,8 +40,7 @@ const Header = () => {
             Max Franklin
           </h1>
         </Link>
-        {/* FIXME this isn't working here */}
-        <Contact />
+        <Contact /> 
       </nav>
     </header>
   );
