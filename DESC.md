@@ -1,5 +1,5 @@
 ![Test](/cover.png)
 Rank: 2
-Color: #ffffff
+Color: #a5d6ff
 
 This is a test description for this project
