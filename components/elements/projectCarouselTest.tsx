@@ -13,7 +13,6 @@ import {
 import { Skeleton } from "../ui/skeleton";
 
 // TODO make the fetches happen server side
-// TODO host the images locally on the site
 
 const ProjectCarousel = () => {
   // State for projects data

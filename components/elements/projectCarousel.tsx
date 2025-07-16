@@ -43,7 +43,6 @@ const ProjectCarousel = () => {
   }, []);
 
   // TODO make more mobile friendly (maybe make dragging work on mobile)
-  // TODO finish styling
 
   return (
     <Carousel
