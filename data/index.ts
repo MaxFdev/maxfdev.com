@@ -6,7 +6,7 @@ export const intro = {
 
 export const projectItems = [
   {
-    img: "/images/StockTerminal.png",
+    img: "/images/projects/StockTerminal.png",
     color: "#00ffa2",
     title: "StockTerminal",
     content:
@@ -15,7 +15,7 @@ export const projectItems = [
     link: "https://github.com/MaxFdev/StocksTerminal_SE_Project",
   },
   {
-    img: "/images/HomeLab.png",
+    img: "/images/projects/HomeLab.png",
     color: "#90dcff",
     title: "Home Lab",
     content:
@@ -24,7 +24,7 @@ export const projectItems = [
     link: "https://github.com/MaxFdev/HomeLab",
   },
   {
-    img: "/images/Website.png",
+    img: "/images/projects/Website.png",
     color: "#ccc2ff",
     title: "Website (Original)",
     content:

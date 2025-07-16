@@ -96,7 +96,7 @@ function parseDescContent(content: string): {
   backgroundColor: string;
 } {
   // Extract image URL - assuming it's in markdown format ![alt](url)
-  const imageRegex = /!\[.*?\]\((.*?)\)/;
+  const imageRegex = /Image:\s*(.*)/i;
   const imageMatch = content.match(imageRegex);
 
   let image = "";
