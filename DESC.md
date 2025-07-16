@@ -1,4 +1,4 @@
-![Test](https://raw.githubusercontent.com/MaxFdev/maxfdev.com/refs/heads/main/public/images/background.jpeg)
+![Test](/cover.png)
 Rank: 2
 Color: #ffffff
 
