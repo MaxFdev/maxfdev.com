@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -24,15 +23,7 @@ const Footer = () => {
     >
       <div className="border-dashed border-t-[1px] border-t-gray-500 p-1">
         <p className="max-sm:text-xs">
-          I designed and coded this site | Icons from{" "}
-          <Link
-            href="https://icons8.com"
-            target="_blank"
-            className="text-blue-500"
-          >
-            icons8
-          </Link>
-          | Updated {formatDate()}
+          I designed and developed this site | Updated {formatDate()}
         </p>
       </div>
     </footer>
