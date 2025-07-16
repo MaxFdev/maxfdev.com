@@ -1,6 +1,5 @@
-// FIXME finalize intro writing
 export const intro = {
-  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to get into the Software Engineering industry. I am currently employed in my university's IT department, where I help deploy infrastructure and resolve issues related to networking and all sorts of software. I had previously run two successful freelance businesses, one in website development and the other in IT consulting. Alongside my technical experience, I have a lot of experience programming, primarily in Java.",
+  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to work in the Software Engineering industry developing cutting edge systems. I have a lot of experience with developing systems and projects in Java, as well building full-stack websites.",
 };
 
 // TODO source projects from github?
