@@ -29,11 +29,6 @@ const hero = () => {
           >
             View My LinkedIn
           </Button>
-          {/* HACK fix the contact */}
-          <div className="mt-2">
-            <Contact />
-            <p className="text-sm">*Contact at top under maintenance</p>
-          </div>
         </div>
       </div>
     </section>
