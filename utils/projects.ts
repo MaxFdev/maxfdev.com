@@ -1,3 +1,4 @@
+// TODO add desc to each project on github
 // TODO finalize all functions
 // FIXME add better error handling
 
