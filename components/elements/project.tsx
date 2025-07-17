@@ -21,7 +21,6 @@ const project = ({
   link: string;
 }) => {
   return (
-    // TODO make shadows interactive
     <div className="flex flex-col gap-2 p-1">
       <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md">
         {img ? (

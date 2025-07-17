@@ -11,10 +11,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// TODO on refresh make carousel remember which slide was in view?
-// TODO switch to a grid of projects which expand on click?
-
-
 const ProjectCarousel = () => {
   // State to store a unique key for forcing remount
   const [componentKey, setComponentKey] = useState(0);

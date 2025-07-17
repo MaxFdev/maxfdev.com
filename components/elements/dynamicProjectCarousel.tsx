@@ -14,7 +14,7 @@ import { Skeleton } from "../ui/skeleton";
 
 // TODO make the fetches happen server side
 
-const ProjectCarousel = () => {
+const DynamicProjectCarousel = () => {
   // State for projects data
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -150,4 +150,4 @@ const ProjectCarousel = () => {
   );
 };
 
-export default ProjectCarousel;
+export default DynamicProjectCarousel;
