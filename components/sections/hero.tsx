@@ -15,6 +15,7 @@ const hero = () => {
           alt={"Profile Picture"}
           width={400}
           height={400}
+          priority
           className="w-[60vw] sm:w-[240px] lg:w-[400px] rounded-full shadow-xl hover:shadow-2xl hero_img transitions object-cover"
         />
         <div className="flex flex-col justify-center w-11/12 sm:w-[var(--hero-clamp)] p-4 gap-2 rounded-2xl [box-shadow:_var(--shadow-light)] hover:[box-shadow:_var(--shadow-strong)] transitions">
