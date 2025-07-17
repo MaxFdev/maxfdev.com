@@ -27,7 +27,8 @@ const project = ({
           <Image
             src={img}
             alt={title}
-            fill
+            width={960}
+            height={540}
             className="w-full h-full object-cover object-top"
           />
         ) : (

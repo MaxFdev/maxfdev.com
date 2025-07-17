@@ -1,17 +1,46 @@
 // TODO finalize all functions
 // TODO add caching
+// FIXME add better error handling
 
+// Simple in-memory cache
+const cache: Record<string, { data: any; expiry: number }> = {};
+const CACHE_DURATION = 86400 * 1000; // 1 day in ms
+
+function getCached(key: string) {
+  const entry = cache[key];
+  if (entry && entry.expiry > Date.now()) {
+    return entry.data;
+  }
+  return null;
+}
+
+function setCached(key: string, data: any) {
+  cache[key] = { data, expiry: Date.now() + CACHE_DURATION };
+}
+
+/**
+ * @param username - The GitHub username whose repositories are to be fetched.
+ * @returns A promise that resolves to an array of repository objects.
+ * @throws If the request to the GitHub API fails.
+ */
 export async function fetchRepositories(username: string): Promise<any[]> {
+  const cacheKey = `repos_${username}`;
+  const cached = getCached(cacheKey);
+  if (cached) return cached;
+
   const response = await fetch(
     `https://api.github.com/users/${username}/repos`,
     {
-      next: { revalidate: 43200 },
+      cache: "force-cache", // server-side static cache
+      next: { revalidate: 86400 },
     }
   );
   if (!response.ok) {
     throw new Error(`Failed to get repos for ${username}`);
   }
-  return await response.json();
+  const data: any = await response.json();
+  setCached(cacheKey, data);
+  return data;
 }
 
 interface ProjectDetail {
@@ -24,21 +53,24 @@ interface ProjectDetail {
   backgroundColor: string;
 }
 
+/**
+ * @param username - The GitHub username whose project details are to be fetched.
+ * @returns A promise that resolves to an array of `ProjectDetail` objects, sorted by rank.
+ */
 export async function fetchProjectDetails(
   username: string
 ): Promise<ProjectDetail[]> {
+  const cacheKey = `details_${username}`;
+  const cached = getCached(cacheKey);
+  if (cached) return cached;
+
   try {
-    // Fetch all repositories for the user
     const repositories = await fetchRepositories(username);
 
-    // Process each repository to get detailed information
     const projectDetails = await Promise.all(
       repositories.map(async (repo) => {
         try {
-          // Fetch DESC.md content
           const descContent = await fetchDescFile(username, repo.name);
-
-          // Parse DESC.md to extract image, description, rank, and backgroundColor
           const { image, description, rank, backgroundColor } =
             parseDescContent(descContent);
 
@@ -58,26 +90,35 @@ export async function fetchProjectDetails(
       })
     );
 
-    // Filter out repositories without DESC.md files
     const filteredProjects = projectDetails.filter(Boolean) as ProjectDetail[];
-
-    // Sort projects by rank (higher ranks first)
-    return filteredProjects.sort((a, b) => b.rank - a.rank);
+    const sorted = filteredProjects.sort((a, b) => b.rank - a.rank);
+    setCached(cacheKey, sorted);
+    return sorted;
   } catch (error) {
     console.error("Error fetching project details:", error);
     return [];
   }
 }
 
-// Helper function to fetch DESC.md file from a repository
+/**
+ * @param owner - The GitHub username or organization that owns the repository.
+ * @param repo - The name of the repository.
+ * @returns A promise that resolves to the raw text content of the `DESC.md` file.
+ * @throws If the file cannot be retrieved from the repository.
+ */
 async function fetchDescFile(owner: string, repo: string): Promise<string> {
+  const cacheKey = `desc_${owner}_${repo}`;
+  const cached = getCached(cacheKey);
+  if (cached) return cached;
+
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/contents/DESC.md`,
     {
       headers: {
         Accept: "application/vnd.github.v3.raw",
       },
-      next: { revalidate: 43200 },
+      cache: "force-cache",
+      next: { revalidate: 86400 },
     }
   );
 
@@ -85,7 +126,9 @@ async function fetchDescFile(owner: string, repo: string): Promise<string> {
     throw new Error(`Failed to get DESC.md for ${repo}`);
   }
 
-  return await response.text();
+  const text = await response.text();
+  setCached(cacheKey, text);
+  return text;
 }
 
 // Helper function to parse DESC.md content
