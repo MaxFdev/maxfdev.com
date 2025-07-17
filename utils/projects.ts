@@ -1,5 +1,4 @@
 // TODO finalize all functions
-// TODO add caching
 // FIXME add better error handling
 
 // Simple in-memory cache
