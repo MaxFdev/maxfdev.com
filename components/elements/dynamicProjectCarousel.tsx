@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { Skeleton } from "../ui/skeleton";
 
+// TODO make more mobile friendly (maybe make dragging work on mobile)
 // TODO make the fetches happen server side
 
 const DynamicProjectCarousel = () => {
@@ -123,14 +124,14 @@ const DynamicProjectCarousel = () => {
 
   return (
     <Carousel
-      className="w-[75vw]"
+      className="w-[80vw] sm:w-[90vw]"
       opts={{ watchDrag: false, align: "start" }}
       key={componentKey}
     >
       <CarouselContent className="py-4">
         {projects.map((project, index) => (
           <CarouselItem
-            className="md:basis-1/2 lg:basis-1/3"
+            className="sm:basis-1/2 lg:basis-1/3"
             key={index}
           >
             <Project
@@ -144,8 +145,8 @@ const DynamicProjectCarousel = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="-left-8 md:-left-10" />
+      <CarouselNext className="-right-8 md:-right-10" />
     </Carousel>
   );
 };
