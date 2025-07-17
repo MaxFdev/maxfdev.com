@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "@/components/elements/button";
 
 // TODO finish styling
-// TODO add click to expand feature
+// TODO add click to expand feature (use dialog box)
 
 const project = ({
   img,
@@ -27,8 +27,7 @@ const project = ({
           <Image
             src={img}
             alt={title}
-            width={1920}
-            height={1080}
+            fill
             className="w-full h-full object-cover object-top"
           />
         ) : (
@@ -39,7 +38,7 @@ const project = ({
         className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 h-[520px]"
         style={{ backgroundColor: `${color}` }}
       >
-        <h3 className="text-2xl font-bold">{title}</h3>
+        <h3 className="text-xl font-bold">{title}</h3>
         {/* TODO Fix the scrolling */}
         <div className="mt-4 flex gap-1 overflow-x-scroll h-12">
           <h4 className="font-semibold font-mono text-xl">Tags:</h4>
