@@ -1,5 +1,4 @@
-// TODO add desc to each project on github
-// TODO finalize all functions
+// TODO finalize all functions & caching method
 // FIXME add better error handling
 
 // Simple in-memory cache
@@ -93,6 +92,9 @@ export async function fetchProjectDetails(
     const filteredProjects = projectDetails.filter(Boolean) as ProjectDetail[];
     const sorted = filteredProjects.sort((a, b) => b.rank - a.rank);
     setCached(cacheKey, sorted);
+    
+    console.log("Projects found: ", sorted.map((project) => {return project?.name}));
+    
     return sorted;
   } catch (error) {
     console.error("Error fetching project details:", error);
