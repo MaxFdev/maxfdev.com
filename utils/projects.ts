@@ -8,19 +8,31 @@ interface ProjectDetail {
   backgroundColor: string;
 }
 
-const cache: Record<string, { data: any; expiry: number }> = {};
 const CACHE_DURATION = 86400 * 1000; // 1 day in ms
 
 function getCached(key: string) {
-  const entry = cache[key];
-  if (entry && entry.expiry > Date.now()) {
-    return entry.data;
+  if (typeof window === "undefined" || !window.localStorage) return null;
+  try {
+    const raw = window.localStorage.getItem(key);
+    if (!raw) return null;
+    const entry = JSON.parse(raw);
+    if (entry && entry.expiry > Date.now()) {
+      return entry.data;
+    }
+  } catch {
+    return null;
   }
   return null;
 }
 
 function setCached(key: string, data: any) {
-  cache[key] = { data, expiry: Date.now() + CACHE_DURATION };
+  if (typeof window === "undefined" || !window.localStorage) return;
+  try {
+    const entry = { data, expiry: Date.now() + CACHE_DURATION };
+    window.localStorage.setItem(key, JSON.stringify(entry));
+  } catch {
+    // ignore
+  }
 }
 
 /**
@@ -53,11 +65,7 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
   let repositories = getCached(reposCacheKey);
   if (!repositories) {
     const repoRes = await safeFetch(
-      `https://api.github.com/users/${username}/repos`,
-      {
-        cache: "force-cache",
-        next: { revalidate: 86400 },
-      }
+      `https://api.github.com/users/${username}/repos`
     );
     if (!repoRes) {
       console.error(`Error fetching repositories for ${username}`);
@@ -76,9 +84,7 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
       const descRes = await safeFetch(
         `https://api.github.com/repos/${username}/${repo.name}/contents/DESC.md`,
         {
-          headers: { Accept: "application/vnd.github.v3.raw" },
-          cache: "force-cache",
-          next: { revalidate: 86400 },
+          headers: { Accept: "application/vnd.github.v3.raw" }
         }
       );
       if (!descRes) {

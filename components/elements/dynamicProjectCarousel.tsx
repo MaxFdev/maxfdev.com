@@ -10,10 +10,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Skeleton } from "../ui/skeleton";
+import { fetchProjectDetails } from "@/utils/projects";
 
 // TODO make more mobile friendly (maybe make dragging work on mobile)
 
-const DynamicProjectCarousel = () => {
+
+
+const DynamicProjectCarousel = (username: {username: string}) => {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [componentKey, setComponentKey] = useState(0);
@@ -36,14 +39,13 @@ const DynamicProjectCarousel = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/projects")
-      .then((res) => res.json())
+    fetchProjectDetails(username.username)
       .then((data) => {
         setProjects(data as any[]);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [username]);
 
   if (loading) {
     return (

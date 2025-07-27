@@ -9,7 +9,7 @@ const projects = async () => {
       className="flex flex-col justify-center items-center gap-[var(--gap-clamp)]"
     >
       <h2 className="text-center">Some Of My Projects.</h2>
-      <DynamicProjectCarousel />
+      <DynamicProjectCarousel username={process.env.NEXT_PUBLIC_GITHUB_ACCOUNT || ""} />
       <BigButton
         href="https://github.com/MaxFdev"
         target="_blank"
