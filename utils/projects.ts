@@ -1,4 +1,3 @@
-// TODO finalize all functions & caching method
 // FIXME add better error handling
 
 // Simple in-memory cache
@@ -59,6 +58,10 @@ interface ProjectDetail {
 export async function fetchProjectDetails(
   username: string
 ): Promise<ProjectDetail[]> {
+  if (!username || username === "") {
+    return Promise.resolve([]);
+  }
+
   const cacheKey = `details_${username}`;
   const cached = getCached(cacheKey);
   if (cached) return cached;
@@ -92,9 +95,7 @@ export async function fetchProjectDetails(
     const filteredProjects = projectDetails.filter(Boolean) as ProjectDetail[];
     const sorted = filteredProjects.sort((a, b) => b.rank - a.rank);
     setCached(cacheKey, sorted);
-    
-    console.log("Projects found: ", sorted.map((project) => {return project?.name}));
-    
+
     return sorted;
   } catch (error) {
     console.error("Error fetching project details:", error);
