@@ -14,8 +14,6 @@ import { fetchProjectDetails } from "@/utils/projects";
 
 // TODO make more mobile friendly (maybe make dragging work on mobile)
 
-
-
 const DynamicProjectCarousel = (username: {username: string}) => {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
