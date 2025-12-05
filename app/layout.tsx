@@ -7,6 +7,10 @@ import Footer from "@/components/elements/footer";
 export const metadata: Metadata = {
   title: "Max Franklin",
   description: "Max's portfolio website.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 const notoSans = Noto_Sans({
