@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 const bigButton = ({
   children,
@@ -15,7 +15,7 @@ const bigButton = ({
   return (
     <Link href={href} target={target}>
       <button
-        className={`w-fit p-4 rounded border-2 border-black bg-black text-white font-trebuchet font-semibold text-2xl hover:scale-110 transitions ${className}`}
+        className={`w-fit p-4 rounded border-2 border-black bg-black text-white cursor-pointer font-trebuchet font-semibold text-2xl hover:scale-110 transitions ${className}`}
       >
         {children}
       </button>

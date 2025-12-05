@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "@/components/elements/button";
 import { socials } from "@/data/index";
 import {
