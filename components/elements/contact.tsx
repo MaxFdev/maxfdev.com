@@ -29,7 +29,7 @@ const Contact = () => {
           {socials.map((platform, key) => (
             <li
               key={key}
-              className="flex justify-between items-center font-semibold w-full border-b-[1px]"
+              className="flex justify-between items-center font-semibold w-full border-b"
             >
               <div className="flex justify-center gap-1">
                 {platform.icon && (
