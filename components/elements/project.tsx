@@ -54,10 +54,7 @@ const project = ({
         </div>
         <p className="text-md line-clamp-[14]">{content}</p>
         <div className="mt-auto">
-          <Button
-            href={link}
-            target="_blank"
-          >
+          <Button href={link} target="_blank">
             Learn More
           </Button>
         </div>

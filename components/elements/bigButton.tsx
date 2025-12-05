@@ -13,10 +13,7 @@ const bigButton = ({
   className?: string;
 }) => {
   return (
-    <Link
-      href={href}
-      target={target}
-    >
+    <Link href={href} target={target}>
       <button
         className={`w-fit p-4 rounded border-2 border-black bg-black text-white font-trebuchet font-semibold text-2xl hover:scale-110 transitions ${className}`}
       >

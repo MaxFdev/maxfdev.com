@@ -1,12 +1,14 @@
 {
-    "cSpell.words": [
-        "clsx",
-        "Davinci",
-        "hackathon",
-        "Jetbrains",
-        "maxfdev",
-        "Navlist",
-        "noto",
-        "Verdana"
-    ]
+  "cSpell.words": [
+    "clsx",
+    "Davinci",
+    "hackathon",
+    "Jetbrains",
+    "maxfdev",
+    "Navlist",
+    "noto",
+    "Verdana"
+  ],
+  "prettier.prettierPath": "./node_modules/prettier",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

@@ -20,10 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="no-scrollbar"
-    >
+    <html lang="en" className="no-scrollbar">
       <body className={`${notoSans.variable}`}>
         <Header />
         {children}

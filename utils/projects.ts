@@ -40,7 +40,9 @@ function setCached(key: string, data: any) {
  * @param username - The GitHub username whose project details are to be fetched.
  * @returns A promise that resolves to an array of `ProjectDetail` objects, sorted by rank.
  */
-export async function fetchProjectDetails(username: string): Promise<ProjectDetail[]> {
+export async function fetchProjectDetails(
+  username: string
+): Promise<ProjectDetail[]> {
   if (!username || username === "") {
     return [];
   }
@@ -50,7 +52,10 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
   if (cached) return cached;
 
   // Helper to fetch with error handling
-  async function safeFetch(url: string, options?: RequestInit): Promise<Response | null> {
+  async function safeFetch(
+    url: string,
+    options?: RequestInit
+  ): Promise<Response | null> {
     try {
       const response = await fetch(url, options);
       if (!response.ok) return null;
@@ -84,7 +89,7 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
       const descRes = await safeFetch(
         `https://api.github.com/repos/${username}/${repo.name}/contents/DESC.md`,
         {
-          headers: { Accept: "application/vnd.github.v3.raw" }
+          headers: { Accept: "application/vnd.github.v3.raw" },
         }
       );
       if (!descRes) {
@@ -94,7 +99,8 @@ export async function fetchProjectDetails(username: string): Promise<ProjectDeta
       descContent = await descRes.text();
       setCached(descCacheKey, descContent);
     }
-    const { image, description, rank, backgroundColor } = parseDescContent(descContent);
+    const { image, description, rank, backgroundColor } =
+      parseDescContent(descContent);
     details.push({
       name: repo.name,
       image,

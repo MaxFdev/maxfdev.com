@@ -14,7 +14,7 @@ import { fetchProjectDetails } from "@/utils/projects";
 
 // TODO make more mobile friendly (maybe make dragging work on mobile)
 
-const DynamicProjectCarousel = (username: {username: string}) => {
+const DynamicProjectCarousel = (username: { username: string }) => {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [componentKey, setComponentKey] = useState(0);
@@ -63,7 +63,10 @@ const DynamicProjectCarousel = (username: {username: string}) => {
                   </div>
                   <div className="space-y-2">
                     {Array.from({ length: 10 }).map((_, i) => (
-                      <Skeleton key={i} className={`h-4 w-${i === 9 ? "5/6" : "full"} bg-slate-300`} />
+                      <Skeleton
+                        key={i}
+                        className={`h-4 w-${i === 9 ? "5/6" : "full"} bg-slate-300`}
+                      />
                     ))}
                   </div>
                   <div className="mt-auto">
@@ -88,10 +91,7 @@ const DynamicProjectCarousel = (username: {username: string}) => {
     >
       <CarouselContent className="py-4">
         {projects.map((project, index) => (
-          <CarouselItem
-            className="sm:basis-1/2 lg:basis-1/3"
-            key={index}
-          >
+          <CarouselItem className="sm:basis-1/2 lg:basis-1/3" key={index}>
             <Project
               img={project.image}
               color={project.backgroundColor}
