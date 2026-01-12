@@ -8,10 +8,10 @@ import { execSync } from "child_process";
 //   await setupDevPlatform();
 // }
 
-// Get the last commit date from Git
+// Get the last commit date from Git in ISO 8601 format with timezone
 const getLastCommitDate = () => {
   try {
-    return execSync("git log -1 --format=%cd").toString().trim();
+    return execSync("git log -1 --format=%cI").toString().trim();
   } catch (error) {
     console.error("Error getting last commit date:", error);
     return new Date().toISOString();
