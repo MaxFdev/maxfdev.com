@@ -41,7 +41,6 @@ const project = ({
         <h3 className="text-xl font-bold">{title}</h3>
         {/* TODO Fix the scrolling */}
         <div className="mt-4 flex gap-1 overflow-x-scroll h-12">
-          <h4 className="font-semibold font-mono text-xl">Tags:</h4>
           {tags.map((tag, key) => (
             <span
               key={key}
