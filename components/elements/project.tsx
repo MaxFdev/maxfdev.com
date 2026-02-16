@@ -2,7 +2,6 @@ import Image from "next/image";
 import Button from "@/components/elements/button";
 
 // TODO finish styling
-// TODO add click to expand feature (use dialog box)
 
 const project = ({
   img,
@@ -35,7 +34,7 @@ const project = ({
         )}
       </div>
       <div
-        className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 h-[520px]"
+        className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 min-h-130"
         style={{ backgroundColor: `${color}` }}
       >
         <h3 className="text-xl font-bold">{title}</h3>
