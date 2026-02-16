@@ -25,8 +25,8 @@ const DynamicProjectList = (username: { username: string }) => {
         {Array.from({ length: 3 }).map((_, index) => (
           <div key={index} className="max-w-2xl mx-auto w-full">
             <div className="flex flex-col gap-2 p-1">
-              <Skeleton className="h-[200px] w-full rounded-lg !animate-none" />
-              <div className="flex flex-col rounded-lg p-3 gap-2 h-[520px] bg-muted">
+              <Skeleton className="h-50 w-full rounded-lg animate-none!" />
+              <div className="flex flex-col rounded-lg p-3 gap-2 h-130 bg-muted">
                 <Skeleton className="h-8 w-3/4 bg-slate-300" />
                 <div className="mt-4 flex gap-1 h-12 items-center">
                   <Skeleton className="h-7 w-16 bg-slate-300" />
@@ -59,7 +59,6 @@ const DynamicProjectList = (username: { username: string }) => {
         <div key={index} className="max-w-2xl mx-auto w-full">
           <Project
             img={project.image}
-            color={project.backgroundColor}
             title={project.name}
             content={project.description}
             tags={project.topics}

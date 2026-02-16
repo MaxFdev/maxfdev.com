@@ -5,7 +5,6 @@ interface ProjectDetail {
   topics: string[];
   repoUrl: string;
   rank: number;
-  backgroundColor: string;
 }
 
 const CACHE_DURATION = 86400 * 1000; // 1 day in ms
@@ -99,8 +98,7 @@ export async function fetchProjectDetails(
       descContent = await descRes.text();
       setCached(descCacheKey, descContent);
     }
-    const { image, description, rank, backgroundColor } =
-      parseDescContent(descContent);
+    const { image, description, rank } = parseDescContent(descContent);
     details.push({
       name: repo.name,
       image,
@@ -108,7 +106,6 @@ export async function fetchProjectDetails(
       topics: repo.topics || [],
       repoUrl: repo.html_url,
       rank,
-      backgroundColor,
     });
   }
   const sorted = details.sort((a, b) => b.rank - a.rank);
@@ -121,7 +118,6 @@ function parseDescContent(content: string): {
   image: string;
   description: string;
   rank: number;
-  backgroundColor: string;
 } {
   // Extract image URL - assuming it's in markdown format ![alt](url)
   const imageRegex = /Image:\s*(.*)/i;
@@ -143,17 +139,6 @@ function parseDescContent(content: string): {
     }
   }
 
-  // Extract background color - format "Color: Hex"
-  const colorRegex = /Color:\s*(#?[A-Fa-f0-9]{6}|#?[A-Fa-f0-9]{3})/i;
-  const colorMatch = content.match(colorRegex);
-  let backgroundColor = ""; // Default empty string for background color
-  if (colorMatch && colorMatch[1]) {
-    // Ensure the hex color has a # prefix
-    backgroundColor = colorMatch[1].startsWith("#")
-      ? colorMatch[1]
-      : "#" + colorMatch[1];
-  }
-
   // Get description text (everything after removing metadata)
   let description = content;
 
@@ -164,12 +149,9 @@ function parseDescContent(content: string): {
   if (rankMatch) {
     description = description.replace(rankMatch[0], "");
   }
-  if (colorMatch) {
-    description = description.replace(colorMatch[0], "");
-  }
 
   // Clean up whitespace, including newlines at start/end
   description = description.trim();
 
-  return { image, description, rank, backgroundColor };
+  return { image, description, rank };
 }

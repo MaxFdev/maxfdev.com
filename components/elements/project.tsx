@@ -1,18 +1,14 @@
 import Image from "next/image";
 import Button from "@/components/elements/button";
 
-// TODO finish styling
-
 const project = ({
   img,
-  color,
   title,
   content,
   tags = [],
   link,
 }: {
   img: string;
-  color: string;
   title: string;
   content: string;
   tags: string[];
@@ -33,13 +29,9 @@ const project = ({
           <div className="h-full w-full rounded-lg drop-shadow-md bg-gray-200" />
         )}
       </div>
-      <div
-        className="flex flex-col rounded-lg p-3 drop-shadow-md gap-2 min-h-130"
-        style={{ backgroundColor: `${color}` }}
-      >
+      <div className="bg-blue-300 flex flex-col rounded-lg p-3 drop-shadow-md gap-4 min-h-130 overflow-hidden">
         <h3 className="text-xl font-bold">{title}</h3>
-        {/* TODO Fix the scrolling */}
-        <div className="mt-4 flex gap-1 overflow-x-scroll h-12">
+        <div className="flex gap-1 flex-wrap">
           {tags.map((tag, key) => (
             <span
               key={key}
@@ -49,7 +41,7 @@ const project = ({
             </span>
           ))}
         </div>
-        <p className="text-md line-clamp-14">{content}</p>
+        <p className="text-md">{content}</p>
         <div className="mt-auto">
           <Button href={link} target="_blank">
             Learn More

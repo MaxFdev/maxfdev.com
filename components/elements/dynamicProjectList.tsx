@@ -22,7 +22,7 @@ const DynamicProjectList = (username: { username: string }) => {
   if (loading) {
     return (
       <div className="w-full max-w-(--width-clamp) px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {Array.from({ length: 3 }).map((_, index) => (
+        {Array.from({ length: 4 }).map((_, index) => (
           <div key={index}>
             <div className="flex flex-col gap-2 p-1">
               <Skeleton className="h-50 w-full rounded-lg animate-none!" />
@@ -59,7 +59,6 @@ const DynamicProjectList = (username: { username: string }) => {
         <div key={index}>
           <Project
             img={project.image}
-            color={project.backgroundColor}
             title={project.name}
             content={project.description}
             tags={project.topics}
