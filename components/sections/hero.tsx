@@ -13,7 +13,7 @@ const hero = () => {
           width={400}
           height={400}
           priority
-          className="w-[60vw] sm:w-60 lg:w-[400px] rounded-full shadow-xl hover:shadow-2xl hero_img transitions object-cover"
+          className="w-[60vw] sm:w-60 lg:w-100 rounded-full shadow-xl hover:shadow-2xl hero_img transitions object-cover"
         />
         <div className="flex flex-col justify-center w-11/12 sm:w-(--hero-clamp) p-4 gap-2 rounded-2xl [box-shadow:var(--shadow-light)] hover:[box-shadow:var(--shadow-strong)] transitions">
           <h2 className="text-3xl! lg:text-4xl! font-trebuchet font-semibold">
