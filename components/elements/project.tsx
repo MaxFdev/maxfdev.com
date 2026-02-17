@@ -15,7 +15,7 @@ const project = ({
   link: string;
 }) => {
   return (
-    <div className="flex flex-col gap-2 p-1">
+    <div className="flex flex-col h-full gap-2 p-1">
       <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md">
         {img ? (
           <Image
@@ -29,7 +29,7 @@ const project = ({
           <div className="h-full w-full rounded-lg drop-shadow-md bg-gray-200" />
         )}
       </div>
-      <div className="bg-blue-300 flex flex-col rounded-lg p-3 drop-shadow-md gap-4 min-h-130 overflow-hidden">
+      <div className="bg-blue-300 flex flex-col rounded-lg p-3 drop-shadow-md gap-4 min-h-130 h-full overflow-hidden">
         <h3 className="text-xl font-bold">{title}</h3>
         <div className="flex gap-1 flex-wrap">
           {tags.map((tag, key) => (
