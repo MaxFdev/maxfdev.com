@@ -5,8 +5,8 @@ import { Mermaid } from "@/components/elements/mermaid";
  * MDX Components Configuration
  * 
  * This file defines custom components that will be used when rendering MDX content.
- * With rehype-mermaid plugin configured, mermaid diagrams are automatically rendered.
- * We still provide a fallback handler for any edge cases.
+ * Mermaid diagrams are handled by our custom Mermaid component since Turbopack's
+ * serialization limitations prevent using rehype-mermaid plugin in next.config.
  */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

@@ -7,7 +7,7 @@ import mermaid from "mermaid";
 mermaid.initialize({
   startOnLoad: false,
   theme: "default",
-  securityLevel: "loose",
+  securityLevel: "strict",
   fontFamily: "var(--font-noto-sans), sans-serif",
   themeVariables: {
     fontSize: "16px",
@@ -24,8 +24,8 @@ export function Mermaid({ chart }: { chart: string }) {
       ref.current.innerHTML = "";
       setError(null);
       
-      // Create a unique ID for this diagram
-      const id = `mermaid-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+      // Create a unique ID for this diagram using crypto API for guaranteed uniqueness
+      const id = `mermaid-${crypto.randomUUID()}`;
       
       // Render the diagram
       mermaid
