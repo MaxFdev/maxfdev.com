@@ -4,7 +4,6 @@ interface ProjectDetail {
   description: string;
   topics: string[];
   repoUrl: string;
-  rank: number;
 }
 
 const CACHE_DURATION = 86400 * 1000; // 1 day in ms
@@ -98,26 +97,23 @@ export async function fetchProjectDetails(
       descContent = await descRes.text();
       setCached(descCacheKey, descContent);
     }
-    const { image, description, rank } = parseDescContent(descContent);
+    const { image, description } = parseDescContent(descContent);
     details.push({
       name: repo.name,
       image,
       description,
       topics: repo.topics || [],
       repoUrl: repo.html_url,
-      rank,
     });
   }
-  const sorted = details.sort((a, b) => b.rank - a.rank);
-  setCached(cacheKey, sorted);
-  return sorted;
+  setCached(cacheKey, details);
+  return details;
 }
 
 // Helper function to parse DESC.md content
 function parseDescContent(content: string): {
   image: string;
   description: string;
-  rank: number;
 } {
   // Extract image URL - assuming it's in markdown format ![alt](url)
   const imageRegex = /Image:\s*(.*)/i;
@@ -127,18 +123,6 @@ function parseDescContent(content: string): {
     image = imageMatch[1];
   }
 
-  // Extract rank - format "Rank: #" where # is 0-2
-  const rankRegex = /Rank:\s*(\d+)/i;
-  const rankMatch = content.match(rankRegex);
-  let rank = 0; // Default rank
-  if (rankMatch && rankMatch[1]) {
-    const parsedRank = parseInt(rankMatch[1], 10);
-    // Ensure rank is between 0 and 2
-    if (parsedRank >= 0 && parsedRank <= 2) {
-      rank = parsedRank;
-    }
-  }
-
   // Get description text (everything after removing metadata)
   let description = content;
 
@@ -146,12 +130,9 @@ function parseDescContent(content: string): {
   if (imageMatch) {
     description = description.replace(imageMatch[0], "");
   }
-  if (rankMatch) {
-    description = description.replace(rankMatch[0], "");
-  }
 
   // Clean up whitespace, including newlines at start/end
   description = description.trim();
 
-  return { image, description, rank };
+  return { image, description };
 }
