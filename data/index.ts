@@ -23,3 +23,6 @@ export const socials = [
     link: "https://www.linkedin.com/in/max--franklin/",
   },
 ];
+
+// Re-export project utilities and types
+export { getProjects, type ProjectDetails } from "./projects";

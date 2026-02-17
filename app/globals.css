@@ -63,6 +63,29 @@
   .transitions {
     transition: 0.3s;
   }
+
+  /* MDX Content Styling */
+  .prose .mermaid {
+    @apply flex justify-center my-6;
+  }
+
+  .prose .mermaid svg {
+    @apply max-w-full h-auto;
+  }
+
+  /* Ensure code blocks have proper background in light mode */
+  .prose pre {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  /* Ensure checkmarks render properly in lists */
+  .prose ul li::marker {
+    @apply text-foreground;
+  }
 }
 
 @layer utilities {

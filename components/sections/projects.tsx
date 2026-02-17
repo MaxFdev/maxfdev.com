@@ -1,7 +1,11 @@
 import BigButton from "@/components/elements/bigButton";
-import DynamicProjectList from "@/components/elements/dynamicProjectList";
+import { getProjects } from "@/data";
+import { ProjectCard } from "@/components/elements/projectCard";
+import { ProjectContent } from "@/components/elements/projectContent";
 
 const projects = async () => {
+  const projectList = await getProjects();
+
   return (
     <section
       id="projects"
@@ -15,9 +19,22 @@ const projects = async () => {
       >
         View GitHub Profile
       </BigButton>
-      <DynamicProjectList
-        username={process.env.NEXT_PUBLIC_GITHUB_ACCOUNT || ""}
-      />
+
+      {/* Single column project list */}
+      <div className="flex flex-col gap-6 w-full max-w-(--width-clamp)">
+        {projectList.map((project) => {
+          // Extract serializable data for client component
+          const { Content, ...serializableProject } = project;
+
+          return (
+            <ProjectCard
+              key={project.slug}
+              project={serializableProject}
+              dialogContent={<ProjectContent project={project} />}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 };

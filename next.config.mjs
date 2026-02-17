@@ -1,5 +1,6 @@
 // import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev"; TODO see if this gets updated
 import { execSync } from "child_process";
+import createMDX from "@next/mdx";
 
 // Here we use the @cloudflare/next-on-pages next-dev module to allow us to use bindings during local development
 // (when running the application with `next dev`), for more information see:
@@ -20,6 +21,7 @@ const getLastCommitDate = () => {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   env: {
     LAST_UPDATED: getLastCommitDate(),
   },
@@ -34,4 +36,8 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// Using minimal MDX config due to Turbopack serialization limitations
+// GFM and Mermaid will be handled via MDX components
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);
