@@ -1,7 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Button from "@/components/elements/button";
-import { intro } from "@/data/index";
+import { introText } from "@/data/index";
 
 const hero = () => {
   return (
@@ -19,7 +18,7 @@ const hero = () => {
           <h2 className="text-3xl! lg:text-4xl! font-trebuchet font-semibold">
             Introduction.
           </h2>
-          <p className="font-semibold">{intro.text}</p>
+          <p className="font-semibold">{introText}</p>
           <Button
             href="https://www.linkedin.com/in/max--franklin/"
             target="_blank"
