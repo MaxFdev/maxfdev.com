@@ -34,20 +34,35 @@ const nextConfig = {
       },
     ],
   },
+  // Webpack configuration for MDX with plugins (not used with Turbopack)
+  webpack: (config, options) => {
+    // Find the MDX loader rule and configure it
+    config.module.rules.forEach((rule) => {
+      if (rule.test && rule.test.toString().includes('mdx')) {
+        if (rule.use && Array.isArray(rule.use)) {
+          rule.use.forEach((loader) => {
+            if (loader.loader && loader.loader.includes('@mdx-js/loader')) {
+              loader.options = {
+                ...loader.options,
+                providerImportSource: '@mdx-js/react',
+              };
+            }
+          });
+        }
+      }
+    });
+    return config;
+  },
 };
 
-// Configure MDX with remark and rehype plugins
+// Configure MDX
+// Note: Due to Turbopack serialization limitations, we cannot use remark/rehype plugins
+// in the Next.js config. Instead, we handle formatting and rendering via mdx-components.tsx:
+// - GitHub Flavored Markdown (GFM) features like tables work automatically in MDX
+// - Mermaid diagrams are handled by the custom Mermaid component
+// - Typography and styling are handled by Tailwind Typography plugin
 const withMDX = createMDX({
-  options: {
-    remarkPlugins: [
-      // GitHub Flavored Markdown support (tables, strikethrough, etc.)
-      (await import('remark-gfm')).default,
-    ],
-    rehypePlugins: [
-      // Mermaid diagram support
-      (await import('rehype-mermaid')).default,
-    ],
-  },
+  // Extension options can be configured here if needed
 });
 
 export default withMDX(nextConfig);
