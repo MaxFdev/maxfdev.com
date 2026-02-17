@@ -36,8 +36,18 @@ const nextConfig = {
   },
 };
 
-// Using minimal MDX config due to Turbopack serialization limitations
-// GFM and Mermaid will be handled via MDX components
-const withMDX = createMDX({});
+// Configure MDX with remark and rehype plugins
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [
+      // GitHub Flavored Markdown support (tables, strikethrough, etc.)
+      (await import('remark-gfm')).default,
+    ],
+    rehypePlugins: [
+      // Mermaid diagram support
+      (await import('rehype-mermaid')).default,
+    ],
+  },
+});
 
 export default withMDX(nextConfig);

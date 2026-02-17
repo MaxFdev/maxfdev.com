@@ -1,40 +1,55 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
 
-// Initialize mermaid
+// Initialize mermaid with proper configuration
 mermaid.initialize({
   startOnLoad: false,
   theme: "default",
+  securityLevel: "loose",
+  fontFamily: "var(--font-noto-sans), sans-serif",
+  themeVariables: {
+    fontSize: "16px",
+  },
 });
-
-// TODO make sure this uses SSR
 
 export function Mermaid({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (ref.current) {
-      // Clear previous content
+    if (ref.current && chart) {
+      // Clear previous content and error
       ref.current.innerHTML = "";
+      setError(null);
       
       // Create a unique ID for this diagram
-      const id = `mermaid-${Math.random().toString(36).substring(2, 9)}`; // HACK not sure why this works
+      const id = `mermaid-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
       
       // Render the diagram
-      mermaid.render(id, chart).then(({ svg }) => {
-        if (ref.current) {
-          ref.current.innerHTML = svg;
-        }
-      }).catch((error) => {
-        console.error("Mermaid rendering error:", error);
-        if (ref.current) {
-          ref.current.innerHTML = `<pre>Error rendering diagram: ${error.message}</pre>`;
-        }
-      });
+      mermaid
+        .render(id, chart)
+        .then(({ svg }) => {
+          if (ref.current) {
+            ref.current.innerHTML = svg;
+          }
+        })
+        .catch((err) => {
+          console.error("Mermaid rendering error:", err);
+          setError(err.message || "Failed to render diagram");
+        });
     }
   }, [chart]);
 
-  return <div ref={ref} className="mermaid-diagram flex justify-center my-6" />;
+  if (error) {
+    return (
+      <div className="my-6 rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200">
+        <p className="font-semibold">Error rendering diagram:</p>
+        <pre className="mt-2 whitespace-pre-wrap">{error}</pre>
+      </div>
+    );
+  }
+
+  return <div ref={ref} className="mermaid-diagram my-6 flex justify-center overflow-x-auto" />;
 }
