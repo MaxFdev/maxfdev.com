@@ -1,6 +1,9 @@
 import type { MDXComponents } from "mdx/types";
 import { Mermaid } from "@/components/elements/mermaid";
 
+// TODO look into more mdx plugins, like pretty code (fix codeblock problem)
+// FIXME get plugins working
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
@@ -18,7 +21,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         return <Mermaid chart={codeProps.children || ""} />;
       }
 
-      // Default pre rendering for other code blocks
+      // Default pre rendering
       return <pre {...props} />;
     },
   };

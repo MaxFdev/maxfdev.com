@@ -44,6 +44,7 @@ export async function getProjects(): Promise<ProjectDetails[]> {
     })
   );
 
+  // TODO update to another sorting method
   // Sort projects by name
   return projects.sort((a, b) => a.name.localeCompare(b.name));
 }
