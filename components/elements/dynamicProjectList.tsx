@@ -1,8 +1,8 @@
 import Project from "@/components/elements/project";
 import { getProjects } from "@/data";
 
-const DynamicProjectList = async () => {
-  const projects = await getProjects();
+const DynamicProjectList = () => {
+  const projects = getProjects();
 
   return (
     <div className="w-full max-w-(--width-clamp) px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">

@@ -1,6 +1,8 @@
 import { ComponentType } from "react";
-import fs from "fs";
-import path from "path";
+
+// Static imports of MDX files
+import * as awsLambdaMock from "./aws-lambda-mock.mdx";
+import * as fat32Reader from "./fat32-reader.mdx";
 
 export interface ProjectDetails {
   slug: string;
@@ -12,39 +14,27 @@ export interface ProjectDetails {
   Content: ComponentType;
 }
 
+// Define all projects with their metadata
+const projectModules = [
+  { slug: "aws-lambda-mock", module: awsLambdaMock },
+  { slug: "fat32-reader", module: fat32Reader },
+];
+
 /**
- * Dynamically loads all MDX projects from the data/projects directory.
- * This function runs at build time on the server.
+ * Gets all MDX projects with their metadata.
+ * Projects are statically imported at build time.
  */
-export async function getProjects(): Promise<ProjectDetails[]> {
-  const projectsDir = path.join(process.cwd(), "data/projects");
+export function getProjects(): ProjectDetails[] {
+  const projects = projectModules.map(({ slug, module }) => ({
+    slug,
+    name: module.name || slug,
+    image: module.image || "",
+    overview: module.overview || "",
+    topics: module.topics || [],
+    repoUrl: module.repoUrl || "",
+    Content: module.default, // MDX default export is the content component
+  })) as ProjectDetails[];
 
-  // Get all .mdx files
-  const files = fs
-    .readdirSync(projectsDir)
-    .filter((file) => file.endsWith(".mdx"));
-
-  // Load each MDX file and extract metadata
-  const projects = await Promise.all(
-    files.map(async (file) => {
-      const slug = file.replace(/\.mdx$/, "");
-
-      // Dynamic import of the MDX file
-      const mdxModule = await import(`./${file}`);
-
-      return {
-        slug,
-        name: mdxModule.name || slug,
-        image: mdxModule.image || "",
-        overview: mdxModule.overview || "",
-        topics: mdxModule.topics || [],
-        repoUrl: mdxModule.repoUrl || "",
-        Content: mdxModule.default, // MDX default export is the content component
-      } as ProjectDetails;
-    })
-  );
-
-  // TODO update to another sorting method
   // Sort projects by name
   return projects.sort((a, b) => a.name.localeCompare(b.name));
 }

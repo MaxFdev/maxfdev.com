@@ -3,8 +3,8 @@ import { getProjects } from "@/data";
 import { ProjectCard } from "@/components/elements/projectCard";
 import { ProjectContent } from "@/components/elements/projectContent";
 
-const projects = async () => {
-  const projectList = await getProjects();
+const projects = () => {
+  const projectList = getProjects();
 
   return (
     <section
@@ -24,8 +24,7 @@ const projects = async () => {
       <div className="flex flex-col gap-6 w-full max-w-(--width-clamp)">
         {projectList.map((project) => {
           // Extract serializable data for client component
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { Content: _Content, ...serializableProject } = project;
+          const { Content, ...serializableProject } = project;
 
           return (
             <ProjectCard
