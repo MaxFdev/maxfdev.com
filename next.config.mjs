@@ -55,16 +55,19 @@ const nextConfig = {
   },
 };
 
-// Configure MDX
-// Note: Next.js 16 defaults to Turbopack which cannot serialize function plugins.
-// This prevents using remark-gfm and rehype-highlight in the configuration.
-// 
-// Workarounds implemented:
-// - GFM features: MDX 3 natively supports tables, autolinks, and basic GFM syntax
-// - Syntax highlighting: Using highlight.js CSS imported in globals.css
-// - Mermaid diagrams: Custom component in mdx-components.tsx
+// Configure MDX with remark and rehype plugins
+// Following Next.js MDX documentation: https://nextjs.org/docs/app/guides/mdx
+// Note: Using .mjs format required for ESM-only packages like remark-gfm
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+
 const withMDX = createMDX({
   extension: /\.mdx?$/,
+  // Optionally provide remark and rehype plugins
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeHighlight],
+  },
 });
 
 export default withMDX(nextConfig);
