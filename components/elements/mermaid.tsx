@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
 
-// Initialize mermaid with proper configuration
+// Initialize mermaid with proper configuration following best practices
+// https://mermaid.js.org/config/usage.html
 mermaid.initialize({
-  startOnLoad: false,
+  startOnLoad: false, // We manually trigger rendering
   theme: "default",
-  securityLevel: "strict",
+  securityLevel: "strict", // Prevents arbitrary JavaScript execution
   fontFamily: "var(--font-noto-sans), sans-serif",
   themeVariables: {
     fontSize: "16px",
@@ -20,19 +21,21 @@ export function Mermaid({ chart }: { chart: string }) {
 
   useEffect(() => {
     if (ref.current && chart) {
-      // Clear previous content
+      // Clear previous content and reset error state
       ref.current.innerHTML = "";
+      setError(null);
       
-      // Create a unique ID for this diagram using crypto API for guaranteed uniqueness
+      // Create a unique ID for this diagram
+      // Using crypto.randomUUID() for guaranteed uniqueness
       const id = `mermaid-${crypto.randomUUID()}`;
       
-      // Render the diagram
+      // Render the diagram using mermaid.render()
+      // This is the recommended approach per mermaid.js documentation
       mermaid
         .render(id, chart)
         .then(({ svg }) => {
           if (ref.current) {
             ref.current.innerHTML = svg;
-            setError(null); // Clear error on successful render
           }
         })
         .catch((err) => {
