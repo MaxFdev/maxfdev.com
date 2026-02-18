@@ -36,8 +36,16 @@ const nextConfig = {
   },
 };
 
-// Using minimal MDX config due to Turbopack serialization limitations
-// GFM and Mermaid will be handled via MDX components
-const withMDX = createMDX({});
+// Configure MDX with remark and rehype plugins
+// Following Next.js MDX documentation: https://nextjs.org/docs/app/guides/mdx
+// Note: Using .mjs format required for ESM-only packages like remark-gfm
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  // Optionally provide remark and rehype plugins
+  options: {
+    remarkPlugins: ["remark-gfm"],
+    rehypePlugins: ["rehype-highlight"],
+  },
+});
 
 export default withMDX(nextConfig);

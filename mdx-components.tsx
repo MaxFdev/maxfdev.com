@@ -1,12 +1,22 @@
 import type { MDXComponents } from "mdx/types";
 import { Mermaid } from "@/components/elements/mermaid";
 
-// TODO look into more mdx plugins, like pretty code (fix codeblock problem)
-// FIXME get plugins working
-
+/**
+ * MDX Components Configuration
+ *
+ * This file defines custom components for MDX content rendering.
+ * Most styling is handled by Tailwind Typography (prose classes).
+ * Custom components are only added where necessary for functionality.
+ */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
+    // Wrapper with Tailwind Typography for default styling
+    wrapper: ({ children }: { children: React.ReactNode }) => (
+      <article className="prose prose-lg dark:prose-invert max-w-none">
+        {children}
+      </article>
+    ),
     // Custom code block handler for Mermaid diagrams
     pre: (props: React.ComponentPropsWithoutRef<"pre">) => {
       const codeProps = (
@@ -21,7 +31,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         return <Mermaid chart={codeProps.children || ""} />;
       }
 
-      // Default pre rendering
+      // Default pre rendering - Tailwind Typography handles styling
       return <pre {...props} />;
     },
   };

@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* Syntax highlighting styles for code blocks */
+/* Using GitHub Dark Dimmed theme which works well in both light and dark modes */
+@import "highlight.js/styles/github-dark-dimmed.css";
+
 @layer base {
   :root {
     /* shadcn */

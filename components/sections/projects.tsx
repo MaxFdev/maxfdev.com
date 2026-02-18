@@ -3,8 +3,8 @@ import { getProjects } from "@/data";
 import { ProjectCard } from "@/components/elements/projectCard";
 import { ProjectContent } from "@/components/elements/projectContent";
 
-const projects = async () => {
-  const projectList = await getProjects();
+const projects = () => {
+  const projectList = getProjects();
 
   return (
     <section

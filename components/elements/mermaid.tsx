@@ -1,40 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
 
-// Initialize mermaid
+// Initialize mermaid with proper configuration following best practices
+// https://mermaid.js.org/config/usage.html
 mermaid.initialize({
-  startOnLoad: false,
+  startOnLoad: false, // We manually trigger rendering
   theme: "default",
+  securityLevel: "strict", // Prevents arbitrary JavaScript execution
+  fontFamily: "var(--font-noto-sans), sans-serif",
+  themeVariables: {
+    fontSize: "16px",
+  },
 });
-
-// TODO make sure this uses SSR
 
 export function Mermaid({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && chart) {
       // Clear previous content
       ref.current.innerHTML = "";
       
       // Create a unique ID for this diagram
-      const id = `mermaid-${Math.random().toString(36).substring(2, 9)}`; // HACK not sure why this works
+      // Using crypto.randomUUID() for guaranteed uniqueness
+      const id = `mermaid-${crypto.randomUUID()}`;
       
-      // Render the diagram
-      mermaid.render(id, chart).then(({ svg }) => {
-        if (ref.current) {
-          ref.current.innerHTML = svg;
-        }
-      }).catch((error) => {
-        console.error("Mermaid rendering error:", error);
-        if (ref.current) {
-          ref.current.innerHTML = `<pre>Error rendering diagram: ${error.message}</pre>`;
-        }
-      });
+      // Render the diagram using mermaid.render()
+      // This is the recommended approach per mermaid.js documentation
+      mermaid
+        .render(id, chart)
+        .then(({ svg }) => {
+          if (ref.current) {
+            ref.current.innerHTML = svg;
+            setError(null); // Clear error only on successful render
+          }
+        })
+        .catch((err) => {
+          console.error("Mermaid rendering error:", err);
+          setError(err.message || "Failed to render diagram");
+        });
     }
   }, [chart]);
 
-  return <div ref={ref} className="mermaid-diagram flex justify-center my-6" />;
+  if (error) {
+    return (
+      <div className="my-6 rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200">
+        <p className="font-semibold">Error rendering diagram:</p>
+        <pre className="mt-2 whitespace-pre-wrap">{error}</pre>
+      </div>
+    );
+  }
+
+  return <div ref={ref} className="mermaid-diagram my-6 flex justify-center overflow-x-auto" />;
 }
