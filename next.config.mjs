@@ -56,13 +56,15 @@ const nextConfig = {
 };
 
 // Configure MDX
-// Note: Due to Turbopack serialization limitations, we cannot use remark/rehype plugins
-// in the Next.js config. Instead, we handle formatting and rendering via mdx-components.tsx:
-// - GitHub Flavored Markdown (GFM) features like tables work automatically in MDX
-// - Mermaid diagrams are handled by the custom Mermaid component
-// - Typography and styling are handled by Tailwind Typography plugin
+// Note: Next.js 16 defaults to Turbopack which cannot serialize function plugins.
+// This prevents using remark-gfm and rehype-highlight in the configuration.
+// 
+// Workarounds implemented:
+// - GFM features: MDX 3 natively supports tables, autolinks, and basic GFM syntax
+// - Syntax highlighting: Using highlight.js CSS imported in globals.css
+// - Mermaid diagrams: Custom component in mdx-components.tsx
 const withMDX = createMDX({
-  // Extension options can be configured here if needed
+  extension: /\.mdx?$/,
 });
 
 export default withMDX(nextConfig);
