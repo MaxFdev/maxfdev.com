@@ -21,9 +21,8 @@ export function Mermaid({ chart }: { chart: string }) {
 
   useEffect(() => {
     if (ref.current && chart) {
-      // Clear previous content and reset error state
+      // Clear previous content
       ref.current.innerHTML = "";
-      setError(null);
       
       // Create a unique ID for this diagram
       // Using crypto.randomUUID() for guaranteed uniqueness
@@ -36,6 +35,7 @@ export function Mermaid({ chart }: { chart: string }) {
         .then(({ svg }) => {
           if (ref.current) {
             ref.current.innerHTML = svg;
+            setError(null); // Clear error only on successful render
           }
         })
         .catch((err) => {
