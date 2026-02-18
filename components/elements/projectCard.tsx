@@ -69,7 +69,7 @@ export function ProjectCard({
             </Button>
           )}
           <ProjectDialogClient project={project} dialogContent={dialogContent}>
-            <button className="transition-all! cursor-pointer [transition-duration:_300ms_!important;] w-fit border-2 [line-height:_16px;] border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet">
+            <button className="transition-all! cursor-pointer duration-300! w-fit border-2 text-md border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet">
               Learn More
             </button>
           </ProjectDialogClient>

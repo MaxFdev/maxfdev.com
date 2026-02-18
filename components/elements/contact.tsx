@@ -16,7 +16,10 @@ const Contact = () => {
       <DialogTrigger asChild>
         <Button className="text-xl p-2">Contact</Button>
       </DialogTrigger>
-      <DialogContent className="max-sm:w-96 max-sm:rounded-lg">
+      <DialogContent
+        slideFrom="top-right"
+        className="max-sm:w-96 max-sm:rounded-lg"
+      >
         <DialogHeader>
           <DialogTitle asChild>
             <h3>Contact me</h3>
