@@ -24,7 +24,8 @@ const projects = async () => {
       <div className="flex flex-col gap-6 w-full max-w-(--width-clamp)">
         {projectList.map((project) => {
           // Extract serializable data for client component
-          const { Content, ...serializableProject } = project;
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { Content: _Content, ...serializableProject } = project;
 
           return (
             <ProjectCard

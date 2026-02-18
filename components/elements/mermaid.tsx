@@ -20,9 +20,8 @@ export function Mermaid({ chart }: { chart: string }) {
 
   useEffect(() => {
     if (ref.current && chart) {
-      // Clear previous content and error
+      // Clear previous content
       ref.current.innerHTML = "";
-      setError(null);
       
       // Create a unique ID for this diagram using crypto API for guaranteed uniqueness
       const id = `mermaid-${crypto.randomUUID()}`;
@@ -33,6 +32,7 @@ export function Mermaid({ chart }: { chart: string }) {
         .then(({ svg }) => {
           if (ref.current) {
             ref.current.innerHTML = svg;
+            setError(null); // Clear error on successful render
           }
         })
         .catch((err) => {

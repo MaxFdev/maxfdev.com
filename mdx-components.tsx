@@ -3,7 +3,7 @@ import { Mermaid } from "@/components/elements/mermaid";
 
 /**
  * MDX Components Configuration
- * 
+ *
  * This file defines custom components for MDX content rendering.
  * Most styling is handled by Tailwind Typography (prose classes).
  * Custom components are only added where necessary for functionality.

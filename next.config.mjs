@@ -34,39 +34,17 @@ const nextConfig = {
       },
     ],
   },
-  // Webpack configuration for MDX with plugins (not used with Turbopack)
-  webpack: (config, options) => {
-    // Find the MDX loader rule and configure it
-    config.module.rules.forEach((rule) => {
-      if (rule.test && rule.test.toString().includes('mdx')) {
-        if (rule.use && Array.isArray(rule.use)) {
-          rule.use.forEach((loader) => {
-            if (loader.loader && loader.loader.includes('@mdx-js/loader')) {
-              loader.options = {
-                ...loader.options,
-                providerImportSource: '@mdx-js/react',
-              };
-            }
-          });
-        }
-      }
-    });
-    return config;
-  },
 };
 
 // Configure MDX with remark and rehype plugins
 // Following Next.js MDX documentation: https://nextjs.org/docs/app/guides/mdx
 // Note: Using .mjs format required for ESM-only packages like remark-gfm
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   // Optionally provide remark and rehype plugins
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeHighlight],
+    remarkPlugins: ["remark-gfm"],
+    rehypePlugins: ["rehype-highlight"],
   },
 });
 
