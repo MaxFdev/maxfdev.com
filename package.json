@@ -21,10 +21,8 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "@types/mdx": "^2.0.13",
-    "autoprefixer": "^10.4.24",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "debug": "^4.4.3",
     "lucide-react": "^0.555.0",
     "mermaid": "^11.12.2",
     "next": "^16.1.6",
@@ -33,7 +31,6 @@
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "uuid": "^13.0.0",
     "vaul": "^1.1.2"
   },
   "devDependencies": {
@@ -48,7 +45,6 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "playwright": "^1.58.2",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "rehype-highlight": "^7.0.2",
