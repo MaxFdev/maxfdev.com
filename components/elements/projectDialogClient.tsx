@@ -50,7 +50,7 @@ export function ProjectDialogClient({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
         slideFrom="bottom"
-        className="max-w-3xl max-h-[85vh] overflow-y-auto"
+        className="w-19/20 max-w-4xl rounded-2xl! max-h-[85vh] overflow-y-auto"
       >
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold font-trebuchet">
@@ -90,7 +90,7 @@ export function ProjectDialogClient({
 
         {/* Footer with View Project button */}
         {project.repoUrl && (
-          <DialogFooter>
+          <DialogFooter className="pb-6">
             <Button href={project.repoUrl} target="_blank">
               View Project on GitHub
             </Button>
