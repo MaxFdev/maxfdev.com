@@ -30,7 +30,10 @@ const Footer = () => {
   };
 
   return (
-    <footer id="footer" className="flex justify-center items-center mt-20">
+    <footer
+      id="footer"
+      className="flex justify-center items-center mt-10 md:mt-20"
+    >
       <div className="border-dashed border-t border-t-gray-500 p-1">
         <p className="max-sm:text-xs">
           I designed and developed this site | Updated {formatDate()}

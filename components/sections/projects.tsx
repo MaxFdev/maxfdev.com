@@ -20,7 +20,7 @@ const projects = () => {
       </BigButton>
 
       {/* Single column project list */}
-      <div className="flex flex-col gap-6 w-full max-w-(--width-clamp)">
+      <div className="flex flex-col gap-6 w-11/12 max-w-sm md:max-w-(--width-clamp)">
         {projectList.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
