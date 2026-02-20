@@ -1,26 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Button from "@/components/elements/button";
 import { ProjectDialogClient } from "@/components/elements/projectDialogClient";
+import { ProjectMetadata } from "@/data";
 
-// Serializable version of project details (without the Content component)
-export interface SerializableProjectDetails {
-  slug: string;
-  name: string;
-  image: string;
-  overview: string;
-  topics: string[];
-  repoUrl: string;
-}
-
-export function ProjectCard({
-  project,
-  dialogContent,
-}: {
-  project: SerializableProjectDetails;
-  dialogContent: React.ReactNode;
-}) {
+export function ProjectCard({ project }: { project: ProjectMetadata }) {
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
@@ -68,7 +51,7 @@ export function ProjectCard({
               View Project
             </Button>
           )}
-          <ProjectDialogClient project={project} dialogContent={dialogContent}>
+          <ProjectDialogClient project={project}>
             <button className="transition-all! cursor-pointer duration-300! w-fit border-2 text-md border-black rounded-lg p-1 bg-black text-white font-semibold hover:bg-transparent hover:text-black font-trebuchet">
               Learn More
             </button>

@@ -1,17 +1,16 @@
 import { ComponentType } from "react";
 
-// Static imports of MDX files
+// Static imports of MDX files for metadata extraction
 import * as awsLambdaMock from "./aws-lambda-mock.mdx";
 import * as fat32Reader from "./fat32-reader.mdx";
 
-export interface ProjectDetails {
+export interface ProjectMetadata {
   slug: string;
   name: string;
   image: string;
   overview: string;
   topics: string[];
   repoUrl: string;
-  Content: ComponentType;
 }
 
 // Define all projects with their metadata
@@ -21,10 +20,10 @@ const projectModules = [
 ];
 
 /**
- * Gets all MDX projects with their metadata.
- * Projects are statically imported at build time.
+ * Gets all project metadata without MDX content components.
+ * Lightweight - use this for listing projects.
  */
-export function getProjects(): ProjectDetails[] {
+export function getProjectsMetadata(): ProjectMetadata[] {
   const projects = projectModules.map(({ slug, module }) => ({
     slug,
     name: module.name || slug,
@@ -32,9 +31,17 @@ export function getProjects(): ProjectDetails[] {
     overview: module.overview || "",
     topics: module.topics || [],
     repoUrl: module.repoUrl || "",
-    Content: module.default, // MDX default export is the content component
-  })) as ProjectDetails[];
+  }));
 
   // Sort projects by name
   return projects.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Dynamically loads the MDX content component for a specific project.
+ * Use this for on-demand loading when displaying project details.
+ */
+export async function getProjectContent(slug: string): Promise<ComponentType> {
+  const mdxModule = await import(`./${slug}.mdx`);
+  return mdxModule.default;
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
-import { SerializableProjectDetails } from "./projectCard";
+import { ComponentType, ReactNode, useState, useEffect } from "react";
+import { ProjectMetadata } from "@/data";
 import {
   Dialog,
   DialogContent,
@@ -11,18 +11,41 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Button from "@/components/elements/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function ProjectDialogClient({
   project,
-  dialogContent,
   children,
 }: {
-  project: SerializableProjectDetails;
-  dialogContent: ReactNode;
+  project: ProjectMetadata;
   children: ReactNode;
 }) {
+  const [Content, setContent] = useState<ComponentType | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Only load content when dialog is opened and content hasn't been loaded yet
+    if (isOpen && !Content && !isLoading) {
+      setIsLoading(true);
+      import(`@/data/projects/${project.slug}.mdx`)
+        .then((module) => {
+          setContent(() => module.default);
+        })
+        .catch((error) => {
+          console.error(
+            `Failed to load project content for ${project.slug}:`,
+            error
+          );
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [isOpen, Content, isLoading, project.slug]);
+
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
         slideFrom="bottom"
@@ -48,8 +71,21 @@ export function ProjectDialogClient({
           </div>
         )}
 
-        {/* MDX Content passed from server component */}
-        {dialogContent}
+        {/* MDX Content - dynamically loaded */}
+        {isLoading && (
+          <div className="space-y-4 py-4">
+            <Skeleton className="h-8 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
+            <Skeleton className="h-32 w-full mt-6" />
+            <Skeleton className="h-6 w-2/3 mt-6" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-4/5" />
+          </div>
+        )}
+        {Content && <Content />}
 
         {/* Footer with View Project button */}
         {project.repoUrl && (

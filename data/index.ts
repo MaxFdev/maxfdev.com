@@ -25,4 +25,8 @@ export const socials = [
 ];
 
 // Re-export project utilities and types
-export { getProjects, type ProjectDetails } from "./projects";
+export {
+  getProjectsMetadata,
+  getProjectContent,
+  type ProjectMetadata,
+} from "./projects";
