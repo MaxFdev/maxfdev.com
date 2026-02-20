@@ -6,7 +6,7 @@ export const repoUrl = "https://github.com/MaxFdev/PetiteDB";
 
 ## Overview
 
-PetiteDB is a simplified relational database management system built for COM 3563 (Database Implementation). It implements the usual stack from raw disk blocks up to tables and indexes: file management, write-ahead logging, buffer pooling, transactions (ACID), record layout, a system catalog, and indexing. All data access goes through transactions; the buffer manager caches blocks in memory; and the log layer ensures the database can recover to a consistent state after a crash.
+PetiteDB is a simplified relational database management system built for COM 3563 (Database Implementation). The stack is Java 17 with Maven; testing uses JUnit Jupiter and logging uses Log4j 2. It implements the usual stack from raw disk blocks up to tables and indexes: file management, write-ahead logging, buffer pooling, transactions (ACID), record layout, a system catalog, and indexing. All data access goes through transactions; the buffer manager caches blocks in memory; and the log layer ensures the database can recover to a consistent state after a crash.
 
 ## Layered Architecture
 

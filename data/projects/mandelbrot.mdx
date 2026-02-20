@@ -6,7 +6,7 @@ export const repoUrl = "https://github.com/MaxFdev/mandelbrot";
 
 ## Overview
 
-This project is a multithreaded C program that renders the Mandelbrot set and writes the result as a BMP image. You specify image dimensions, the number of worker threads (“engines”), and a rectangular region in the complex plane (top-left coordinates and side length). The program divides the work among threads and outputs a BMP file (e.g. `mandeloutput_overview.bmp`, `mandeloutput_zoomed.bmp`).
+This project is a multithreaded C program that renders the Mandelbrot set and writes the result as a BMP image. It uses POSIX threads (pthreads) for parallel pixel computation and writes BMP output by hand (no image libraries). You specify image dimensions, the number of worker threads (“engines”), and a rectangular region in the complex plane (top-left coordinates and side length). The program divides the work among threads and outputs a BMP file (e.g. `mandeloutput_overview.bmp`, `mandeloutput_zoomed.bmp`).
 
 ## Pipeline
 

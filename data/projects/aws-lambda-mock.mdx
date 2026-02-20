@@ -6,7 +6,7 @@ export const repoUrl = "https://github.com/MaxFdev/AWS-Lambda-Mock";
 
 ## Overview
 
-AWS-Lambda-Mock is a distributed system built to mock the serverless code execution of AWS Lambda. Instead of a single-node test harness, it runs as a **cluster**: a user-facing gateway node and multiple peer server nodes that elect a leader and execute code on workers. The system handles node failure via a gossip-style heartbeat and reassigns work or starts new elections so the cluster stays available.
+AWS-Lambda-Mock is a distributed system built to mock the serverless code execution of AWS Lambda. The stack is Java with Maven; leader election uses ZooKeeper, and nodes communicate with a custom gossip-style heartbeat for failure detection. Instead of a single-node test harness, it runs as a cluster: a user-facing gateway node and multiple peer server nodes that elect a leader and execute code on workers. The system handles node failure via a gossip-style heartbeat and reassigns work or starts new elections so the cluster stays available.
 
 ## Architecture
 

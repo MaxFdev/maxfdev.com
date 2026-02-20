@@ -6,7 +6,7 @@ export const repoUrl = "https://github.com/MaxFdev/fat32_reader";
 
 ## Overview
 
-FAT32 Reader is a Java program that navigates a FAT32 file system stored in a single file (e.g. a `.img` file). It acts as a small shell: you point it at a FAT32 image and use built-in commands to list directories, change directory, and read file contents. The implementation parses the FAT32 layout directly—boot sector, FAT tables, root directory, and data clusters—without using the OS’s file system APIs.
+FAT32 Reader is a Java program (single main class, no external dependencies beyond the JDK) that navigates a FAT32 file system stored in a single file (e.g. a `.img` file). It acts as a small shell: you point it at a FAT32 image and use built-in commands to list directories, change directory, and read file contents. The implementation parses the FAT32 layout directly—boot sector, FAT tables, root directory, and data clusters—without using the OS’s file system APIs.
 
 ## FAT32 Layout
 
