@@ -3,6 +3,10 @@ import { ComponentType } from "react";
 // Static imports of MDX files for metadata extraction
 import * as awsLambdaMock from "./aws-lambda-mock.mdx";
 import * as fat32Reader from "./fat32-reader.mdx";
+import * as mandelbrot from "./mandelbrot.mdx";
+import * as petiteDb from "./petite-db.mdx";
+import * as stocksTerminalSeProject from "./stocks-terminal-se-project.mdx";
+import * as tsh from "./tsh.mdx";
 
 export interface ProjectMetadata {
   slug: string;
@@ -17,6 +21,10 @@ export interface ProjectMetadata {
 const projectModules = [
   { slug: "aws-lambda-mock", module: awsLambdaMock },
   { slug: "fat32-reader", module: fat32Reader },
+  { slug: "mandelbrot", module: mandelbrot },
+  { slug: "petite-db", module: petiteDb },
+  { slug: "stocks-terminal-se-project", module: stocksTerminalSeProject },
+  { slug: "tsh", module: tsh },
 ];
 
 /**

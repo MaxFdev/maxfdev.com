@@ -1,64 +1,53 @@
 export const name = "AWS Lambda Mock";
 export const image = "/images/projects/lambda.png";
-export const overview = "A lightweight Java testing framework for AWS Lambda functions";
-export const topics = ["Java", "AWS Lambda", "Testing", "Maven"];
-export const repoUrl = "https://github.com/MaxFdev";
+export const overview = "A distributed system that mocks serverless code execution across gateway and worker nodes with leader election and gossip failure detection.";
+export const topics = ["Java", "Distributed Systems", "Serverless", "ZooKeeper", "Maven"];
+export const repoUrl = "https://github.com/MaxFdev/AWS-Lambda-Mock";
 
 ## Overview
 
-AWS Lambda Mock is a comprehensive testing framework designed to simplify unit and integration testing of AWS Lambda functions written in Java. It provides a mock environment that simulates the Lambda runtime without requiring actual AWS infrastructure.
-
-## Key Features
-
-- **Zero AWS Dependencies**: Test Lambda functions locally without AWS credentials
-- **Complete Runtime Simulation**: Mimics Lambda context, environment variables, and execution patterns
-- **Easy Integration**: Works seamlessly with JUnit and other Java testing frameworks
-- **Maven Support**: Simple Maven dependency integration
+AWS-Lambda-Mock is a distributed system built to mock the serverless code execution of AWS Lambda. Instead of a single-node test harness, it runs as a **cluster**: a user-facing gateway node and multiple peer server nodes that elect a leader and execute code on workers. The system handles node failure via a gossip-style heartbeat and reassigns work or starts new elections so the cluster stays available.
 
 ## Architecture
 
-The framework follows a modular design that separates concerns:
+The system has two kinds of nodes:
+
+- **Gateway node**: Handles the user-facing API. It accepts requests to run code, caches requests when useful, and returns results to the client. It does not run code itself; it delegates to the peer cluster.
+- **Peer server nodes**: Form the backend. They use a **ZooKeeper-based leader election**: one node becomes the leader; the rest are workers. The leader talks to the gateway, receives work assignments, and distributes code-execution tasks to workers. Workers run the code and send results back to the leader, which relays them to the gateway.
+
+Failure detection is done with a **gossip-style heartbeat**: nodes exchange heartbeats and detect when a peer has failed. If the leader fails, the remaining nodes run a new election. If a worker fails, the leader reassigns its work so the client still gets a response.
 
 ```mermaid
-graph TD
-    A[Lambda Function] --> B[Mock Context]
-    B --> C[Mock Environment]
-    C --> D[Test Assertions]
-    D --> E[Test Results]
+flowchart LR
+    Client -->|"Submit code"| Gateway
+    Gateway -->|"Assign work"| Leader
+    Leader -->|"Execute"| Worker1
+    Leader -->|"Execute"| Worker2
+    Worker1 -->|"Results"| Leader
+    Worker2 -->|"Results"| Leader
+    Leader -->|"Results"| Gateway
+    Gateway -->|"Response"| Client
+    subgraph peers [Cluster]
+        Leader
+        Worker1
+        Worker2
+        Gossip["Gossip heartbeat"]
+    end
 ```
 
-## Usage Example
+## Key Components
 
-```java
-@Test
-public void testLambdaFunction() {
-    MockLambdaContext context = new MockLambdaContext();
-    MyLambdaHandler handler = new MyLambdaHandler();
-    
-    String result = handler.handleRequest("test input", context);
-    
-    assertEquals("expected output", result);
-}
-```
+- **Gateway**: API entry point, request caching, and coordination with the leader. No code execution.
+- **Leader (elected)**: Receives work from the gateway, partitions it across workers, aggregates results, and sends them back to the gateway. Reassigns work when a worker fails.
+- **Workers**: Execute the submitted code and return results to the leader.
+- **Gossip heartbeat**: Every node participates in heartbeat exchange to detect failures; when a node is marked down, the cluster reacts (new election or work reassignment).
 
-## Benefits
+## Failure Handling
 
-- **Faster Development**: No need to deploy to AWS for every test
-- **Cost Effective**: Eliminate AWS costs during development
-- **Reliable Testing**: Consistent test environment across all developers
-- **CI/CD Friendly**: Easy integration into continuous integration pipelines
+- **Leader failure**: Detected via gossip; remaining nodes run a new leader election. The new leader takes over communication with the gateway.
+- **Worker failure**: The leader detects the failure and reassigns the failed worker’s tasks to other workers so the client still receives results.
+- **Gateway failure**: Client-facing; typically handled by running multiple gateways or external load balancing (depending on deployment).
 
-## Getting Started
+## Build and Run
 
-Add the dependency to your `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>com.maxfdev</groupId>
-    <artifactId>aws-lambda-mock</artifactId>
-    <version>1.0.0</version>
-    <scope>test</scope>
-</dependency>
-```
-
-Then create your tests using the provided mock context and assertions.
+The project is Java-based (Maven). Start the gateway and then the peer nodes; they form the cluster and begin processing code. See the repo README and `demo5.sh` for running a full demo.
