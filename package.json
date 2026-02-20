@@ -23,7 +23,7 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.574.0",
+    "lucide-react": "^0.575.0",
     "mermaid": "^11.12.2",
     "next": "^16.1.6",
     "react": "^19.2.4",
@@ -48,9 +48,9 @@
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "rehype-highlight": "^7.0.2",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.0",
-    "wrangler": "^4.65.0"
+    "wrangler": "^4.67.0"
   }
 }
