@@ -1,7 +1,7 @@
 "use client";
 
-import { ComponentType, ReactNode, useState, useEffect } from "react";
-import { ProjectMetadata } from "@/data";
+import { ComponentType, ReactNode, useState } from "react";
+import { getProjectContent, ProjectMetadata } from "@/data";
 import {
   Dialog,
   DialogContent,
@@ -24,13 +24,14 @@ export function ProjectDialogClient({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
     // Only load content when dialog is opened and content hasn't been loaded yet
-    if (isOpen && !Content && !isLoading) {
+    if (open && !Content && !isLoading) {
       setIsLoading(true);
-      import(`@/data/projects/${project.slug}.mdx`)
-        .then((module) => {
-          setContent(() => module.default);
+      getProjectContent(project.slug)
+        .then((component) => {
+          setContent(() => component);
         })
         .catch((error) => {
           console.error(
@@ -42,10 +43,10 @@ export function ProjectDialogClient({
           setIsLoading(false);
         });
     }
-  }, [isOpen, Content, isLoading, project.slug]);
+  };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
         slideFrom="bottom"
