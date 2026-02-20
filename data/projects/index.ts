@@ -19,12 +19,12 @@ export interface ProjectMetadata {
 
 // Define all projects with their metadata
 const projectModules = [
-  { slug: "aws-lambda-mock", module: awsLambdaMock },
-  { slug: "fat32-reader", module: fat32Reader },
-  { slug: "mandelbrot", module: mandelbrot },
   { slug: "petite-db", module: petiteDb },
-  { slug: "stocks-terminal-se-project", module: stocksTerminalSeProject },
+  { slug: "aws-lambda-mock", module: awsLambdaMock },
   { slug: "tsh", module: tsh },
+  { slug: "fat32-reader", module: fat32Reader },
+  { slug: "stocks-terminal-se-project", module: stocksTerminalSeProject },
+  { slug: "mandelbrot", module: mandelbrot },
 ];
 
 /**
@@ -32,7 +32,7 @@ const projectModules = [
  * Lightweight - use this for listing projects.
  */
 export function getProjectsMetadata(): ProjectMetadata[] {
-  const projects = projectModules.map(({ slug, module }) => ({
+  return projectModules.map(({ slug, module }) => ({
     slug,
     name: module.name || slug,
     image: module.image || "",
@@ -40,9 +40,6 @@ export function getProjectsMetadata(): ProjectMetadata[] {
     topics: module.topics || [],
     repoUrl: module.repoUrl || "",
   }));
-
-  // Sort projects by name
-  return projects.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
