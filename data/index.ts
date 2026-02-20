@@ -30,3 +30,10 @@ export {
   getProjectContent,
   type ProjectMetadata,
 } from "./projects";
+
+// Re-export experience utilities and types
+export {
+  getExperienceMetadata,
+  getExperienceContent,
+  type ExperienceMetadata,
+} from "./experience";

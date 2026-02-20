@@ -1,23 +1,23 @@
 "use client";
 
 import { ComponentType, ReactNode, useState } from "react";
-import { getProjectContent, ProjectMetadata } from "@/data";
+import { getExperienceContent, ExperienceMetadata } from "@/data";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Button from "@/components/elements/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function ProjectDialogClient({
-  project,
+export function ExperienceDialogClient({
+  experience,
   children,
 }: {
-  project: ProjectMetadata;
+  experience: ExperienceMetadata;
   children: ReactNode;
 }) {
   const [Content, setContent] = useState<ComponentType | null>(null);
@@ -26,16 +26,15 @@ export function ProjectDialogClient({
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
-    // Only load content when dialog is opened and content hasn't been loaded yet
     if (open && !Content && !isLoading) {
       setIsLoading(true);
-      getProjectContent(project.slug)
+      getExperienceContent(experience.slug)
         .then((component) => {
-          setContent(() => component);
+          setContent(() => component ?? null);
         })
         .catch((error) => {
           console.error(
-            `Failed to load project content for ${project.slug}:`,
+            `Failed to load experience content for ${experience.slug}:`,
             error
           );
         })
@@ -54,25 +53,12 @@ export function ProjectDialogClient({
       >
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold font-trebuchet">
-            {project.name}
+            {experience.role} at {experience.company}
           </DialogTitle>
         </DialogHeader>
 
-        {/* Topics/Tags */}
-        {project.topics.length > 0 && (
-          <div className="flex gap-2 flex-wrap">
-            {project.topics.map((topic, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 h-fit rounded-3xl border-2 border-black text-sm font-bold whitespace-nowrap text-center uppercase"
-              >
-                {topic}
-              </span>
-            ))}
-          </div>
-        )}
+        <p className="text-sm text-gray-600">{experience.dates}</p>
 
-        {/* MDX Content - dynamically loaded */}
         {isLoading && (
           <div className="space-y-4 py-4">
             <Skeleton className="h-8 w-3/4" />
@@ -80,22 +66,19 @@ export function ProjectDialogClient({
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-5/6" />
             <Skeleton className="h-32 w-full mt-6" />
-            <Skeleton className="h-6 w-2/3 mt-6" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-4/5" />
           </div>
         )}
         {Content && <Content />}
 
-        {/* Footer with View Project button */}
-        {project.repoUrl && (
-          <DialogFooter>
-            <Button href={project.repoUrl} target="_blank">
-              View Project on GitHub
-            </Button>
-          </DialogFooter>
-        )}
+        <DialogFooter>
+          {experience.companyUrl && (
+            <div className="pt-4">
+              <Button href={experience.companyUrl} target="_blank">
+                Visit {experience.company}
+              </Button>
+            </div>
+          )}
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
