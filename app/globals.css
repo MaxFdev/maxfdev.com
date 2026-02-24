@@ -69,6 +69,10 @@
   }
 
   /* MDX Content Styling */
+  .prose img {
+    @apply mx-auto block;
+  }
+
   .prose .mermaid {
     @apply flex justify-center my-6;
   }

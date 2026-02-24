@@ -8,15 +8,15 @@ export function ExperienceCard({ experience }: { experience: ExperienceMetadata 
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
-      <div className="flex w-full h-full md:w-72 shrink-0 self-center">
-        <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md">
+      <div className="flex w-full h-full md:w-72 shrink-0 self-center items-center justify-center">
+        <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md flex items-center justify-center">
           {experience.image ? (
             <Image
               src={experience.image}
               alt={experience.company}
               width={960}
               height={540}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-contain object-center"
             />
           ) : (
             <div className="h-full w-full rounded-lg drop-shadow-md bg-gray-200" />

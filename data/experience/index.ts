@@ -2,7 +2,7 @@ import { ComponentType } from "react";
 
 // Static imports of MDX files for metadata extraction
 // Add imports as you add experience entries, e.g.:
-import * as exampleRole from "./example-role.mdx";
+import * as yeshivaUniversity from "./yeshiva-university.mdx";
 
 export interface ExperienceMetadata {
   slug: string;
@@ -17,7 +17,7 @@ export interface ExperienceMetadata {
 // Define all experience entries with their metadata
 // Add entries here when you create new MDX files under data/experience/
 const experienceModules: { slug: string; module: Record<string, unknown> }[] = [
-  { slug: "example-role", module: exampleRole },
+  { slug: "yeshiva-university", module: yeshivaUniversity },
 ];
 
 /**
