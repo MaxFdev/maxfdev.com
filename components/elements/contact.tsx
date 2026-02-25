@@ -18,7 +18,7 @@ const Contact = () => {
       </DialogTrigger>
       <DialogContent
         slideFrom="top-right"
-        className="w-19/20 max-w-4xl rounded-2xl! max-h-[85vh] overflow-y-auto"
+        className="w-19/20 max-w-xl rounded-2xl! max-h-[85vh] overflow-y-auto"
       >
         <DialogHeader>
           <DialogTitle asChild>
