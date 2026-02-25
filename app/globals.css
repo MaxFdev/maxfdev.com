@@ -70,7 +70,7 @@
 
   /* MDX Content Styling */
   .prose img {
-    @apply mx-auto block;
+    @apply mx-auto block max-w-full h-auto;
   }
 
   .prose .mermaid {
@@ -81,13 +81,18 @@
     @apply max-w-full h-auto;
   }
 
-  /* Ensure code blocks have proper background in light mode */
+  /* Ensure code blocks have proper background and width constraints */
   .prose pre {
-    @apply bg-gray-900 text-gray-100;
+    @apply bg-gray-900 text-gray-100 overflow-x-auto max-w-full;
   }
 
   .prose code {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-100 dark:bg-gray-800 wrap-break-word;
+  }
+
+  /* Prevent tables and other elements from overflowing */
+  .prose table {
+    @apply max-w-full overflow-x-auto block;
   }
 
   /* Ensure checkmarks render properly in lists */

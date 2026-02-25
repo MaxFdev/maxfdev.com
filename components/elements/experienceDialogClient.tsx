@@ -68,7 +68,11 @@ export function ExperienceDialogClient({
             <Skeleton className="h-32 w-full mt-6" />
           </div>
         )}
-        {Content && <Content />}
+        {Content && (
+          <div className="overflow-x-auto w-full">
+            <Content />
+          </div>
+        )}
 
         <DialogFooter>
           {experience.companyUrl && (
