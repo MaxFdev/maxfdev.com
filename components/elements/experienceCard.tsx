@@ -4,12 +4,16 @@ import { ExperienceDialogClient } from "@/components/elements/experienceDialogCl
 import { ExperienceMetadata } from "@/data";
 import { ArrowUpRight } from "lucide-react";
 
-export function ExperienceCard({ experience }: { experience: ExperienceMetadata }) {
+export function ExperienceCard({
+  experience,
+}: {
+  experience: ExperienceMetadata;
+}) {
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
       <div className="flex w-full aspect-video md:w-72 shrink-0 self-center items-center justify-center">
-        <div className="w-fit overflow-hidden rounded-lg drop-shadow-md flex items-center justify-center bg-white">
+        <div className="h-fit overflow-hidden rounded-lg drop-shadow-md bg-white">
           {experience.image ? (
             <Image
               src={experience.image}
@@ -27,7 +31,9 @@ export function ExperienceCard({ experience }: { experience: ExperienceMetadata 
       {/* Content Section */}
       <div className="flex-1 flex flex-col gap-3">
         <div>
-          <h3 className="text-2xl font-extrabold font-trebuchet">{experience.role}</h3>
+          <h3 className="text-2xl font-extrabold font-trebuchet">
+            {experience.role}
+          </h3>
           <p className="text-lg font-semibold">{experience.company}</p>
           <p className="text-sm text-gray-600">{experience.dates}</p>
         </div>

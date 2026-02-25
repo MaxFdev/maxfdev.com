@@ -1,6 +1,7 @@
 export const name = "PetiteDB";
 export const image = "/images/projects/database.png";
-export const overview = "Lightweight relational DBMS implementing standard layers: file, log, buffer, transaction, record, metadata catalog, and static hash indexes.";
+export const overview =
+  "Lightweight relational DBMS implementing standard layers: file, log, buffer, transaction, record, metadata catalog, and static hash indexes.";
 export const topics = ["Java", "DBMS", "ACID", "Relational DB", "Maven"];
 export const repoUrl = "https://github.com/MaxFdev/PetiteDB";
 
@@ -46,20 +47,20 @@ flowchart TB
 
 ## Module Map
 
-| Package | Main types | Role |
-|--------|------------|------|
-| `edu.yu.dbimpl.file` | FileMgr, BlockId, Page | Block I/O to files |
-| `edu.yu.dbimpl.log` | LogMgr | Append and read log records |
-| `edu.yu.dbimpl.buffer` | BufferMgr, Buffer | Page pool, pin/unpin, eviction |
-| `edu.yu.dbimpl.tx` | Tx, TxMgr | Transactions, concurrency, recovery |
-| `edu.yu.dbimpl.record` | Schema, Layout | Record structure and slot layout |
-| `edu.yu.dbimpl.metadata` | TableMgr | System catalog |
-| `edu.yu.dbimpl.index` | IndexMgr, Index | Index creation and lookup (e.g. hash) |
+| Package                  | Main types             | Role                                  |
+| ------------------------ | ---------------------- | ------------------------------------- |
+| `edu.yu.dbimpl.file`     | FileMgr, BlockId, Page | Block I/O to files                    |
+| `edu.yu.dbimpl.log`      | LogMgr                 | Append and read log records           |
+| `edu.yu.dbimpl.buffer`   | BufferMgr, Buffer      | Page pool, pin/unpin, eviction        |
+| `edu.yu.dbimpl.tx`       | Tx, TxMgr              | Transactions, concurrency, recovery   |
+| `edu.yu.dbimpl.record`   | Schema, Layout         | Record structure and slot layout      |
+| `edu.yu.dbimpl.metadata` | TableMgr               | System catalog                        |
+| `edu.yu.dbimpl.index`    | IndexMgr, Index        | Index creation and lookup (e.g. hash) |
 
 ## Build and Run
 
-- **Java**: 17  
-- **Maven**: 3.x  
-- **Dependencies**: JUnit Jupiter (testing), Log4j 2 (logging)  
+- **Java**: 17
+- **Maven**: 3.x
+- **Dependencies**: JUnit Jupiter (testing), Log4j 2 (logging)
 
 Build and run tests with Maven from the repo root. The `src` tree contains the layered implementation.
