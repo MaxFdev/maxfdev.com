@@ -8,8 +8,8 @@ export function ProjectCard({ project }: { project: ProjectMetadata }) {
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
-      <div className="flex w-full h-full md:w-72 shrink-0 self-center items-center justify-center">
-        <div className="w-full aspect-video overflow-hidden rounded-lg drop-shadow-md flex items-center justify-center">
+      <div className="flex w-full aspect-video md:w-72 shrink-0 self-center items-center justify-center">
+        <div className="w-fit overflow-hidden rounded-lg drop-shadow-md flex items-center justify-center">
           {project.image ? (
             <Image
               src={project.image}
