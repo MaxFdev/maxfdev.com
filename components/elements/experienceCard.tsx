@@ -13,7 +13,8 @@ export function ExperienceCard({
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
       <div className="flex w-full aspect-video md:w-72 shrink-0 self-center items-center justify-center">
-        <div className="h-fit overflow-hidden rounded-lg drop-shadow-md bg-white">
+        {/* HACK remove the last two classes when the YU experience png fits properly */}
+        <div className="h-full w-full overflow-hidden rounded-lg drop-shadow-md bg-white p-2">
           {experience.image ? (
             <Image
               src={experience.image}

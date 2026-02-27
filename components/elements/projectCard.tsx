@@ -9,14 +9,14 @@ export function ProjectCard({ project }: { project: ProjectMetadata }) {
     <div className="flex flex-col md:flex-row gap-4 bg-blue-300 rounded-lg drop-shadow-md p-4">
       {/* Image Section */}
       <div className="flex w-full aspect-video md:w-72 shrink-0 self-center items-center justify-center">
-        <div className="h-fit overflow-hidden rounded-lg drop-shadow-md">
+        <div className="h-full w-full overflow-hidden rounded-lg drop-shadow-md">
           {project.image ? (
             <Image
               src={project.image}
               alt={project.name}
               width={960}
               height={540}
-              className="w-full h-full object-contain object-center"
+              className="w-full h-full object-fill object-center"
             />
           ) : (
             <div className="h-full w-full rounded-lg drop-shadow-md bg-gray-200" />
