@@ -1,19 +1,35 @@
 export const name = "AWS Lambda Mock";
 export const image = "/images/projects/lambda.png";
-export const overview = "A distributed system that mocks serverless code execution across gateway and worker nodes with leader election and gossip failure detection.";
-export const topics = ["Java", "Distributed Systems", "Serverless", "ZooKeeper", "Maven"];
+export const overview =
+  "A distributed system that mocks serverless code execution architecture of AWS Lambda.";
+export const topics = [
+  "Java",
+  "Distributed Systems",
+  "Serverless",
+  "ZooKeeper",
+  "Maven",
+];
 export const repoUrl = "https://github.com/MaxFdev/AWS-Lambda-Mock";
 
 ## Overview
 
-AWS-Lambda-Mock is a distributed system built to mock the serverless code execution of AWS Lambda. The stack is Java with Maven; leader election uses ZooKeeper, and nodes communicate with a custom gossip-style heartbeat for failure detection. Instead of a single-node test harness, it runs as a cluster: a user-facing gateway node and multiple peer server nodes that elect a leader and execute code on workers. The system handles node failure via a gossip-style heartbeat and reassigns work or starts new elections so the cluster stays available.
+AWS-Lambda-Mock is a distributed system built to mock the serverless code execution of AWS Lambda.
+The project was developed in Java. The leader election algorithm is based on Apache ZooKeeper,
+and nodes communicate with a custom gossip-style heartbeat for failure detection. Instead of a single-node test harness,
+it runs as a cluster: a user-facing gateway node and multiple peer server nodes that elect a leader and execute code on workers.
+The system handles node failure by reassigning work for worker failure or starting a new elections for leader failure so that the cluster remains highly available.
 
 ## Architecture
 
 The system has two kinds of nodes:
 
-- **Gateway node**: Handles the user-facing API. It accepts requests to run code, caches requests when useful, and returns results to the client. It does not run code itself; it delegates to the peer cluster.
-- **Peer server nodes**: Form the backend. They use a **ZooKeeper-based leader election**: one node becomes the leader; the rest are workers. The leader talks to the gateway, receives work assignments, and distributes code-execution tasks to workers. Workers run the code and send results back to the leader, which relays them to the gateway.
+- **Gateway node**: Handles the user-facing API. It accepts requests to run code, caches requests when useful, and returns results to the client.
+It does not run code itself, it delegates to the peer cluster.
+- **Peer server nodes**: Form the backend. They use a **ZooKeeper-based leader election**: one node becomes the leader, the rest are workers.
+The leader talks to the gateway, receives work assignments, and distributes code-execution tasks to workers.
+Workers run the code and send results back to the leader, which relays them to the gateway.
+
+{/* TODO finish reviewing: */}
 
 Failure detection is done with a **gossip-style heartbeat**: nodes exchange heartbeats and detect when a peer has failed. If the leader fails, the remaining nodes run a new election. If a worker fails, the leader reassigns its work so the client still gets a response.
 

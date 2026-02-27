@@ -1,8 +1,11 @@
 export const name = "Tiny Shell (tsh)";
 export const image = "/images/projects/tsh.jpg";
-export const overview = "C shell project demonstrating signal handling and process management: run commands in foreground or background, with jobs, fg, and bg.";
+export const overview =
+  "C shell project demonstrating signal handling and process management: run commands in foreground or background, with jobs, fg, and bg.";
 export const topics = ["C", "Shell", "Unix", "Signals", "Process Management"];
 export const repoUrl = "https://github.com/MaxFdev/tsh";
+
+{/* TODO finish reviewing: */}
 
 ## Overview
 
@@ -34,7 +37,7 @@ flowchart TB
 ## Foreground vs Background
 
 - **Foreground**: The shell forks, the child execs the program, and the shell waits (e.g. `waitpid`). The child is in the foreground process group and receives terminal signals (Ctrl+C, Ctrl+Z). Only one foreground job at a time.
-- **Background**: The shell forks, the child execs the program, and the shell does *not* wait. The child is in a background process group; the shell adds it to the job list and immediately prints a new prompt. The user can start more commands or use `fg`/`bg`/`jobs`.
+- **Background**: The shell forks, the child execs the program, and the shell does _not_ wait. The child is in a background process group; the shell adds it to the job list and immediately prints a new prompt. The user can start more commands or use `fg`/`bg`/`jobs`.
 
 ## Signals in Detail
 
