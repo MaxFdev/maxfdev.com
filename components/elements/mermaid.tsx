@@ -12,7 +12,7 @@ mermaid.initialize({
   securityLevel: "strict", // Prevents arbitrary JavaScript execution
   fontFamily: "var(--font-noto-sans), sans-serif",
   themeVariables: {
-    fontSize: "18px",
+    fontSize: "24px",
   },
 });
 
@@ -30,6 +30,7 @@ export function Mermaid({ chart }: { chart: string }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [canvasHeight, setCanvasHeight] = useState(400);
   const [dragEnabled, setDragEnabled] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const dragState = useRef<{
     active: boolean;
     startX: number;
@@ -154,6 +155,7 @@ export function Mermaid({ chart }: { chart: string }) {
         originX: position.x,
         originY: position.y,
       };
+      setIsDragging(true);
       e.preventDefault();
     },
     [dragEnabled, position]
@@ -169,6 +171,7 @@ export function Mermaid({ chart }: { chart: string }) {
 
   const onMouseUp = useCallback(() => {
     dragState.current.active = false;
+    setIsDragging(false);
   }, []);
 
   const zoom = useCallback((delta: number) => {
@@ -231,7 +234,7 @@ export function Mermaid({ chart }: { chart: string }) {
       style={{
         height: canvasHeight,
         cursor: dragEnabled
-          ? dragState.current.active
+          ? isDragging
             ? "grabbing"
             : "grab"
           : "default",
