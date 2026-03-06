@@ -24,33 +24,34 @@ export const ProjectDialogClient = memo(function ProjectDialogClient({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOpenChange = useCallback((open: boolean) => {
-    setIsOpen(open);
-    // Only load content when dialog is opened and content hasn't been loaded yet
-    if (open && !Content && !isLoading) {
-      setIsLoading(true);
-      getProjectContent(project.slug)
-        .then((component) => {
-          setContent(() => component);
-        })
-        .catch((error) => {
-          console.error(
-            `Failed to load project content for ${project.slug}:`,
-            error
-          );
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }, [Content, isLoading, project.slug]);
+  const handleOpenChange = useCallback(
+    (open: boolean) => {
+      setIsOpen(open);
+      // Only load content when dialog is opened and content hasn't been loaded yet
+      if (open && !Content && !isLoading) {
+        setIsLoading(true);
+        getProjectContent(project.slug)
+          .then((component) => {
+            setContent(() => component);
+          })
+          .catch((error) => {
+            console.error(
+              `Failed to load project content for ${project.slug}:`,
+              error
+            );
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      }
+    },
+    [Content, isLoading, project.slug]
+  );
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent
-        className="w-19/20 max-w-6xl rounded-2xl max-h-[85vh] overflow-y-auto"
-      >
+      <DialogContent className="w-19/20 max-w-6xl rounded-2xl max-h-[85vh] overflow-y-auto minimal-scrollbar">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold font-trebuchet">
             {project.name}

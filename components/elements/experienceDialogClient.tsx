@@ -48,7 +48,7 @@ export const ExperienceDialogClient = memo(function ExperienceDialogClient({
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
-        className="w-19/20 max-w-6xl rounded-2xl! max-h-[85vh] overflow-y-auto"
+        className="w-19/20 max-w-6xl rounded-2xl! max-h-[85vh] overflow-hidden overflow-y-auto minimal-scrollbar"
       >
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold font-trebuchet">
@@ -77,7 +77,7 @@ export const ExperienceDialogClient = memo(function ExperienceDialogClient({
           {experience.companyUrl && (
             <div className="pt-4">
               <Button href={experience.companyUrl} target="_blank">
-                Visit {experience.company}
+                Visit Company
               </Button>
             </div>
           )}
