@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/elements/button";
 import { introText } from "@/data/index";
+import { ArrowUpRight } from "lucide-react";
 
 const hero = () => {
   return (
@@ -23,7 +24,7 @@ const hero = () => {
             href="https://www.linkedin.com/in/max--franklin/"
             target="_blank"
           >
-            View My LinkedIn
+            View My LinkedIn <ArrowUpRight size={20} />
           </Button>
         </div>
       </div>

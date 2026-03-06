@@ -50,7 +50,7 @@ export function ProjectDialogClient({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
         slideFrom="bottom"
-        className="w-19/20 max-w-4xl rounded-2xl max-h-[85vh] overflow-y-auto"
+        className="w-19/20 max-w-6xl rounded-2xl max-h-[85vh] overflow-y-auto"
       >
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold font-trebuchet">

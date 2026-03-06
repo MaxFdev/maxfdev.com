@@ -1,6 +1,7 @@
 import BigButton from "@/components/elements/bigButton";
 import { getProjectsMetadata } from "@/data";
 import { ProjectCard } from "@/components/elements/projectCard";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = () => {
   const projectList = getProjectsMetadata();
@@ -16,7 +17,7 @@ const projects = () => {
         target="_blank"
         className="hover:bg-purple-400"
       >
-        View GitHub Profile
+        View GitHub Profile <ArrowUpRight size={30} />
       </BigButton>
 
       {/* Single column project list */}
