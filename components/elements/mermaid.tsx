@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // Initialize mermaid with proper configuration following best practices
 // https://mermaid.js.org/config/usage.html
@@ -15,22 +16,27 @@ mermaid.initialize({
 export function Mermaid({ chart }: { chart: string }) {
   const svgRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
+  const [renderedChart, setRenderedChart] = useState<string | null>(null);
+
+  // Derive loading state - avoids setState in effect
+  const loading = chart !== renderedChart;
 
   useEffect(() => {
-    if (svgRef.current && chart) {
-      svgRef.current.innerHTML = "";
+    if (chart) {
       const id = `mermaid-${crypto.randomUUID()}`;
+      
       mermaid
         .render(id, chart)
         .then(({ svg }) => {
           if (svgRef.current) {
             svgRef.current.innerHTML = svg;
-            setError(null);
+            setRenderedChart(chart);
           }
         })
         .catch((err) => {
           console.error("Mermaid rendering error:", err);
           setError(err.message || "Failed to render diagram");
+          setRenderedChart(chart);
         });
     }
   }, [chart]);
@@ -45,9 +51,12 @@ export function Mermaid({ chart }: { chart: string }) {
   }
 
   return (
-    <div
-      ref={svgRef}
-      className="mermaid-diagram my-6 flex w-full items-center justify-center overflow-x-auto rounded-md border border-border bg-[#ffffff] p-2 dark:bg-[#0d1117]"
-    />
+    <div className="my-6">
+      {loading && <Skeleton className="h-[400px] w-full rounded-md" />}
+      <div
+        ref={svgRef}
+        className={`mermaid-diagram flex w-full items-center justify-center overflow-x-auto rounded-md border border-border bg-[#ffffff] p-2 dark:bg-[#0d1117] ${loading ? "hidden" : ""}`}
+      />
+    </div>
   );
 }
