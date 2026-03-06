@@ -52,7 +52,7 @@ export function Mermaid({ chart }: { chart: string }) {
 
   return (
     <div className="my-6">
-      {loading && <Skeleton className="h-[400px] w-full rounded-md" />}
+      {loading && <Skeleton className="h-100 w-full rounded-md" />}
       <div
         ref={svgRef}
         className={`mermaid-diagram flex w-full items-center justify-center overflow-x-auto rounded-md border border-border bg-[#ffffff] p-2 dark:bg-[#0d1117] ${loading ? "hidden" : ""}`}
