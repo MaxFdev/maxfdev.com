@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentType, ReactNode, useState } from "react";
+import { ComponentType, ReactNode, useState, memo, useCallback } from "react";
 import { getProjectContent, ProjectMetadata } from "@/data";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
 import Button from "@/components/elements/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function ProjectDialogClient({
+export const ProjectDialogClient = memo(function ProjectDialogClient({
   project,
   children,
 }: {
@@ -24,7 +24,7 @@ export function ProjectDialogClient({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOpenChange = (open: boolean) => {
+  const handleOpenChange = useCallback((open: boolean) => {
     setIsOpen(open);
     // Only load content when dialog is opened and content hasn't been loaded yet
     if (open && !Content && !isLoading) {
@@ -43,7 +43,7 @@ export function ProjectDialogClient({
           setIsLoading(false);
         });
     }
-  };
+  }, [Content, isLoading, project.slug]);
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -103,4 +103,4 @@ export function ProjectDialogClient({
       </DialogContent>
     </Dialog>
   );
-}
+});

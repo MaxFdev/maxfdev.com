@@ -22,23 +22,39 @@ export function Mermaid({ chart }: { chart: string }) {
   const loading = chart !== renderedChart;
 
   useEffect(() => {
-    if (chart) {
-      const id = `mermaid-${crypto.randomUUID()}`;
-      
-      mermaid
-        .render(id, chart)
-        .then(({ svg }) => {
-          if (svgRef.current) {
-            svgRef.current.innerHTML = svg;
-            setRenderedChart(chart);
-          }
-        })
-        .catch((err) => {
+    if (!chart) return;
+
+    // Track if this effect is still active to prevent race conditions
+    let isMounted = true;
+    const id = `mermaid-${crypto.randomUUID()}`;
+    const currentSvgRef = svgRef.current;
+
+    mermaid
+      .render(id, chart)
+      .then(({ svg }) => {
+        // Only update if component is still mounted and chart hasn't changed
+        if (isMounted && svgRef.current) {
+          svgRef.current.innerHTML = svg;
+          setRenderedChart(chart);
+          setError(null);
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
           console.error("Mermaid rendering error:", err);
           setError(err.message || "Failed to render diagram");
           setRenderedChart(chart);
-        });
-    }
+        }
+      });
+
+    // Cleanup function to handle unmount or chart change
+    return () => {
+      isMounted = false;
+      // Clean up the rendered SVG if it exists
+      if (currentSvgRef) {
+        currentSvgRef.innerHTML = "";
+      }
+    };
   }, [chart]);
 
   if (error) {
@@ -52,7 +68,7 @@ export function Mermaid({ chart }: { chart: string }) {
 
   return (
     <div className="my-6">
-      {loading && <Skeleton className="h-100 w-full rounded-md" />}
+      {loading && <Skeleton className="h-64 w-full rounded-md" />}
       <div
         ref={svgRef}
         className={`mermaid-diagram flex w-full items-center justify-center overflow-x-auto rounded-md border border-border bg-[#ffffff] p-2 dark:bg-[#0d1117] ${loading ? "hidden" : ""}`}

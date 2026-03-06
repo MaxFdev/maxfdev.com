@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentType, ReactNode, useState } from "react";
+import { ComponentType, ReactNode, useState, memo, useCallback } from "react";
 import { getExperienceContent, ExperienceMetadata } from "@/data";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
 import Button from "@/components/elements/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function ExperienceDialogClient({
+export const ExperienceDialogClient = memo(function ExperienceDialogClient({
   experience,
   children,
 }: {
@@ -24,7 +24,7 @@ export function ExperienceDialogClient({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOpenChange = (open: boolean) => {
+  const handleOpenChange = useCallback((open: boolean) => {
     setIsOpen(open);
     if (open && !Content && !isLoading) {
       setIsLoading(true);
@@ -42,7 +42,7 @@ export function ExperienceDialogClient({
           setIsLoading(false);
         });
     }
-  };
+  }, [Content, isLoading, experience.slug]);
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -86,4 +86,4 @@ export function ExperienceDialogClient({
       </DialogContent>
     </Dialog>
   );
-}
+});
