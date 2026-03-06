@@ -1,7 +1,11 @@
 import BigButton from "@/components/elements/bigButton";
-import DynamicProjectList from "@/components/elements/dynamicProjectList";
+import { getProjectsMetadata } from "@/data";
+import { ProjectCard } from "@/components/elements/projectCard";
+import { ArrowUpRight } from "lucide-react";
 
-const projects = async () => {
+const projects = () => {
+  const projectList = getProjectsMetadata();
+
   return (
     <section
       id="projects"
@@ -13,11 +17,15 @@ const projects = async () => {
         target="_blank"
         className="hover:bg-purple-400"
       >
-        View GitHub Profile
+        View GitHub Profile <ArrowUpRight size={30} />
       </BigButton>
-      <DynamicProjectList
-        username={process.env.NEXT_PUBLIC_GITHUB_ACCOUNT || ""}
-      />
+
+      {/* Single column project list */}
+      <div className="flex flex-col gap-6 w-11/12 max-w-sm md:max-w-(--width-clamp)">
+        {projectList.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
+      </div>
     </section>
   );
 };

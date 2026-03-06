@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* Syntax highlighting styles for code blocks */
+/* Using GitHub Dark Dimmed theme which works well in both light and dark modes */
+@import "highlight.js/styles/github-dark-dimmed.css";
+
 @layer base {
   :root {
     /* shadcn */
@@ -62,6 +66,38 @@
 
   .transitions {
     transition: 0.3s;
+  }
+
+  /* MDX Content Styling */
+  .prose img {
+    @apply mx-auto block max-w-full h-auto;
+  }
+
+  .prose .mermaid {
+    @apply flex justify-center my-6;
+  }
+
+  .prose .mermaid svg {
+    @apply max-w-full h-auto;
+  }
+
+  /* Ensure code blocks have proper background and width constraints */
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 overflow-x-auto max-w-full;
+  }
+
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 wrap-break-word;
+  }
+
+  /* Prevent tables and other elements from overflowing */
+  .prose table {
+    @apply max-w-full overflow-x-auto block;
+  }
+
+  /* Ensure checkmarks render properly in lists */
+  .prose ul li::marker {
+    @apply text-foreground;
   }
 }
 

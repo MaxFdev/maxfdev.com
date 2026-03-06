@@ -1,46 +1,30 @@
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import tseslint from "typescript-eslint";
-import reactPlugin from "eslint-plugin-react";
-import reactHooksPlugin from "eslint-plugin-react-hooks";
-import nextPlugin from "@next/eslint-plugin-next";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import eslintNextPlugin from "@next/eslint-plugin-next";
+import nextTs from "eslint-config-next/typescript";
+import prettier from "eslint-config-prettier/flat";
 
-export default [
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  prettier,
   {
-    ignores: [".next/**", "node_modules/**", "public/**", "next-env.d.ts"],
-  },
-  ...tseslint.configs.recommended,
-  {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ["**/*.{js,jsx,ts,tsx,mdx}"],
     plugins: {
-      react: reactPlugin,
-      "react-hooks": reactHooksPlugin,
-      "@next/next": nextPlugin,
-      prettier: eslintPluginPrettier,
-    },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
-    rules: {
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
-      "prettier/prettier": "error",
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-empty-object-type": "off",
-      "@typescript-eslint/no-require-imports": "off",
-      "react-hooks/set-state-in-effect": "off",
+      next: eslintNextPlugin,
     },
   },
-];
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    ".vercel/**",
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    // MDX files contain markdown content that shouldn't be linted
+    "**/*.mdx",
+  ]),
+]);
+
+export default eslintConfig;

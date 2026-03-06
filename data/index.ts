@@ -1,8 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
-export const intro = {
-  text: "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to work in the Software Engineering industry developing cutting edge systems. I have a lot of experience with developing systems and projects in Java, as well building full-stack websites.",
-};
+export const introText =
+  "Hello, I'm Max, a technology enthusiast pursuing a Bachelor's degree in Computer Science at Yeshiva University. My studies are focussed in Distributed Systems, and my goal is to work in the Software Engineering industry developing cutting edge systems. I have a lot of experience with developing systems and projects in Java environments (Maven, Spring Boot, etc.). Additionally, I have experience developing full-stack applications, primarily with Next.js (React, TypeScript, etc.).";
 
 export const socials = [
   {
@@ -24,3 +23,17 @@ export const socials = [
     link: "https://www.linkedin.com/in/max--franklin/",
   },
 ];
+
+// Re-export project utilities and types
+export {
+  getProjectsMetadata,
+  getProjectContent,
+  type ProjectMetadata,
+} from "./projects";
+
+// Re-export experience utilities and types
+export {
+  getExperienceMetadata,
+  getExperienceContent,
+  type ExperienceMetadata,
+} from "./experience";

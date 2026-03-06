@@ -1,0 +1,96 @@
+export const name = "Concurrent Mandelbrot Set Generator";
+export const image = "/images/projects/mandelbrot.png";
+export const overview =
+  "C-based multithreaded program that generates BMP images of the Mandelbrot set from the command line.";
+export const topics = ["C", "Multithreading", "Complex Numbers", "Graphics"];
+export const repoUrl = "https://github.com/MaxFdev/mandelbrot";
+
+## Overview
+
+This project is a multithreaded C program that renders the Mandelbrot set and writes the result as a BMP image.
+It uses POSIX threads (pthreads) for parallel pixel computation and writes BMP output by hand (no image libraries).
+You specify image dimensions, the number of worker threads (“engines”), and a rectangular region in the complex plane
+(top-left coordinates and side length). The program divides the work among threads and outputs a BMP file.
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    InputParams["Input: dimensions, engines, complex_x, complex_y, dimension"]
+    InputParams --> ThreadPool["Thread pool (engines)"]
+    ThreadPool --> PixelCompute["Pixel computation (escape iteration)"]
+    PixelCompute --> BMPWrite["BMP write"]
+```
+
+- **Input parameters**: Image width/height in pixels, number of engine threads, and the region in the complex plane: (complex_x, complex_y)
+  is the top-left corner, and dimension is the width (and height) of the square in the complex plane.
+- **Thread pool**: A set of “engine” threads. Work (e.g. rows or blocks of the image) is distributed so each thread computes a subset of the pixels.
+- **Pixel computation**: For each pixel, the corresponding complex number c is derived from the plane region. The escape-time algorithm iterates
+  z ← z² + c until |z| exceeds a bound or a max iteration count. The iteration count (or a function of it) determines the pixel color.
+- **BMP write**: The resulting grid of pixel values is written to a BMP file so you can view it in any image viewer.
+
+## Complex Plane and Pixels
+
+The image is a grid of pixels. Each pixel (i, j) maps to a complex number c in the rectangle defined by (complex_x, complex_y) and the given dimension:
+
+- The horizontal axis of the image corresponds to the real part of c; the vertical axis to the imaginary part.
+- Linear interpolation maps pixel coordinates to real and imaginary values within that rectangle. So a larger dimension gives a wider
+  view (zoomed out), a smaller dimension zooms in.
+
+The **Mandelbrot set** is the set of c for which the iteration z₀ = 0, zₙ₊₁ = zₙ² + c stays bounded. In practice, we cap iterations.
+Pixels that “escape” (|z| > 2) within the limit are colored by how quickly they escaped. Pixels that never escape are typically colored as inside the set.
+
+## Multithreading
+
+The program uses a three-tier threading architecture: Worker threads (one per column) distribute work to Engine threads (compute pool) which calculate pixel colors, then a Writer thread saves each completed row to the file.
+
+```mermaid
+flowchart LR
+    Start([Start]) --> Init[Initialize Threads<br/>& Synchronization]
+    Init --> Barrier{Barrier:<br/>Sync All Threads}
+
+    Barrier --> Workers[Workers assign pixels<br/>to Engines via semaphores]
+    Workers --> Engines[Engines compute colors<br/>& update shared array]
+    Engines --> CheckRow{Row<br/>complete?}
+
+    CheckRow -->|No| Workers
+    CheckRow -->|Yes| Writer[Writer saves row<br/>to BMP file]
+
+    Writer --> Done{More<br/>rows?}
+    Done -->|Yes| Barrier
+    Done -->|No| End([End])
+```
+
+### Synchronization Primitives
+
+- **Thread Barrier** (`pthread_barrier_t tBarrier`): Initialized with `img_dim + 1` threads (all workers + writer). Synchronizes the start of each row—all workers and the writer must reach the barrier before any can proceed to the next row.
+- **Mutex** (`pthread_mutex_t pixelAccess`): Protects critical section access to the shared `pixels` array and the `columnCount`/`rowCount` counters. Only one engine can update these at a time.
+- **Worker Semaphores** (`sem_t workerBlock[engines]`): Each initialized to 1. Acts as a binary semaphore controlling access to each engine's data slot in the shared `data` array. Only one worker can submit work to a given engine at a time.
+- **Engine Semaphores** (`sem_t engineBlock[engines]`): Each initialized to 0. Signals when data is ready for an engine to process. Workers post to wake engines; engines wait for work.
+- **Writer Semaphore** (`sem_t writerBlock`): Initialized to 0. Signals the writer thread when a complete row is ready. An engine posts to this after the last pixel in a row is computed.
+
+## Example Invocations
+
+From the README:
+
+- **Overview** (full set in view):  
+  `./mandelbrot 500 10 -2.7 -2.0 4.0`  
+  Image 500×500, 10 threads, top-left (-2.7, -2.0), side length 4.0 in the complex plane.
+
+- **Zoomed** (small region):  
+  `./mandelbrot 500 10 -0.749602903 -0.132456468 0.010477299`  
+  Same resolution and thread count, but a small window for fine detail.
+
+Output files (e.g. `mandeloutput_overview.bmp`, `mandeloutput_zoomed.bmp`) are produced in the current directory.
+
+## Build and Run
+
+```bash
+gcc -pthread -Wall -Wextra -Wpedantic -o mandelbrot mandelbrot.c
+./mandelbrot [image_dimensions] [engines] [complex_x] [complex_y] [mandelbrot_dimension]
+```
+
+- **image_dimensions**: Width and height of the image in pixels (e.g. 500).
+- **engines**: Number of worker threads.
+- **complex_x**, **complex_y**: Top-left corner of the view in the complex plane.
+- **mandelbrot_dimension**: Side length of the view (same for width and height in the complex plane).

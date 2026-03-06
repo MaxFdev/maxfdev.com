@@ -1,7 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import Button from "@/components/elements/button";
-import { intro } from "@/data/index";
+import { introText } from "@/data/index";
+import { ArrowUpRight } from "lucide-react";
 
 const hero = () => {
   return (
@@ -13,18 +13,18 @@ const hero = () => {
           width={400}
           height={400}
           priority
-          className="w-[60vw] sm:w-60 lg:w-[400px] rounded-full shadow-xl hover:shadow-2xl hero_img transitions object-cover"
+          className="w-[60vw] sm:w-60 lg:w-100 rounded-full shadow-xl hover:shadow-2xl hero_img transitions object-cover"
         />
         <div className="flex flex-col justify-center w-11/12 sm:w-(--hero-clamp) p-4 gap-2 rounded-2xl [box-shadow:var(--shadow-light)] hover:[box-shadow:var(--shadow-strong)] transitions">
           <h2 className="text-3xl! lg:text-4xl! font-trebuchet font-semibold">
             Introduction.
           </h2>
-          <p className="font-semibold">{intro.text}</p>
+          <p className="font-semibold">{introText}</p>
           <Button
             href="https://www.linkedin.com/in/max--franklin/"
             target="_blank"
           >
-            View My LinkedIn
+            View My LinkedIn <ArrowUpRight size={20} />
           </Button>
         </div>
       </div>
