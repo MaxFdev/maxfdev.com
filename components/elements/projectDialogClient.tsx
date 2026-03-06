@@ -49,7 +49,6 @@ export const ProjectDialogClient = memo(function ProjectDialogClient({
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
-        slideFrom="bottom"
         className="w-19/20 max-w-6xl rounded-2xl max-h-[85vh] overflow-y-auto"
       >
         <DialogHeader>
