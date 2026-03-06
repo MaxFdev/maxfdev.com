@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
-import { ZoomIn, ZoomOut, Maximize2, Hand } from "lucide-react";
+import { ZoomIn, ZoomOut, Maximize2, Hand, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 
 // Initialize mermaid with proper configuration following best practices
 // https://mermaid.js.org/config/usage.html
@@ -19,6 +19,7 @@ mermaid.initialize({
 const MIN_SCALE = 0.25;
 const MAX_SCALE = 4;
 const ZOOM_STEP = 0.1;
+const PAN_STEP = 50;
 
 export function Mermaid({ chart }: { chart: string }) {
   const svgRef = useRef<HTMLDivElement>(null);
@@ -191,6 +192,10 @@ export function Mermaid({ chart }: { chart: string }) {
     fitDiagram();
   }, [fitDiagram]);
 
+  const pan = useCallback((dx: number, dy: number) => {
+    setPosition((p) => ({ x: p.x + dx, y: p.y + dy }));
+  }, []);
+
   if (error) {
     return (
       <div className="my-6 rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200">
@@ -219,11 +224,43 @@ export function Mermaid({ chart }: { chart: string }) {
     >
       {/* GitHub-style bottom-center horizontal toolbar */}
       <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center rounded-md border border-border bg-background shadow-sm">
+        {/* Pan left */}
+        <button
+          onClick={() => pan(PAN_STEP, 0)}
+          title="Pan left"
+          className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground rounded-l-md"
+        >
+          <ArrowLeft size={13} />
+        </button>
+        {/* Pan up */}
+        <button
+          onClick={() => pan(0, PAN_STEP)}
+          title="Pan up"
+          className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <ArrowUp size={13} />
+        </button>
+        {/* Pan down */}
+        <button
+          onClick={() => pan(0, -PAN_STEP)}
+          title="Pan down"
+          className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <ArrowDown size={13} />
+        </button>
+        {/* Pan right */}
+        <button
+          onClick={() => pan(-PAN_STEP, 0)}
+          title="Pan right"
+          className="flex h-7 w-7 items-center justify-center border-r border-border text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <ArrowRight size={13} />
+        </button>
         {/* Zoom out */}
         <button
           onClick={() => zoom(-ZOOM_STEP)}
           title="Zoom out"
-          className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground rounded-l-md"
+          className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
         >
           <ZoomOut size={14} />
         </button>
